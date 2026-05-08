@@ -67,7 +67,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative rounded-md px-3 py-2 text-sm transition-colors",
+                  "relative rounded-md px-3 py-2.5 text-sm transition-colors cursor-pointer",
                   active
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground",
@@ -90,7 +90,7 @@ export function Navbar() {
             href={CTA_PRIMARY.href}
             className={cn(
               buttonVariants({ size: "lg" }),
-              "h-9 px-4 font-medium shadow-sm shadow-primary/20 hover:bg-primary/90",
+              "h-11 px-4 font-medium shadow-sm shadow-primary/20 hover:bg-primary/90",
             )}
           >
             {CTA_PRIMARY.label}
@@ -102,7 +102,7 @@ export function Navbar() {
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground hover:bg-secondary md:hidden"
+          className="inline-flex h-12 w-12 cursor-pointer items-center justify-center rounded-md text-foreground hover:bg-secondary md:hidden"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>

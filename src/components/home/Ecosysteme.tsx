@@ -21,7 +21,7 @@ export function Ecosysteme() {
               href={venture.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex h-full flex-col gap-4 rounded-2xl border border-border/60 bg-surface/40 p-7 transition-colors hover:border-primary/30 hover:bg-surface/60"
+              className="group flex h-full flex-col gap-4 rounded-2xl border border-border/60 bg-surface/40 p-7 transition-colors hover:border-primary/30 hover:bg-surface/60 cursor-pointer"
             >
               <div className="flex items-start justify-between gap-3">
                 <p className="text-lg font-semibold tracking-tight text-foreground">

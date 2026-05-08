@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
@@ -73,7 +73,14 @@ const fadeUpVariants: Variants = {
   }),
 };
 
+const noMotionVariants: Variants = {
+  hidden: { opacity: 1, y: 0 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export function Hero() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section className="relative flex min-h-[680px] w-full items-center justify-center overflow-hidden bg-background sm:min-h-[760px]">
       {/* Wash chaud subtil en diagonale */}
@@ -83,54 +90,56 @@ export function Hero() {
       />
 
       {/* Formes flottantes — palette Siboard (amber dominante + un orange chaud + un cyan/bleu très subtil) */}
-      <div aria-hidden className="absolute inset-0 overflow-hidden">
-        <ElegantShape
-          delay={0.3}
-          width={600}
-          height={140}
-          rotate={12}
-          gradient="from-primary/[0.18]"
-          className="left-[-10%] top-[15%] md:left-[-5%] md:top-[20%]"
-        />
-        <ElegantShape
-          delay={0.5}
-          width={500}
-          height={120}
-          rotate={-15}
-          gradient="from-orange-500/[0.12]"
-          className="right-[-5%] top-[68%] md:right-[0%] md:top-[72%]"
-        />
-        <ElegantShape
-          delay={0.4}
-          width={300}
-          height={80}
-          rotate={-8}
-          gradient="from-amber-300/[0.10]"
-          className="bottom-[5%] left-[5%] md:bottom-[10%] md:left-[10%]"
-        />
-        <ElegantShape
-          delay={0.6}
-          width={200}
-          height={60}
-          rotate={20}
-          gradient="from-primary/[0.15]"
-          className="right-[15%] top-[10%] md:right-[20%] md:top-[15%]"
-        />
-        <ElegantShape
-          delay={0.7}
-          width={150}
-          height={40}
-          rotate={-25}
-          gradient="from-blue-400/[0.05]"
-          className="left-[20%] top-[5%] md:left-[25%] md:top-[10%]"
-        />
-      </div>
+      {!prefersReducedMotion && (
+        <div aria-hidden className="absolute inset-0 overflow-hidden">
+          <ElegantShape
+            delay={0.3}
+            width={600}
+            height={140}
+            rotate={12}
+            gradient="from-primary/[0.18]"
+            className="left-[-10%] top-[15%] md:left-[-5%] md:top-[20%]"
+          />
+          <ElegantShape
+            delay={0.5}
+            width={500}
+            height={120}
+            rotate={-15}
+            gradient="from-orange-500/[0.12]"
+            className="right-[-5%] top-[68%] md:right-[0%] md:top-[72%]"
+          />
+          <ElegantShape
+            delay={0.4}
+            width={300}
+            height={80}
+            rotate={-8}
+            gradient="from-amber-300/[0.10]"
+            className="bottom-[5%] left-[5%] md:bottom-[10%] md:left-[10%]"
+          />
+          <ElegantShape
+            delay={0.6}
+            width={200}
+            height={60}
+            rotate={20}
+            gradient="from-primary/[0.15]"
+            className="right-[15%] top-[10%] md:right-[20%] md:top-[15%]"
+          />
+          <ElegantShape
+            delay={0.7}
+            width={150}
+            height={40}
+            rotate={-25}
+            gradient="from-blue-400/[0.05]"
+            className="left-[20%] top-[5%] md:left-[25%] md:top-[10%]"
+          />
+        </div>
+      )}
 
       <div className="container-page relative z-10">
         <div className="mx-auto max-w-3xl text-center">
           <motion.div
             custom={0}
-            variants={fadeUpVariants}
+            variants={prefersReducedMotion ? noMotionVariants : fadeUpVariants}
             initial="hidden"
             animate="visible"
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-border/60 bg-surface/40 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur md:mb-10"
@@ -141,7 +150,7 @@ export function Hero() {
 
           <motion.div
             custom={1}
-            variants={fadeUpVariants}
+            variants={prefersReducedMotion ? noMotionVariants : fadeUpVariants}
             initial="hidden"
             animate="visible"
           >
@@ -158,7 +167,7 @@ export function Hero() {
 
           <motion.div
             custom={2}
-            variants={fadeUpVariants}
+            variants={prefersReducedMotion ? noMotionVariants : fadeUpVariants}
             initial="hidden"
             animate="visible"
           >
@@ -170,7 +179,7 @@ export function Hero() {
 
           <motion.div
             custom={3}
-            variants={fadeUpVariants}
+            variants={prefersReducedMotion ? noMotionVariants : fadeUpVariants}
             initial="hidden"
             animate="visible"
             className="flex flex-col items-center justify-center gap-3 sm:flex-row"
@@ -199,7 +208,7 @@ export function Hero() {
 
           <motion.p
             custom={4}
-            variants={fadeUpVariants}
+            variants={prefersReducedMotion ? noMotionVariants : fadeUpVariants}
             initial="hidden"
             animate="visible"
             className="mt-6 text-xs text-muted-foreground"

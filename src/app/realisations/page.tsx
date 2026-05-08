@@ -146,7 +146,7 @@ function ClientsGrid() {
                     href={c.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+                    className="mt-auto inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
                     aria-label={`Voir le site de ${c.name} (nouvelle fenêtre)`}
                   >
                     Voir le site
