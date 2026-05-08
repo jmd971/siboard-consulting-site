@@ -20,12 +20,12 @@ import { CTA_PRIMARY } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "À propos — Siboard Consulting",
+  title: "À propos — Jean-Marc Dolmare, Siboard Consulting Guadeloupe",
   description:
-    "Jean-Marc Dolmare, ingénieur EPITA, fondateur de Siboard Consulting depuis 2020. Cinq ans de terrain entre la Guadeloupe et l'Île-de-France. Aucune solution générique imposée.",
+    "Fondateur de Siboard Consulting, Jean-Marc Dolmare accompagne les TPE/PME en Guadeloupe et en IDF depuis 2020 : automatisation, IA et transformation digitale.",
   alternates: { canonical: "/a-propos" },
   openGraph: {
-    title: "À propos — Siboard Consulting",
+    title: "À propos — Jean-Marc Dolmare, Siboard Consulting Guadeloupe",
     description:
       "Le modèle Siboard, les produits maison (RDVFlow, AvisFlow, ClientBack, SIA), les ventures partenaires et le stack maîtrisé.",
     url: "/a-propos",

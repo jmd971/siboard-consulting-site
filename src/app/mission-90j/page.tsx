@@ -23,12 +23,12 @@ import { CLIENTS, CTA_PRIMARY, MISSION_90J_DELIVERABLES } from "@/lib/constants"
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Mission Croissance 90J — Siboard Consulting",
+  title: "Mission Croissance 90J — 10 RDV B2B garantis — Siboard",
   description:
-    "Vos premiers clients B2B en 90 jours. Done for you : brief web, LinkedIn management, prospection ciblée, tableau de bord commercial. 10 RDV qualifiés ou prolongation gratuite.",
+    "Mission commerciale done for you : LinkedIn, prospection, page web, tableau de bord. 10 RDV qualifiés en 90 jours ou prolongation gratuite.",
   alternates: { canonical: "/mission-90j" },
   openGraph: {
-    title: "Mission Croissance 90J — Siboard Consulting",
+    title: "Mission Croissance 90J — 10 RDV B2B garantis — Siboard",
     description:
       "10 RDV qualifiés en 90 jours, done for you, garantie résultat. Exclusivité sectorielle contractualisée.",
     url: "/mission-90j",
@@ -337,72 +337,86 @@ function PricingSection() {
           </p>
         </div>
 
-        <div className="mx-auto mt-12 max-w-3xl">
-          <Card className="overflow-hidden border-primary/30 bg-background/60 ring-1 ring-primary/10">
-            <CardContent className="grid gap-0 p-0 md:grid-cols-12">
-              <div className="border-b border-border/60 p-8 sm:p-10 md:col-span-5 md:border-b-0 md:border-r">
+        <div className="mx-auto mt-12 max-w-3xl space-y-5">
+          {/* Prix + Garantie — bloc unifié accentué */}
+          <Card className="overflow-hidden border-amber-500/30 bg-gradient-to-br from-surface to-surface-elevated ring-1 ring-amber-500/15">
+            <CardContent className="grid gap-0 p-0 sm:grid-cols-2">
+              <div className="border-b border-amber-500/15 p-7 sm:border-b-0 sm:border-r sm:p-8">
                 <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
-                  Mission 90J
+                  Base mensuelle
                 </p>
-                <div className="mt-4 flex items-baseline gap-2">
+                <div className="mt-3 flex items-baseline gap-2">
                   <span className="text-4xl font-semibold tracking-tight sm:text-5xl">
                     1 500 €
                   </span>
-                  <span className="text-sm text-muted-foreground">
-                    HT / mois
-                  </span>
+                  <span className="text-sm text-muted-foreground">HT / mois</span>
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Sur 3 mois, 4 500 € HT au total.
+                  × 3 mois — soit 4 500 € HT au total.
                 </p>
-
-                <Separator className="my-6 bg-border/60" />
-
-                <div className="space-y-3">
-                  <div className="flex items-baseline gap-2">
-                    <Sparkles
-                      className="h-4 w-4 shrink-0 text-primary"
-                      aria-hidden
-                    />
-                    <p className="text-sm font-medium text-foreground">
-                      Performance
-                    </p>
+                <Separator className="my-5 bg-border/50" />
+                <div className="space-y-1.5">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden />
+                    <p className="text-sm font-medium text-foreground">Performance</p>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    <span className="font-medium text-foreground">
-                      80 € HT
-                    </span>{" "}
-                    par RDV qualifié tracé. Vous payez ce qui marche.
+                    <span className="font-medium text-foreground">80 € HT</span> par
+                    RDV qualifié tracé.
                   </p>
                 </div>
-
-                <p className="mt-6 text-xs text-muted-foreground">
-                  TVA 8,5 % applicable pour les opérateurs basés en DOM.
+                <p className="mt-5 text-xs text-muted-foreground">
+                  TVA 8,5 % pour les opérateurs en DOM.
                 </p>
               </div>
 
-              <div className="p-8 sm:p-10 md:col-span-7">
-                <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-                  Tout est inclus
+              <div className="flex flex-col justify-center gap-4 p-7 sm:p-8">
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-amber-500/15 text-amber-300 ring-1 ring-amber-500/25">
+                  <ShieldCheck className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-[0.2em] text-amber-200">
+                    Garantie résultat
+                  </p>
+                  <p className="mt-2 text-pretty text-xl font-semibold leading-tight tracking-tight text-foreground">
+                    10 RDV qualifiés en 90 jours ou on continue sans vous
+                    facturer.
+                  </p>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Le risque est de notre côté — pas du vôtre.
                 </p>
-                <ul className="mt-4 space-y-2.5">
-                  {PRICING_INCLUS.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <CheckCircle2
-                        className="mt-0.5 h-4 w-4 shrink-0 text-primary"
-                        aria-hidden
-                      />
-                      <span className="text-sm text-foreground/90">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="rounded-lg border border-border/60 bg-background/40 px-3.5 py-2.5 text-xs text-muted-foreground">
+                  <span className="font-medium text-foreground">
+                    Exclusivité sectorielle
+                  </span>{" "}
+                  — un seul concurrent accompagné à la fois, contractualisé.
+                </div>
               </div>
             </CardContent>
           </Card>
 
-          <p className="mt-6 text-center text-xs text-muted-foreground">
+          {/* Inclusions */}
+          <Card className="border-border/60 bg-background/60">
+            <CardContent className="p-7 sm:p-8">
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                Tout est inclus
+              </p>
+              <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
+                {PRICING_INCLUS.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle2
+                      className="mt-0.5 h-4 w-4 shrink-0 text-primary"
+                      aria-hidden
+                    />
+                    <span className="text-sm text-foreground/90">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+
+          <p className="text-center text-xs text-muted-foreground">
             Engagement minimum 3 mois · Reconductible mensuellement après le
             terme · Sortie sans pénalité après les 90 jours
           </p>

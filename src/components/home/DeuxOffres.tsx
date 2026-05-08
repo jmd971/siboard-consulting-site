@@ -6,17 +6,17 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const OFFERS = [
   {
-    badge: "Pour les TPE qui perdent des leads",
+    badge: "Pour les TPE qui perdent des leads ou du temps",
     icon: CalendarCheck,
-    title: "Accompagnement Automatisation",
+    title: "Automatisation + Agents IA",
     description:
-      "Vous avez une activité qui tourne, mais des prospects qui passent à côté, des RDV oubliés et des tâches répétitives qui mangent votre temps. On déploie les briques manquantes — RDV, avis, réactivation, agent IA — sur GoHighLevel et n8n.",
+      "Vos prospects obtiennent une réponse immédiate. Vos RDV ne disparaissent plus. Vos tâches répétitives tournent seules. On déploie les briques manquantes — automatisation de process et agents IA — sur mesure pour votre activité.",
     bullets: [
-      "Audit digital de votre situation actuelle",
-      "Déploiement des automatisations qui comptent",
-      "Formation et passation, vous restez autonome",
+      "Audit de vos fuites actuelles (leads, temps, no-shows)",
+      "Déploiement des automatisations et agents qui comptent",
+      "Formation et passation — vous pilotez, on reste disponibles",
     ],
-    cta: { href: "/automatisation", label: "Voir l'offre Automatisation" },
+    cta: { href: "/solutions", label: "Voir les solutions" },
     featured: false,
   },
   {
@@ -24,12 +24,13 @@ const OFFERS = [
     icon: Rocket,
     title: "Mission Croissance 90J",
     description:
-      "Vous avez une offre puissante mais pas le temps ni les compétences pour la commercialiser en B2B. On identifie votre produit phare, on construit la mécanique commerciale complète et on l'exécute pendant 90 jours. Done for you, garantie résultat.",
+      "Vous avez une offre puissante mais pas le temps ni les compétences pour la commercialiser en B2B. On identifie votre produit phare, on construit la mécanique commerciale complète et on l'exécute. Done for you.",
     bullets: [
       "Brief web + LinkedIn + prospection ciblée",
-      "Tableau de bord commercial partagé",
+      "Tableau de bord commercial partagé en temps réel",
       "10 RDV qualifiés en 90 jours ou prolongation gratuite",
     ],
+    guarantee: "10 RDV garantis ou on continue gratuitement.",
     cta: { href: "/mission-90j", label: "Voir la Mission 90J" },
     featured: true,
   },
@@ -102,6 +103,12 @@ export function DeuxOffres() {
                     </li>
                   ))}
                 </ul>
+
+                {"guarantee" in offer && offer.guarantee ? (
+                  <div className="rounded-lg border border-primary/30 bg-primary/8 px-4 py-2.5 text-xs font-medium text-primary">
+                    {offer.guarantee}
+                  </div>
+                ) : null}
 
                 <div className="mt-auto pt-2">
                   <Link

@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 import { AuditForm } from "./audit-form";
 
 export const metadata: Metadata = {
-  title: "Audit gratuit — Siboard Consulting",
+  title: "Audit Digital Gratuit — Siboard Consulting Guadeloupe",
   description:
-    "Demandez votre audit digital offert. Diagnostic honnête sous 24h, sans engagement, par Jean-Marc Dolmare.",
+    "Demandez votre audit digital gratuit. On analyse votre situation et vous dit exactement quoi prioriser. Réponse sous 24h, sans engagement.",
   alternates: { canonical: "/audit-gratuit" },
   openGraph: {
-    title: "Audit gratuit — Siboard Consulting",
+    title: "Audit Digital Gratuit — Siboard Consulting Guadeloupe",
     description:
       "Pas une offre commerciale — un diagnostic honnête de votre situation, sous 24h.",
     url: "/audit-gratuit",

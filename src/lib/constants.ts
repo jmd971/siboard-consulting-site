@@ -11,7 +11,7 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { href: "/automatisation", label: "Automatisation" },
+  { href: "/solutions", label: "Solutions" },
   { href: "/mission-90j", label: "Mission 90J" },
   { href: "/realisations", label: "Réalisations" },
   { href: "/a-propos", label: "À propos" },
@@ -165,21 +165,73 @@ export const MISSION_90J_DELIVERABLES = [
 export const ECOSYSTEME = [
   {
     name: "AdamBoards",
-    description: "Accompagnement financier pour dirigeants de TPE/PME",
+    description:
+      "Accompagnement financier mensuel pour dirigeants de TPE/PME — méthode structurée, suivi personnalisé.",
+    note: "Plateforme et application construites par Siboard.",
     domain: "adamboards.fr",
     href: "https://adamboards.fr",
   },
   {
     name: "TransmiExpert",
-    description: "Transmission d'entreprise — diagnostic et accompagnement",
+    description:
+      "Diagnostic et accompagnement pour céder ou reprendre une entreprise dans les meilleures conditions.",
+    note: "Site web et outil de diagnostic digital construits par Siboard.",
     domain: "transmiexpert.fr",
     href: "https://www.transmiexpert.fr",
   },
   {
     name: "SecureXia",
-    description: "Conformité incendie ERP — service managé Guadeloupe",
+    description:
+      "Service managé de mise en conformité incendie pour les ERP en Guadeloupe — visite terrain + plateforme de suivi.",
+    note: "Plateforme client et système de documentation construits par Siboard.",
     domain: "securexia.fr",
     href: "https://securexia.fr",
+  },
+] as const;
+
+export const SOLUTIONS_BRIQUES_AUTO = [
+  {
+    title: "Agenda rempli automatiquement",
+    description:
+      "Confirmations, rappels et anti no-show. Votre planning se remplit pendant que vous travaillez.",
+  },
+  {
+    title: "Collecte d'avis Google",
+    description:
+      "Chaque client satisfait reçoit la bonne demande au bon moment. Votre réputation locale grandit seule.",
+  },
+  {
+    title: "Réactivation clients inactifs",
+    description:
+      "Vos anciens clients reviennent grâce à des séquences personnalisées par WhatsApp et SMS.",
+  },
+  {
+    title: "Synchronisation multi-outils",
+    description:
+      "Vos données circulent entre vos applications sans double saisie ni intervention manuelle.",
+  },
+] as const;
+
+export const SOLUTIONS_BRIQUES_IA = [
+  {
+    title: "Agent conversationnel 24h/24",
+    description:
+      "Il répond à vos prospects, qualifie leurs besoins et les oriente — même quand vous dormez.",
+  },
+  {
+    title: "Agent vocal qui décroche à votre place",
+    description:
+      "Filtre les appels entrants, prend les RDV et transmet les demandes urgentes. Aucune intervention humaine.",
+  },
+  {
+    title: "Assistant métier sur mesure",
+    description:
+      "Rédaction, analyse, synthèse, process internes — entraîné sur votre contexte et vos documents.",
+  },
+  {
+    title: "Intégrations avancées sur mesure",
+    description:
+      "Connexions API, bases de données, outils métier — on bâtit ce que les solutions génériques ne peuvent pas faire.",
   },
 ] as const;
 

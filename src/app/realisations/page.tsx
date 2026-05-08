@@ -8,12 +8,12 @@ import { CTABanner } from "@/components/shared/CTABanner";
 import { CLIENTS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Réalisations — Siboard Consulting",
+  title: "Réalisations — Clients Siboard Consulting Guadeloupe et IDF",
   description:
-    "Six clients accompagnés en Guadeloupe et Île-de-France : commerce, services, événementiel, courtage, expertise comptable. Le détail de chaque mission et de son résultat.",
+    "Découvrez les projets réalisés par Siboard : création de site, SEO, automatisation et agents IA pour des entreprises en Guadeloupe et en Île-de-France.",
   alternates: { canonical: "/realisations" },
   openGraph: {
-    title: "Réalisations — Siboard Consulting",
+    title: "Réalisations — Clients Siboard Consulting Guadeloupe et IDF",
     description:
       "Cas clients TPE/PME accompagnés par Siboard : automatisation, missions de croissance, repositionnement digital.",
     url: "/realisations",

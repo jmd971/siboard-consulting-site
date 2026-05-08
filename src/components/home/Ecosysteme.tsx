@@ -35,6 +35,9 @@ export function Ecosysteme() {
               <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
                 {venture.description}
               </p>
+              <p className="text-xs italic text-muted-foreground/60">
+                {venture.note}
+              </p>
               <p className="mt-auto inline-flex items-center gap-1.5 font-mono text-xs text-primary/80">
                 {venture.domain}
               </p>

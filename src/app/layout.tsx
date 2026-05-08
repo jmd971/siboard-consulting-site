@@ -22,11 +22,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — Audit, automatisation, croissance`,
+    default: "Siboard Consulting — Automatisation & IA pour TPE/PME Guadeloupe et IDF",
     template: `%s · ${SITE.name}`,
   },
   description:
-    "Cabinet d'accompagnement digital pour TPE/PME. Audit, automatisation sur mesure et missions de croissance — Guadeloupe, Martinique, Guyane et Île-de-France.",
+    "Audit digital, automatisation sur mesure et agents IA pour les TPE/PME en Guadeloupe et Île-de-France. On comprend votre process avant de construire votre solution.",
   keywords: [
     "automatisation",
     "audit digital",
