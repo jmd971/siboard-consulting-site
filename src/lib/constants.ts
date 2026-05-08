@@ -34,6 +34,7 @@ export type Client = {
   location: string;
   result: string;
   detail: string;
+  href?: string;
   featured?: boolean;
 };
 
@@ -42,10 +43,12 @@ export const CLIENTS: Client[] = [
     slug: "odyssee-by-bea",
     name: "Odyssée by Béa",
     initials: "OB",
-    sector: "Boutique mode · Showroom privé",
-    location: "Guadeloupe",
+    sector: "Boutique mode & accessoires, showroom privé",
+    location: "Baie-Mahault, Guadeloupe",
     result: "Zéro présence digitale → 3ème position Google Maps",
-    detail: "Création complète : site, prise de RDV, paiement en ligne.",
+    detail:
+      "Création complète de A à Z : site web + Google Business Profile + prise de RDV en ligne + lien de paiement Stripe.",
+    href: "https://odysseebybea.fr",
     featured: true,
   },
   {
@@ -55,17 +58,43 @@ export const CLIENTS: Client[] = [
     sector: "Expert-comptable",
     location: "Créteil, Île-de-France",
     result: "3ème page Google → 3ème position « expert comptable Créteil »",
-    detail: "Repositionnement SEO ciblé sur la requête métier prioritaire.",
+    detail: "Repositionnement SEO — refonte du contenu et de la structure du site.",
+    href: "https://sacodif.fr",
     featured: true,
   },
   {
     slug: "dfp-france",
     name: "DFP France",
     initials: "DFP",
-    sector: "Films techniques vitrages",
+    sector: "Films techniques pour vitrages (solaire, sécurité, anti-graffiti)",
     location: "Île-de-France",
-    result: "Site + agenda en ligne opérationnel sous 30 jours",
-    detail: "Délais de pose remplis automatiquement, zéro saisie manuelle.",
+    result: "Agenda en ligne opérationnel, flux de RDV automatisé",
+    detail: "Création complète de A à Z : site web + système de prise de rendez-vous intégré.",
+    href: "https://www.dfpfrance.fr",
+    featured: true,
+  },
+  {
+    slug: "axecime",
+    name: "Axecime",
+    initials: "AX",
+    sector: "Courtage financier (prêts immobiliers, assurance)",
+    location: "Les Abymes, Guadeloupe",
+    result: "Processus de collecte de dossiers entièrement automatisé, zéro relance manuelle",
+    detail:
+      "Application métier sur mesure : gestion et automatisation des données clients, workflow de récupération des dossiers incomplets, relances automatiques + SEO + Google Business Profile.",
+    href: "https://axecime.com",
+    featured: true,
+  },
+  {
+    slug: "fast-computer-company",
+    name: "Fast Computer Company",
+    initials: "FCC",
+    sector: "Magasin informatique & réparation",
+    location: "Baie-Mahault, Guadeloupe",
+    result: "Présence digitale complète, acquisition et support client automatisés 24h/24",
+    detail:
+      "Création complète de A à Z : site web + Google Business Profile + chatbot support et acquisition client + automatisation des prises de RDV.",
+    href: "https://fcc-gp.com",
     featured: true,
   },
   {
@@ -74,27 +103,9 @@ export const CLIENTS: Client[] = [
     initials: "BA",
     sector: "Cabaret flottant · Événementiel B2B",
     location: "Paris 12e",
-    result: "Mission Mistinguett 90J — offre Green Séminaire activée",
-    detail: "Audit + Mission Croissance 90J done for you.",
-    featured: true,
-  },
-  {
-    slug: "axecime",
-    name: "Axecime",
-    initials: "AX",
-    sector: "Courtage financier",
-    location: "Guadeloupe",
-    result: "Visibilité locale renforcée sur Google",
-    detail: "SEO + Google Business Profile optimisés.",
-  },
-  {
-    slug: "fast-computer-company",
-    name: "Fast Computer Company",
-    initials: "FCC",
-    sector: "Magasin informatique",
-    location: "Baie-Mahault, Guadeloupe",
-    result: "Présence digitale structurée",
-    detail: "Accompagnement digital sur l'ensemble des canaux locaux.",
+    result: "Mission Mistinguett 90J — offre Green Séminaire B2B activée",
+    detail: "Audit stratégique + Mission Croissance 90J done for you.",
+    featured: false,
   },
 ];
 
@@ -110,9 +121,9 @@ export const PROOF_STATS = [
     detail: "« expert comptable Créteil »",
   },
   {
-    label: "DFP France",
-    value: "30 jours",
-    detail: "site + agenda en ligne livrés",
+    label: "Fast Computer Company",
+    value: "24h/24",
+    detail: "chatbot + RDV automatisés — acquisition client depuis zéro",
   },
 ] as const;
 

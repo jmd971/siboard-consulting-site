@@ -176,7 +176,7 @@ export function Hero() {
             className="flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
             <Link
-              href="/automatisation"
+              href="/solutions"
               className={cn(
                 buttonVariants({ size: "lg" }),
                 "h-12 w-full px-6 text-base font-medium hover:bg-primary/90 sm:w-auto",

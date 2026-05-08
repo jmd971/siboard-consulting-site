@@ -57,7 +57,6 @@ export default function Mission90JPage() {
       <DeliverablesSection />
       <GarantieSection />
       <PricingSection />
-      <CasClientSection />
       <CTABanner
         eyebrow="Mission Croissance 90J"
         title="On regarde votre offre. On vous dit si la Mission 90J est adaptée."
