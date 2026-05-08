@@ -101,6 +101,7 @@ export function Navbar() {
           type="button"
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={open}
+          aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
           className="inline-flex h-12 w-12 cursor-pointer items-center justify-center rounded-md text-foreground hover:bg-secondary md:hidden"
         >
@@ -109,7 +110,7 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden">
+        <div id="mobile-menu" className="md:hidden">
           <div className="container-page flex flex-col gap-1 border-t border-border/60 py-4">
             {NAV_LINKS.map((link) => {
               const active = pathname === link.href;

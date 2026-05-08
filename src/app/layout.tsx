@@ -66,6 +66,27 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Siboard Consulting",
+  url: "https://www.siboard-consulting.fr",
+  email: "contact@siboard-consulting.fr",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "73 rue Vatable",
+    addressLocality: "Pointe-à-Pitre",
+    postalCode: "97110",
+    addressCountry: "FR",
+  },
+  areaServed: ["Guadeloupe", "Île-de-France", "Martinique", "Guyane"],
+  foundingDate: "2020",
+  founder: {
+    "@type": "Person",
+    name: "Jean-Marc Dolmare",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -77,8 +98,19 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        {/* Skip link — WCAG 2.4.1 Bypass Blocks */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-foreground focus:ring-2 focus:ring-primary focus:outline-none"
+        >
+          Aller au contenu principal
+        </a>
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>
