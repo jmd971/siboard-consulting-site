@@ -17,6 +17,7 @@ const OFFERS = [
       "Formation et passation, vous restez autonome",
     ],
     cta: { href: "/automatisation", label: "Voir l'offre Automatisation" },
+    featured: false,
   },
   {
     badge: "Pour les pros avec offre B2B à activer",

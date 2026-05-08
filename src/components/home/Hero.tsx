@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
@@ -29,7 +29,7 @@ function ElegantShape({
       transition={{
         duration: 2.4,
         delay,
-        ease: [0.23, 0.86, 0.39, 0.96],
+        ease: [0.23, 0.86, 0.39, 0.96] as [number, number, number, number],
         opacity: { duration: 1.2 },
       }}
       className={cn("absolute", className)}
@@ -60,7 +60,7 @@ function ElegantShape({
   );
 }
 
-const fadeUpVariants = {
+const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,
@@ -68,7 +68,7 @@ const fadeUpVariants = {
     transition: {
       duration: 1,
       delay: 0.5 + i * 0.18,
-      ease: [0.25, 0.4, 0.25, 1],
+      ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number],
     },
   }),
 };
