@@ -162,6 +162,27 @@ export const MISSION_90J_DELIVERABLES = [
   },
 ] as const;
 
+export const ECOSYSTEME = [
+  {
+    name: "AdamBoards",
+    description: "Accompagnement financier pour dirigeants de TPE/PME",
+    domain: "adamboards.fr",
+    href: "https://adamboards.fr",
+  },
+  {
+    name: "TransmiExpert",
+    description: "Transmission d'entreprise — diagnostic et accompagnement",
+    domain: "transmiexpert.fr",
+    href: "https://www.transmiexpert.fr",
+  },
+  {
+    name: "SecureXia",
+    description: "Conformité incendie ERP — service managé Guadeloupe",
+    domain: "securexia.fr",
+    href: "https://securexia.fr",
+  },
+] as const;
+
 export const SECTEURS = [
   "Commerce / Retail",
   "Services",

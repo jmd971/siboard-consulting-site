@@ -1,4 +1,5 @@
 import { DeuxOffres } from "@/components/home/DeuxOffres";
+import { Ecosysteme } from "@/components/home/Ecosysteme";
 import { Hero } from "@/components/home/Hero";
 import { Preuves } from "@/components/home/Preuves";
 import { RealisationsApercu } from "@/components/home/RealisationsApercu";
@@ -11,6 +12,7 @@ export default function HomePage() {
       <Preuves />
       <DeuxOffres />
       <RealisationsApercu />
+      <Ecosysteme />
       <CTABanner />
     </>
   );
