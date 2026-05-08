@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
+import { SiboardLogo } from "@/components/ui/logo";
 import { CTA_PRIMARY, NAV_LINKS, SITE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -44,19 +45,10 @@ export function Navbar() {
       <div className="container-page flex h-16 items-center justify-between gap-4">
         <Link
           href="/"
-          className="group flex items-center gap-2.5 font-semibold tracking-tight"
+          className="group flex items-center"
           aria-label={`${SITE.name} — Accueil`}
         >
-          <span
-            aria-hidden
-            className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-primary-foreground font-bold text-sm shadow-sm transition-transform group-hover:rotate-[-3deg]"
-          >
-            S
-          </span>
-          <span className="text-base">
-            {SITE.shortName}
-            <span className="text-muted-foreground"> Consulting</span>
-          </span>
+          <SiboardLogo className="text-foreground transition-opacity group-hover:opacity-80" />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Navigation principale">

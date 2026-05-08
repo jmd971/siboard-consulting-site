@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
 
+import { SiboardLogo } from "@/components/ui/logo";
 import { Separator } from "@/components/ui/separator";
 import { NAV_LINKS, SITE } from "@/lib/constants";
 
@@ -15,17 +16,8 @@ export function Footer() {
       <div className="container-page py-14">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
-            <Link href="/" className="flex items-center gap-2.5 font-semibold tracking-tight">
-              <span
-                aria-hidden
-                className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-primary-foreground font-bold text-sm"
-              >
-                S
-              </span>
-              <span>
-                {SITE.shortName}
-                <span className="text-muted-foreground"> Consulting</span>
-              </span>
+            <Link href="/" aria-label="Siboard Consulting — Accueil">
+              <SiboardLogo className="text-foreground transition-opacity hover:opacity-80" />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Audit digital, automatisation sur mesure et missions de croissance pour les TPE/PME.

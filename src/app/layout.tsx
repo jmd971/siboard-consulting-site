@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Syne } from "next/font/google";
 
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
@@ -16,6 +16,14 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+});
+
+/** Syne 800 — utilisé uniquement pour le logo SIBOARD */
+const syne = Syne({
+  variable: "--font-syne",
+  subsets: ["latin"],
+  weight: "800",
   display: "swap",
 });
 
@@ -58,6 +66,13 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: [
+      { url: "/logos/siboard-favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/logos/siboard-favicon.svg",
+    apple: "/logos/siboard-favicon.svg",
+  },
 };
 
 export const viewport: Viewport = {
@@ -95,7 +110,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <script
