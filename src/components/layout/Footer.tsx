@@ -7,7 +7,7 @@ import { NAV_LINKS, SITE } from "@/lib/constants";
 
 const LEGAL_LINKS = [
   { href: "/mentions-legales", label: "Mentions légales" },
-  { href: "/confidentialite", label: "Confidentialité" },
+  { href: "/politique-confidentialite", label: "Confidentialité" },
 ];
 
 export function Footer() {

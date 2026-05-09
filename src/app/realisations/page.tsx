@@ -130,14 +130,14 @@ function ClientsGrid() {
                   {c.sector}
                 </p>
 
-                {/* Résultat */}
-                <p className="text-pretty text-lg font-medium leading-snug text-foreground">
-                  {c.result}
+                {/* Ce qui a été construit */}
+                <p className="text-pretty text-sm font-semibold leading-relaxed text-foreground/90">
+                  {c.detail}
                 </p>
 
-                {/* Mission */}
-                <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
-                  {c.detail}
+                {/* Résultat — headline */}
+                <p className="text-pretty text-lg font-medium leading-snug text-primary">
+                  {c.result}
                 </p>
 
                 {/* Lien site client */}
