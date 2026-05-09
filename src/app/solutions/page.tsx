@@ -18,6 +18,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { FaqAccordion } from "@/components/faq/FaqAccordion";
 import { CTABanner } from "@/components/shared/CTABanner";
 import {
   CLIENTS,
@@ -25,6 +26,7 @@ import {
   SOLUTIONS_BRIQUES_AUTO,
   SOLUTIONS_BRIQUES_IA,
 } from "@/lib/constants";
+import { faqSolutions, faqSolutionsSchema, howToSchema } from "@/components/faq/FaqSolutions";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -47,11 +49,21 @@ const IA_ICONS = [Bot, Mic, Wand2, Wrench] as const;
 export default function SolutionsPage() {
   return (
     <>
+      {/* Schémas JSON-LD : FAQPage + HowTo */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSolutionsSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
       <PageHero />
       <ProblemeSection />
       <MethodeSection />
       <SolutionsSection />
       <CasClientsSection />
+      <FaqSection />
       <CTABanner
         eyebrow="Audit gratuit"
         title="Audit digital offert pour toute entreprise en Guadeloupe et en Île-de-France."
@@ -371,6 +383,27 @@ function CasClientsSection() {
           Toutes les réalisations
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </Link>
+      </div>
+    </section>
+  );
+}
+
+function FaqSection() {
+  return (
+    <section className="container-page py-20 sm:py-24">
+      <div className="mx-auto max-w-3xl">
+        <div className="text-center">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+            Questions fréquentes
+          </p>
+          <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+            Ce que vous vous demandez sûrement.
+          </h2>
+        </div>
+
+        <div className="mt-12 rounded-2xl border border-border/60 bg-surface/40 px-6 sm:px-8">
+          <FaqAccordion items={faqSolutions} />
+        </div>
       </div>
     </section>
   );

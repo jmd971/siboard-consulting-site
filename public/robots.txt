@@ -1,0 +1,42 @@
+# robots.txt — Siboard Consulting
+# https://www.siboard-consulting.fr
+
+# Autoriser tous les crawlers standards
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Autoriser explicitement les bots IA (citation et indexation)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Bloquer uniquement les crawlers d'entraînement pur (pas de citation)
+User-agent: CCBot
+Disallow: /
+
+User-agent: omgili
+Disallow: /
+
+User-agent: omgilibot
+Disallow: /
+
+# Sitemap
+Sitemap: https://www.siboard-consulting.fr/sitemap.xml

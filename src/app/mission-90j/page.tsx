@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   ArrowRight,
   BarChart3,
-  Briefcase,
   CheckCircle2,
   Crosshair,
   Globe2,
@@ -18,8 +17,10 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { FaqAccordion } from "@/components/faq/FaqAccordion";
 import { CTABanner } from "@/components/shared/CTABanner";
-import { CLIENTS, CTA_PRIMARY, MISSION_90J_DELIVERABLES } from "@/lib/constants";
+import { CTA_PRIMARY, MISSION_90J_DELIVERABLES } from "@/lib/constants";
+import { faqMission90J, faqMission90JSchema } from "@/components/faq/FaqMission90J";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export const metadata: Metadata = {
 
 const DELIVERABLE_ICONS = [Globe2, Megaphone, Crosshair, BarChart3, Users] as const;
 
+
 const PRICING_INCLUS = [
   "Audit stratégique de votre offre B2B",
   "Brief web + pilotage du prestataire qui livre la page produit",
@@ -52,11 +54,17 @@ const PRICING_INCLUS = [
 export default function Mission90JPage() {
   return (
     <>
+      {/* Schéma JSON-LD : FAQPage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqMission90JSchema) }}
+      />
       <PageHero />
       <MecaniqueSection />
       <DeliverablesSection />
       <GarantieSection />
       <PricingSection />
+      <FaqSection />
       <CTABanner
         eyebrow="Mission Croissance 90J"
         title="On regarde votre offre. On vous dit si la Mission 90J est adaptée."
@@ -69,7 +77,6 @@ export default function Mission90JPage() {
 }
 
 function PageHero() {
-  const bateauAlize = CLIENTS.find((c) => c.slug === "bateau-alize");
 
   return (
     <section className="relative overflow-hidden border-b border-border/40">
@@ -123,21 +130,6 @@ function PageHero() {
             </Link>
           </div>
 
-          {bateauAlize && (
-            <div className="mx-auto mt-12 flex max-w-2xl items-center gap-4 rounded-2xl border border-primary/20 bg-surface/50 p-5 text-left sm:gap-5">
-              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/15 text-sm font-semibold text-primary ring-1 ring-primary/30">
-                BA
-              </div>
-              <div className="min-w-0">
-                <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                  Mission en cours · Cas Mistinguett
-                </p>
-                <p className="mt-1 truncate text-sm font-medium text-foreground sm:text-base">
-                  Bateau Alizé — offre Green Séminaire B2B activée sur 90 jours.
-                </p>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </section>
@@ -425,109 +417,23 @@ function PricingSection() {
   );
 }
 
-function CasClientSection() {
-  const bateauAlize = CLIENTS.find((c) => c.slug === "bateau-alize");
-  if (!bateauAlize) return null;
-
+function FaqSection() {
   return (
-    <section className="container-page py-20 sm:py-28">
-      <div className="mx-auto max-w-2xl text-center">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
-          Cas en cours
-        </p>
-        <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-          Ce que ça donne sur le terrain.
-        </h2>
+    <section className="container-page py-20 sm:py-24">
+      <div className="mx-auto max-w-3xl">
+        <div className="text-center">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+            Questions fréquentes
+          </p>
+          <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+            Ce que vous vous demandez sûrement.
+          </h2>
+        </div>
+
+        <div className="mt-12 rounded-2xl border border-border/60 bg-surface/40 px-6 sm:px-8">
+          <FaqAccordion items={faqMission90J} />
+        </div>
       </div>
-
-      <div className="mx-auto mt-12 max-w-4xl">
-        <Card className="overflow-hidden border-primary/30 bg-surface ring-1 ring-primary/10">
-          <CardContent className="grid gap-0 p-0 md:grid-cols-12">
-            <div className="border-b border-border/60 bg-background/40 p-8 sm:p-10 md:col-span-5 md:border-b-0 md:border-r">
-              <div className="flex items-center gap-4">
-                <div className="grid h-14 w-14 place-items-center rounded-xl bg-primary/15 text-base font-semibold text-primary ring-1 ring-primary/30">
-                  {bateauAlize.initials}
-                </div>
-                <div>
-                  <p className="text-lg font-semibold tracking-tight">
-                    {bateauAlize.name}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {bateauAlize.location}
-                  </p>
-                </div>
-              </div>
-              <p className="mt-6 text-xs uppercase tracking-wider text-muted-foreground">
-                {bateauAlize.sector}
-              </p>
-              <div className="mt-6 flex flex-wrap gap-2">
-                <Badge
-                  variant="outline"
-                  className="border-primary/30 bg-primary/5 text-xs font-normal text-primary"
-                >
-                  Mission Mistinguett
-                </Badge>
-                <Badge
-                  variant="outline"
-                  className="border-border/60 bg-background/60 text-xs font-normal text-muted-foreground"
-                >
-                  Audit + Mission 90J
-                </Badge>
-              </div>
-            </div>
-
-            <div className="p-8 sm:p-10 md:col-span-7">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                Le défi
-              </p>
-              <p className="mt-2 text-pretty text-sm leading-relaxed text-foreground/90">
-                Cabaret flottant historique de Paris 12e, présent sur le marché
-                événementiel BtoC mais avec un produit B2B sous-exploité : la
-                <span className="font-medium text-foreground">
-                  {" "}
-                  privatisation Green Séminaire
-                </span>{" "}
-                pour DRH et services RSE. Aucune mécanique de prospection
-                ciblée en place.
-              </p>
-
-              <p className="mt-6 text-xs uppercase tracking-wider text-muted-foreground">
-                La mission
-              </p>
-              <p className="mt-2 text-pretty text-sm leading-relaxed text-foreground/90">
-                Activation complète de l&apos;offre Green Séminaire B2B sur 90
-                jours : positionnement, page produit dédiée, prospection LinkedIn
-                ciblée DRH/RSE, suivi pipeline en direct avec l&apos;équipe.
-              </p>
-
-              <p className="mt-6 text-xs uppercase tracking-wider text-muted-foreground">
-                Le résultat
-              </p>
-              <p className="mt-2 text-pretty text-base font-medium leading-snug text-foreground">
-                {bateauAlize.result}
-              </p>
-
-              <Link
-                href="/realisations"
-                className="group mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
-              >
-                Voir tous les cas clients
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      <p className="mx-auto mt-10 flex max-w-2xl items-center justify-center gap-3 text-center text-xs text-muted-foreground">
-        <Briefcase className="h-4 w-4 shrink-0 text-primary" aria-hidden />
-        <span>
-          Mission ouverte aux opérateurs B2B avec une offre identifiable et un
-          ticket moyen ≥ 3 000 € HT — événementiel, services pros, formation,
-          conseil.
-        </span>
-      </p>
-
     </section>
   );
 }
