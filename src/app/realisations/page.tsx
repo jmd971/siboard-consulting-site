@@ -23,9 +23,10 @@ export const metadata: Metadata = {
 const SECTOR_BADGES = [
   "Commerce / Retail",
   "Services pros",
-  "Artisanat / Industrie",
+  "Formation professionnelle",
   "Informatique",
   "Courtage financier",
+  "Artisanat / Industrie",
 ] as const;
 
 // Clients à afficher — sans Bateau Alizé (pas encore de lien public)

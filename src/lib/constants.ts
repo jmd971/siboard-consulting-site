@@ -45,9 +45,9 @@ export const CLIENTS: Client[] = [
     initials: "OB",
     sector: "Boutique mode & accessoires, showroom privé",
     location: "Baie-Mahault, Guadeloupe",
-    result: "Zéro présence digitale → 3ème position Google Maps",
+    result: "Zéro présence digitale → 1ère position Google",
     detail:
-      "Création complète de A à Z : site web + Google Business Profile + prise de RDV en ligne + lien de paiement Stripe.",
+      "Création complète de A à Z : site web + Google Business Profile + prise de RDV en ligne + lien de paiement Stripe + stratégie avis Google (QR code + relances ×2).",
     href: "https://odysseebybea.fr",
     featured: true,
   },
@@ -60,6 +60,18 @@ export const CLIENTS: Client[] = [
     result: "3ème page Google → 3ème position « expert comptable Créteil »",
     detail: "Repositionnement SEO — refonte du contenu et de la structure du site.",
     href: "https://sacodif.fr",
+    featured: true,
+  },
+  {
+    slug: "evolutia-formation",
+    name: "Évolutia Formation",
+    initials: "EF",
+    sector: "Formation sur mesure concours territoriaux",
+    location: "Guadeloupe",
+    result: "1ère position Google · « formations concours publiques Guadeloupe »",
+    detail:
+      "Environnement digital complet : site web + SEO ciblé + chatbot de qualification des candidats + gestion de rendez-vous automatisée.",
+    href: "https://evolutiaformation.fr",
     featured: true,
   },
   {
@@ -112,18 +124,18 @@ export const CLIENTS: Client[] = [
 export const PROOF_STATS = [
   {
     label: "Odyssée by Béa",
-    value: "3ème",
-    detail: "position Google Maps · Guadeloupe",
+    value: "1ère",
+    detail: "position Google · « boutique de femme Guadeloupe »",
+  },
+  {
+    label: "Évolutia Formation",
+    value: "1ère",
+    detail: "position Google · « formations concours publiques Guadeloupe »",
   },
   {
     label: "Sacodif",
     value: "Page 3 → P1",
-    detail: "« expert comptable Créteil »",
-  },
-  {
-    label: "Fast Computer Company",
-    value: "24h/24",
-    detail: "chatbot + RDV automatisés — acquisition client depuis zéro",
+    detail: "« expert comptable Créteil » · Île-de-France",
   },
 ] as const;
 
@@ -209,7 +221,7 @@ export const SOLUTIONS_BRIQUES_AUTO = [
   {
     title: "Collecte d'avis Google",
     description:
-      "Chaque client satisfait reçoit la bonne demande au bon moment. Votre réputation locale grandit seule.",
+      "QR code en point de vente, email post-prestation automatique, relances J+3 et J+7. Votre réputation locale grandit sans y penser.",
   },
   {
     title: "Réactivation clients inactifs",

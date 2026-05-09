@@ -5,11 +5,13 @@ import {
   Bot,
   Building2,
   CalendarCheck,
+  ExternalLink,
   GraduationCap,
   Handshake,
   MapPin,
   RefreshCw,
   Star,
+  Users,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -105,6 +107,7 @@ export default function AProposPage() {
       <ModeleSection />
       <ProduitsSection />
       <VenturesSection />
+      <PartenairesSection />
       <StackSection />
       <CTABanner
         eyebrow="Premier échange"
@@ -360,6 +363,72 @@ function VenturesSection() {
               <p className="mt-auto text-pretty text-sm leading-relaxed text-muted-foreground">
                 {v.description}
               </p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function PartenairesSection() {
+  const PARTENAIRES = [
+    {
+      name: "Cador Consulting",
+      domain: "cador-gp.com",
+      href: "https://cador-gp.com",
+      description:
+        "Conseil en gestion et stratégie pour dirigeants de TPE/PME. Réseau de prescription en Guadeloupe.",
+    },
+    {
+      name: "Digital Pro Conseil",
+      domain: "digitalproconseil.fr",
+      href: "https://digitalproconseil.fr",
+      description:
+        "Conseil digital et accompagnement à la transformation numérique des organisations.",
+    },
+  ] as const;
+
+  return (
+    <section className="container-page py-20 sm:py-28">
+      <div className="mx-auto max-w-2xl text-center">
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+          Réseau de partenaires
+        </p>
+        <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+          Notre réseau de partenaires.
+        </h2>
+        <p className="mt-4 text-pretty text-muted-foreground">
+          Deux structures de confiance avec lesquelles on travaille en
+          prescription mutuelle en Guadeloupe.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-10 grid max-w-3xl gap-5 sm:grid-cols-2">
+        {PARTENAIRES.map((p) => (
+          <Card key={p.name} className="h-full border-border/60 bg-surface/60">
+            <CardContent className="flex h-full flex-col gap-4 p-7">
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/20">
+                <Users className="h-5 w-5" />
+              </div>
+              <div className="space-y-1">
+                <p className="text-base font-semibold tracking-tight">
+                  {p.name}
+                </p>
+                <p className="text-xs text-muted-foreground/70">{p.domain}</p>
+              </div>
+              <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
+                {p.description}
+              </p>
+              <a
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+              >
+                Voir le site
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
             </CardContent>
           </Card>
         ))}

@@ -53,13 +53,10 @@ export default function PolitiqueConfidentialitePage() {
               suivantes sont collectées :
             </p>
             <ul className="mt-3 list-disc list-inside space-y-1 text-muted-foreground">
-              <li>Prénom et nom</li>
-              <li>Nom de la société</li>
-              <li>Secteur d&apos;activité</li>
-              <li>Localisation</li>
-              <li>Problème principal décrit</li>
+              <li>Prénom</li>
               <li>Adresse email</li>
-              <li>Numéro de téléphone / WhatsApp</li>
+              <li>Secteur d&apos;activité</li>
+              <li>Problème principal (choix dans une liste)</li>
             </ul>
             <p className="mt-3">
               Ces données sont transmises à notre outil de gestion de la relation client
