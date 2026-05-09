@@ -19,6 +19,12 @@ export function Footer() {
             <Link href="/" aria-label="Siboard Consulting — Accueil">
               <SiboardLogo className="text-foreground transition-opacity hover:opacity-80" />
             </Link>
+            <p className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground/55">
+              Cabinet digital Guadeloupe &amp; Île-de-France
+            </p>
+            <p className="mt-1 text-xs text-muted-foreground/40">
+              5 ans · 2 territoires · 6 secteurs accompagnés
+            </p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Audit digital, automatisation sur mesure et missions de croissance pour les TPE/PME.
               On comprend votre process avant de construire votre solution.

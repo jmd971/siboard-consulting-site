@@ -60,6 +60,7 @@ export default function SolutionsPage() {
       />
       <PageHero />
       <ProblemeSection />
+      <AncrageCoutSection />
       <MethodeSection />
       <SolutionsSection />
       <CasClientsSection />
@@ -153,6 +154,26 @@ function ProblemeSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+function AncrageCoutSection() {
+  return (
+    <div className="border-b border-border/40 bg-amber-500/[0.03]">
+      <div className="container-page py-8">
+        <blockquote className="mx-auto max-w-2xl rounded-xl border border-amber-500/20 bg-amber-500/5 px-7 py-6 text-center text-sm leading-relaxed italic text-muted-foreground">
+          &ldquo;Un no-show par semaine coûte en moyenne{" "}
+          <span className="font-semibold not-italic text-foreground">
+            2 400 € par an
+          </span>{" "}
+          à un prestataire à 50 €/h. Un rappel automatique coûte{" "}
+          <span className="font-semibold not-italic text-foreground">
+            moins qu&apos;un café par jour.
+          </span>
+          &rdquo;
+        </blockquote>
+      </div>
+    </div>
   );
 }
 

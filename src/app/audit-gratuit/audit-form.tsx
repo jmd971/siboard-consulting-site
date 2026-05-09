@@ -5,18 +5,13 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
-import {
-  AUDIT_WEBHOOK_URL,
-  LOCALISATIONS,
-  PROBLEMES,
-  SECTEURS,
-} from "@/lib/constants";
+import { AUDIT_WEBHOOK_URL, PROBLEMES, SECTEURS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 const inputClass =
-  "w-full rounded-lg border border-border/60 bg-background/60 px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/20";
+  "w-full rounded-lg border border-border/60 bg-background/60 px-3.5 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/20";
 
 export function AuditForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -30,17 +25,11 @@ export function AuditForm() {
     const formEl = event.currentTarget;
     const formData = new FormData(formEl);
 
-    const problemes = formData.getAll("problemes").map(String);
     const payload = {
       firstName: String(formData.get("firstName") ?? "").trim(),
-      lastName: String(formData.get("lastName") ?? "").trim(),
-      company: String(formData.get("company") ?? "").trim(),
-      sector: String(formData.get("sector") ?? "").trim(),
-      location: String(formData.get("location") ?? "").trim(),
       email: String(formData.get("email") ?? "").trim(),
-      phone: String(formData.get("phone") ?? "").trim(),
-      problemes,
-      message: String(formData.get("message") ?? "").trim(),
+      sector: String(formData.get("sector") ?? "").trim(),
+      probleme: String(formData.get("probleme") ?? "").trim(),
       source: "audit-gratuit",
       submittedAt: new Date().toISOString(),
     };
@@ -78,47 +67,47 @@ export function AuditForm() {
       className="rounded-2xl border border-border/60 bg-surface/40 p-6 sm:p-8"
       noValidate
     >
-      <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="Prénom" htmlFor="firstName">
+      {/* Prénom */}
+      <Field label="Prénom" htmlFor="firstName">
+        <input
+          id="firstName"
+          name="firstName"
+          type="text"
+          autoComplete="given-name"
+          required
+          placeholder="Jean-Marc"
+          className={inputClass}
+        />
+      </Field>
+
+      {/* Email */}
+      <div className="mt-4">
+        <Field label="Email professionnel" htmlFor="email">
           <input
-            id="firstName"
-            name="firstName"
-            type="text"
-            autoComplete="given-name"
+            id="email"
+            name="email"
+            type="email"
+            inputMode="email"
+            autoComplete="email"
             required
-            className={inputClass}
-          />
-        </Field>
-        <Field label="Nom" htmlFor="lastName">
-          <input
-            id="lastName"
-            name="lastName"
-            type="text"
-            autoComplete="family-name"
-            required
+            placeholder="vous@societe.fr"
             className={inputClass}
           />
         </Field>
       </div>
 
-      <div className="mt-5">
-        <Field label="Société" htmlFor="company">
-          <input
-            id="company"
-            name="company"
-            type="text"
-            autoComplete="organization"
-            required
-            className={inputClass}
-          />
-        </Field>
-      </div>
-
-      <div className="mt-5 grid gap-5 sm:grid-cols-2">
+      {/* Secteur */}
+      <div className="mt-4">
         <Field label="Secteur d'activité" htmlFor="sector">
-          <select id="sector" name="sector" required className={inputClass} defaultValue="">
+          <select
+            id="sector"
+            name="sector"
+            required
+            className={inputClass}
+            defaultValue=""
+          >
             <option value="" disabled>
-              Sélectionner…
+              Votre secteur…
             </option>
             {SECTEURS.map((s) => (
               <option key={s} value={s}>
@@ -127,84 +116,27 @@ export function AuditForm() {
             ))}
           </select>
         </Field>
-        <Field label="Localisation" htmlFor="location">
-          <select id="location" name="location" required className={inputClass} defaultValue="">
+      </div>
+
+      {/* Problème principal */}
+      <div className="mt-4">
+        <Field label="Votre problème principal" htmlFor="probleme">
+          <select
+            id="probleme"
+            name="probleme"
+            required
+            className={inputClass}
+            defaultValue=""
+          >
             <option value="" disabled>
-              Sélectionner…
+              Ce qui bloque votre activité…
             </option>
-            {LOCALISATIONS.map((l) => (
-              <option key={l} value={l}>
-                {l}
+            {PROBLEMES.map((p) => (
+              <option key={p} value={p}>
+                {p}
               </option>
             ))}
           </select>
-        </Field>
-      </div>
-
-      <fieldset className="mt-7">
-        <legend className="text-sm font-medium text-foreground">
-          Quel est votre problème principal ?
-        </legend>
-        <p className="mt-1 text-xs text-muted-foreground">
-          Plusieurs choix possibles.
-        </p>
-        <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
-          {PROBLEMES.map((p) => (
-            <label
-              key={p}
-              className="group flex cursor-pointer items-start gap-3 rounded-lg border border-border/60 bg-background/40 px-3.5 py-3 text-sm transition-colors hover:border-primary/40 has-[:checked]:border-primary/60 has-[:checked]:bg-primary/5"
-            >
-              <input
-                type="checkbox"
-                name="problemes"
-                value={p}
-                className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-primary"
-              />
-              <span className="text-foreground/90">{p}</span>
-            </label>
-          ))}
-        </div>
-      </fieldset>
-
-      <div className="mt-7 grid gap-5 sm:grid-cols-2">
-        <Field label="Email" htmlFor="email">
-          <input
-            id="email"
-            name="email"
-            type="email"
-            inputMode="email"
-            autoComplete="email"
-            required
-            className={inputClass}
-          />
-        </Field>
-        <Field label="Téléphone / WhatsApp" htmlFor="phone">
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            inputMode="tel"
-            autoComplete="tel"
-            required
-            className={inputClass}
-            placeholder="+590 690 …"
-          />
-        </Field>
-      </div>
-
-      <div className="mt-5">
-        <Field
-          label="Quelque chose à ajouter ?"
-          htmlFor="message"
-          optional
-        >
-          <textarea
-            id="message"
-            name="message"
-            rows={4}
-            className={cn(inputClass, "resize-y")}
-            placeholder="Contexte, urgence, question précise…"
-          />
         </Field>
       </div>
 
@@ -217,32 +149,29 @@ export function AuditForm() {
         </p>
       ) : null}
 
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs text-muted-foreground">
-          En soumettant, vous acceptez d&apos;être recontacté sous 24h par
-          Siboard Consulting.
-        </p>
-        <button
-          type="submit"
-          disabled={status === "submitting"}
-          className={cn(
-            buttonVariants({ size: "lg" }),
-            "h-12 px-6 text-base font-medium disabled:cursor-not-allowed disabled:opacity-70",
-          )}
-        >
-          {status === "submitting" ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden />
-              Envoi…
-            </>
-          ) : (
-            <>
-              Demander mon audit
-              <ArrowRight className="ml-1 h-4 w-4" aria-hidden />
-            </>
-          )}
-        </button>
-      </div>
+      <button
+        type="submit"
+        disabled={status === "submitting"}
+        className={cn(
+          "mt-6 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-foreground px-6 text-base font-medium text-background transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60",
+        )}
+      >
+        {status === "submitting" ? (
+          <>
+            <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+            Envoi…
+          </>
+        ) : (
+          <>
+            Demander mon audit gratuit
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </>
+        )}
+      </button>
+
+      <p className="mt-4 text-center text-xs text-muted-foreground">
+        Réponse sous 24h — sans engagement — on vous dit franchement si on est le bon partenaire.
+      </p>
     </form>
   );
 }
@@ -250,12 +179,10 @@ export function AuditForm() {
 function Field({
   label,
   htmlFor,
-  optional = false,
   children,
 }: {
   label: string;
   htmlFor: string;
-  optional?: boolean;
   children: React.ReactNode;
 }) {
   return (
@@ -265,11 +192,6 @@ function Field({
         className="mb-1.5 block text-sm font-medium text-foreground"
       >
         {label}
-        {optional ? (
-          <span className="ml-1 text-xs font-normal text-muted-foreground">
-            (optionnel)
-          </span>
-        ) : null}
       </label>
       {children}
     </div>
@@ -280,40 +202,30 @@ function SuccessState() {
   return (
     <div
       role="status"
-      className="rounded-2xl border border-primary/30 bg-primary/5 p-8 sm:p-10"
+      className="rounded-2xl border border-primary/30 bg-primary/5 p-8 text-center"
     >
-      <div className="grid h-12 w-12 place-items-center rounded-full bg-primary/15 text-primary ring-1 ring-primary/30">
-        <CheckCircle2 className="h-6 w-6" aria-hidden />
-      </div>
-      <h2 className="mt-6 text-balance text-2xl font-semibold tracking-tight sm:text-3xl">
-        Demande reçue. À vous d&apos;ici 24h.
+      <CheckCircle2
+        className="mx-auto h-10 w-10 text-primary"
+        aria-hidden
+      />
+      <h2 className="mt-4 text-xl font-semibold tracking-tight text-foreground">
+        Demande reçue.
       </h2>
-      <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground">
-        Vous allez recevoir un message WhatsApp ou un email pour fixer notre
-        échange de 30 minutes. Préparez vos chiffres si vous les avez sous la
-        main — pas obligatoire.
+      <p className="mt-3 text-pretty text-sm leading-relaxed text-muted-foreground">
+        On revient vers vous sous 24h avec un diagnostic honnête de votre situation — pas une offre commerciale.
       </p>
-
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-        <Link
-          href="/realisations"
-          className={cn(
-            buttonVariants({ variant: "outline", size: "lg" }),
-            "h-11 px-6 text-sm font-medium",
-          )}
-        >
-          Voir des cas clients
-        </Link>
-        <Link
-          href="/"
-          className={cn(
-            buttonVariants({ variant: "ghost", size: "lg" }),
-            "h-11 px-6 text-sm font-medium",
-          )}
-        >
-          Retour à l&apos;accueil
-        </Link>
-      </div>
+      <p className="mt-6 text-xs text-muted-foreground">
+        Un message WhatsApp de confirmation va arriver sous peu.
+      </p>
+      <Link
+        href="/"
+        className={cn(
+          buttonVariants({ variant: "outline", size: "lg" }),
+          "mt-8 h-11",
+        )}
+      >
+        Retour à l&apos;accueil
+      </Link>
     </div>
   );
 }

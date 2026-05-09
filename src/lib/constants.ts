@@ -251,23 +251,19 @@ export const SECTEURS = [
   "Services",
   "Restauration",
   "Artisanat",
+  "BTP",
   "Événementiel",
-  "Autre",
-] as const;
-
-export const LOCALISATIONS = [
-  "Guadeloupe",
-  "Île-de-France",
-  "Martinique",
-  "Guyane",
+  "Santé / Bien-être",
+  "Immobilier / Courtage",
   "Autre",
 ] as const;
 
 export const PROBLEMES = [
   "Je perds des prospects / leads",
-  "Mes RDV ont trop de no-shows",
+  "Trop de no-shows sur mes RDV",
   "Mes clients ne laissent pas d'avis",
   "Je veux automatiser des tâches répétitives",
-  "J'ai un produit B2B à développer",
+  "J'ai une offre B2B à développer",
+  "Je veux créer ou refaire mon site web",
   "Autre",
 ] as const;

@@ -108,7 +108,14 @@ function PageHero() {
             construit toute la mécanique commerciale autour, on l&apos;exécute.
             Sans prospecter vous-même, sans gérer les outils.
           </p>
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <p className="mx-auto mt-4 max-w-xl text-sm italic text-muted-foreground/80">
+            Conçue pour les prestataires B2B avec une offre établie et un pipeline à structurer.
+          </p>
+          <div className="mt-5 inline-flex items-center gap-2.5 rounded-full border border-amber-500/25 bg-amber-500/8 px-4 py-2 text-xs font-medium text-amber-200/80">
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-400 shrink-0" aria-hidden />
+            2 missions simultanées maximum · 1 secteur à la fois
+          </div>
+          <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href={CTA_PRIMARY.href}
               className={cn(

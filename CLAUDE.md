@@ -64,11 +64,13 @@ Orienter le visiteur vers le bon chemin (Persona A ou B) en moins de 30 secondes
 **2. Preuve sociale rapide (3 chiffres)**
 - Odyssée by Béa : Zéro présence digitale → 3ème position Google Maps
 - Sacodif : 3ème page Google → 3ème position "expert comptable Créteil"
-- DFP France : Site + agenda en ligne opérationnel sous 30 jours
+- FCC : Site + chatbot + RDV automatisés — acquisition client 24h/24 depuis zéro
 
 **3. Les deux offres (deux cartes)**
 - Carte A — Automatisation + Agents IA : pour les TPE qui perdent des leads ou du temps. CTA → `/solutions`
-- Carte B — Mission Croissance 90J : pour les pros avec une offre B2B à activer, done for you. Mention de la garantie visible sur la carte : *"10 RDV garantis ou on continue gratuitement."* CTA → `/mission-90j`
+- Carte B — Mission Croissance 90J : pour les pros avec une offre B2B à activer, done for you. Mention de la garantie visible sur la carte : *"10 RDV qualifiés garantis ou on continue gratuitement."* CTA → `/mission-90j`
+
+Note : ne pas illustrer cette offre avec un cas client nommé pour l'instant — la Mission 90J n'a pas encore de client signé à référencer publiquement. Mettre en avant la garantie et la méthode uniquement.
 
 **4. Réalisations en aperçu**
 Logos ou noms de 4-5 clients + secteur + résultat en une ligne chacun.
@@ -185,12 +187,11 @@ ou on continue sans vous facturer.
 
 Note de développement : ce bloc doit être visuellement accentué (bordure or ou fond légèrement distinct). Le prix seul fait peur — la garantie dans le même bloc le rend irréfutable. Afficher aussi : "Exclusivité sectorielle — un seul concurrent accompagné à la fois."
 
-**6. Cas client**
-Bateau Alizé / Mission Mistinguett — cabaret flottant Paris 12e — activation de l'offre Green Séminaire B2B sur 90 jours.
-
-**7. CTA**
+**6. CTA**
 > *"Réserver un appel de 30 min — on analyse votre offre et on vous dit si la Mission 90J est adaptée."*
 Bouton → `/audit-gratuit` (ou calendrier Calendly/GHL direct)
+
+Note : pas de cas client nommé sur cette page pour l'instant — la preuve est la garantie elle-même (10 RDV ou prolongation gratuite) et l'exclusivité sectorielle. Ajouter un cas client dès la première mission signée.
 
 ---
 
@@ -203,15 +204,18 @@ Prouver la diversité sectorielle et l'impact mesurable. Chaque cas = secteur + 
 
 | Client | Secteur | Localisation | Mission | Résultat |
 |---|---|---|---|---|
-| Odyssée by Béa | Boutique mode, showroom privé | Guadeloupe | Création digitale complète | Zéro présence → 3ème Google Maps + site + RDV + paiement |
-| Sacodif | Expert-comptable | Créteil, IDF | Repositionnement SEO | 3ème page → 3ème position "expert comptable Créteil" |
-| DFP France | Films techniques vitrages | Île-de-France | Site + prise de RDV | Agenda en ligne, délais remplis automatiquement |
-| Bateau Alizé | Événementiel fluvial | Paris 12e | Audit stratégique + Mission 90J | Offre Green Séminaire B2B activée |
-| Axecime | Courtage financier | Guadeloupe | SEO + Google Business Profile | Visibilité locale renforcée |
-| Fast Computer Company | Magasin informatique | Baie-Mahault, GP | Accompagnement digital | Présence digitale structurée |
+| [Odyssée by Béa](https://odysseebybea.fr) | Boutique mode & accessoires, showroom privé | Baie-Mahault, Guadeloupe | Création digitale complète (zéro existant) : site web + Google Business Profile + prise de RDV en ligne + lien de paiement Stripe | Zéro présence digitale → 3ème position Google Maps |
+| [Sacodif](https://sacodif.fr) | Expert-comptable | Créteil, IDF | Repositionnement SEO — refonte du contenu et de la structure du site | 3ème page Google → 3ème position sur "expert comptable Créteil" |
+| [DFP France](https://www.dfpfrance.fr) | Pose de films techniques pour vitrages (solaire, sécurité, anti-graffiti) | Île-de-France | Création complète de A à Z : site web + système de prise de rendez-vous intégré | Agenda en ligne opérationnel, flux de RDV automatisé |
+| [Axecime](https://axecime.com) | Courtage financier (prêts immobiliers, assurance) | Les Abymes, Guadeloupe | Application métier sur mesure : gestion et automatisation des données clients pour prêts et assurance, workflow de récupération des dossiers incomplets, relances automatiques pour fichiers manquants + SEO + Google Business Profile | Processus de collecte de dossiers entièrement automatisé, zéro relance manuelle |
+| [Fast Computer Company](https://fcc-gp.com) | Magasin informatique & réparation | Baie-Mahault, Guadeloupe | Création complète de A à Z : site web + Google Business Profile + chatbot support et acquisition client + automatisation des prises de RDV | Présence digitale complète, acquisition et support client automatisés 24h/24 |
 
 ### Format d'affichage recommandé
-Grille de cartes, une par client. Chaque carte : logo ou initiales + secteur + localisation + résultat en headline + 1 ligne de détail.
+Grille de cartes, une par client. Chaque carte : logo ou initiales + secteur + localisation + ce qui a été construit (en gras) + résultat en headline.
+
+Chaque carte doit inclure un lien vers le site du client (`target="_blank"`) quand disponible — c'est la preuve irréfutable que le travail est réel. Libellé du lien : "Voir le site →"
+
+Note : Bateau Alizé n'a pas encore de lien public à afficher — laisser sans lien pour l'instant.
 
 ---
 
