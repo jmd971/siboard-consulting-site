@@ -113,7 +113,4 @@
     background-size: 48px 48px;
     mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
   }
-  .glow-amber {
-    box-shadow: 0 0 80px -20px oklch(0.78 0.15 72 / 0.5);
-  }
 }
