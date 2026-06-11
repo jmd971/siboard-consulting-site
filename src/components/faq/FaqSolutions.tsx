@@ -23,14 +23,19 @@ export const faqSolutions = [
       "Oui. Nous avons déployé des solutions pour une boutique de mode, un magasin informatique, un cabinet d'expert-comptable, un courtier financier et des artisans. La méthode s'adapte au process du client, pas l'inverse. L'audit initial permet de valider ce qui est pertinent dans votre contexte spécifique.",
   },
   {
+    question: "Vous ne faites que du marketing et de l'acquisition client ?",
+    answer:
+      "Non — et c'est précisément notre différence. L'acquisition ne sert à rien si l'interne fuit : devis jamais relancés, factures impayées non suivies, planning sur un fichier Excel partagé, chiffrages refaits de zéro à chaque demande. Nous automatisons les deux faces de votre activité : faire entrer les clients, et faire tourner l'entreprise. La plupart de nos missions commencent d'ailleurs par une douleur interne.",
+  },
+  {
     question: "Quel est le budget minimum pour démarrer ?",
     answer:
-      "Un audit seul est à 350 € HT — il inclut une analyse complète et un plan d'action priorisé. Pour un déploiement complet (2 à 3 briques), comptez entre 800 et 1 500 € HT en setup, plus un abonnement mensuel à partir de 89 € HT pour la maintenance et les mises à jour.",
+      "Le diagnostic d'efficacité est à 350 € HT — analyse complète de vos flux, chiffrage de vos fuites de temps et d'argent, plan d'action priorisé. Il est déduit du montant de la mission si vous nous confiez le déploiement. La construction de votre système se chiffre ensuite selon le périmètre : de 1 500 € HT pour 2-3 briques d'automatisation à 6 000 € HT et plus pour une infrastructure complète avec agents IA et développements sur mesure. Chaque proposition est chiffrée après le diagnostic — jamais avant.",
   },
   {
     question: "Qu'est-ce qui est inclus après le déploiement ?",
     answer:
-      "Une session de formation et de passation est incluse dans chaque mission. Vous pilotez en autonomie, on reste disponibles pour les ajustements. Un abonnement mensuel optionnel couvre la maintenance, les mises à jour et le support continu.",
+      "Votre système est vivant : il évolue avec votre activité. L'abonnement Système (à partir de 197 € HT/mois) comprend l'hébergement et la supervision de vos automatisations, les évolutions et ajouts de briques, le rapport mensuel d'activité (ce que le système a capté, relancé, encaissé), et le support prioritaire. Vous pilotez au quotidien — nous faisons tourner et évoluer l'infrastructure.",
   },
 ];
 
@@ -70,8 +75,8 @@ export const howToSchema = {
     },
     {
       "@type": "HowToStep",
-      name: "Autonomie",
-      text: "On vous forme, on passe la main. Vous pilotez, on reste disponibles. L'objectif est votre indépendance, pas votre dépendance.",
+      name: "Pilotage",
+      text: "On vous forme à l'usage quotidien : vous gardez la main sur votre activité, vos données, vos décisions. Nous, on fait vivre l'infrastructure : supervision, évolutions, nouvelles briques au fil de vos besoins. Vous pilotez le business, le système travaille.",
       position: 3,
     },
   ],
