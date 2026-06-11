@@ -5,6 +5,7 @@ import {
   Bot,
   CalendarCheck,
   CheckCircle2,
+  FileText,
   MapPin,
   Mic,
   RefreshCw,
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
   },
 };
 
-const AUTO_ICONS = [CalendarCheck, CheckCircle2, RefreshCw, Shuffle] as const;
+const AUTO_ICONS = [CalendarCheck, CheckCircle2, RefreshCw, Shuffle, FileText] as const;
 const IA_ICONS = [Bot, Mic, Wand2, Wrench] as const;
 
 export default function SolutionsPage() {
@@ -197,9 +198,9 @@ function MethodeSection() {
           },
           {
             num: "03",
-            title: "Autonomie",
+            title: "Pilotage",
             description:
-              "On vous forme, on passe la main. Vous pilotez, on reste disponibles. L&apos;objectif est votre indépendance, pas votre dépendance.",
+              "On vous forme à l&apos;usage quotidien : vous gardez la main sur votre activité, vos données, vos décisions. Nous, on fait vivre l&apos;infrastructure — supervision, évolutions, nouvelles briques au fil de vos besoins. Vous pilotez le business, le système travaille.",
           },
         ].map((step) => (
           <Card key={step.num} className="h-full border-border/60 bg-surface/60">
@@ -301,7 +302,9 @@ function SolutionsSection() {
             </div>
             <p className="mt-4 text-pretty text-sm leading-relaxed text-muted-foreground">
               Aller plus loin : des agents qui comprennent, décident et agissent
-              à votre place — 24h/24, sans intervention humaine.
+              à votre place — 24h/24. Côté clients (réponse, qualification, prise
+              de RDV) comme côté interne (chiffrage, rédaction, analyse de vos
+              documents métier).
             </p>
             <ul className="mt-6 space-y-4">
               {SOLUTIONS_BRIQUES_IA.map((brique, i) => {
