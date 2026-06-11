@@ -78,14 +78,6 @@ export default function SolutionsPage() {
 function PageHero() {
   return (
     <section className="relative overflow-hidden border-b border-border/40">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 -top-24 h-96 w-96 rounded-full bg-primary/15 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-primary/8 blur-3xl"
-      />
       <div className="container-page relative pt-20 pb-16 sm:pt-24 sm:pb-20">
         <div className="mx-auto max-w-3xl text-center">
           <Badge
@@ -294,10 +286,6 @@ function SolutionsSection() {
 
           {/* Bloc B — Agents IA */}
           <div className="rounded-2xl border border-primary/25 bg-surface ring-1 ring-primary/10 p-7 sm:p-8">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
-            />
             <div className="flex items-center gap-3">
               <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/15 text-primary ring-1 ring-primary/25">
                 <Bot className="h-5 w-5" />
