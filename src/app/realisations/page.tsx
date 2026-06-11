@@ -49,10 +49,6 @@ export default function RealisationsPage() {
 function PageHero() {
   return (
     <section className="relative overflow-hidden border-b border-border/40">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-primary/15 blur-3xl"
-      />
       <div className="container-page relative pt-20 pb-14 sm:pt-24 sm:pb-16">
         <div className="mx-auto max-w-3xl text-center">
           <Badge
@@ -97,10 +93,6 @@ function ClientsGrid() {
         {DISPLAYED_CLIENTS.map((c, i) => (
           <li key={c.slug}>
             <Card className="group relative overflow-hidden border-border/60 bg-surface/60 transition-colors hover:border-primary/30">
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-primary/10 blur-3xl opacity-0 transition-opacity group-hover:opacity-100"
-              />
               <CardContent className="relative flex h-full flex-col gap-5 p-7 sm:p-8">
                 {/* Header */}
                 <div className="flex items-start justify-between gap-4">
