@@ -9,7 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-geist-sans);
+  --font-heading: var(--font-syne);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -89,6 +89,9 @@
   h1, h2, h3, h4 {
     @apply tracking-tight;
     font-feature-settings: "ss01";
+  }
+  h1, h2 {
+    font-family: var(--font-heading);
   }
   ::selection {
     background-color: oklch(0.78 0.15 72 / 0.3);
