@@ -63,14 +63,7 @@ export function DeuxOffres() {
                   ? "relative overflow-hidden border-primary/30 bg-surface ring-1 ring-primary/10"
                   : "relative overflow-hidden border-border/60 bg-surface/60"
               }
-            >
-              {offer.featured && (
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-primary/15 blur-3xl"
-                />
-              )}
-              <CardContent className="relative flex h-full flex-col gap-6 p-7 sm:p-8">
+            >              <CardContent className="relative flex h-full flex-col gap-6 p-7 sm:p-8">
                 <div className="flex items-start justify-between gap-4">
                   <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/20">
                     <Icon className="h-5 w-5" />
