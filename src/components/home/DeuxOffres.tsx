@@ -99,7 +99,7 @@ export function DeuxOffres() {
                 </ul>
 
                 {"guarantee" in offer && offer.guarantee ? (
-                  <div className="rounded-lg border border-primary/30 bg-primary/8 px-4 py-2.5 text-xs font-medium text-primary">
+                  <div className="rounded-lg border border-primary/30 bg-primary/[0.08] px-4 py-2.5 text-xs font-medium text-primary">
                     {offer.guarantee}
                   </div>
                 ) : null}
