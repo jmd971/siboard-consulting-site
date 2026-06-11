@@ -98,7 +98,7 @@ function PageHero() {
           </Badge>
           <h1 className="mt-6 text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
             Vos premiers clients B2B,{" "}
-            <span className="bg-gradient-to-br from-primary via-amber-200 to-primary bg-clip-text text-transparent">
+            <span className="text-primary">
               signés en 90 jours.
             </span>
           </h1>
