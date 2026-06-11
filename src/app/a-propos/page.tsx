@@ -121,10 +121,6 @@ export default function AProposPage() {
 function PageHero() {
   return (
     <section className="relative overflow-hidden border-b border-border/40">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 -top-24 h-96 w-96 rounded-full bg-primary/15 blur-3xl"
-      />
       <div className="container-page relative pt-20 pb-16 sm:pt-24 sm:pb-20">
         <div className="grid gap-12 md:grid-cols-12 md:items-center">
           <div className="md:col-span-7">
