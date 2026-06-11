@@ -38,7 +38,7 @@ export function Navbar() {
       className={cn(
         "sticky top-0 z-50 w-full transition-colors duration-300",
         scrolled || open
-          ? "border-b border-border/60 bg-background/85 backdrop-blur-xl"
+          ? "border-b border-border/60 bg-background/95"
           : "border-b border-transparent bg-transparent",
       )}
     >
