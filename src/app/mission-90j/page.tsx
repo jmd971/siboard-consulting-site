@@ -80,14 +80,6 @@ function PageHero() {
 
   return (
     <section className="relative overflow-hidden border-b border-border/40">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-primary/15 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-24 top-32 h-72 w-72 rounded-full bg-amber-500/10 blur-3xl"
-      />
       <div className="container-page relative pt-20 pb-20 sm:pt-28 sm:pb-28">
         <div className="mx-auto max-w-3xl text-center">
           <Badge
@@ -264,10 +256,6 @@ function GarantieSection() {
     <section className="container-page py-20 sm:py-28">
       <div className="mx-auto grid max-w-5xl gap-5 md:grid-cols-2">
         <Card className="relative overflow-hidden border-primary/30 bg-gradient-to-br from-surface to-surface-elevated">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary/15 blur-3xl"
-          />
           <CardContent className="relative flex h-full flex-col gap-5 p-8">
             <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary ring-1 ring-primary/30">
               <ShieldCheck className="h-5 w-5" />
