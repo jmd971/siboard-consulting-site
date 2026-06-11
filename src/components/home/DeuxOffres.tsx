@@ -10,11 +10,11 @@ const OFFERS = [
     icon: CalendarCheck,
     title: "Automatisation + Agents IA",
     description:
-      "Vos prospects obtiennent une réponse immédiate. Vos RDV ne disparaissent plus. Vos tâches répétitives tournent seules. On déploie les briques manquantes — automatisation de process et agents IA — sur mesure pour votre activité.",
+      "Vos prospects obtiennent une réponse immédiate. Vos devis sont relancés sans y penser. Vos fichiers Excel cessent d'être votre système d'information. On déploie les briques manquantes — automatisation, agents IA, outils métier sur mesure — sur votre activité.",
     bullets: [
-      "Audit de vos fuites actuelles (leads, temps, no-shows)",
-      "Déploiement des automatisations et agents qui comptent",
-      "Formation et passation — vous pilotez, on reste disponibles",
+      "Diagnostic de vos fuites : leads sans réponse, devis non relancés, temps administratif",
+      "Déploiement des automatisations qui comptent — acquisition ET back-office",
+      "Le système vit : supervision, évolutions, rapport mensuel de ce qu'il vous rapporte",
     ],
     cta: { href: "/solutions", label: "Voir les solutions" },
     featured: false,
