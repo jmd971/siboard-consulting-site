@@ -233,6 +233,11 @@ export const SOLUTIONS_BRIQUES_AUTO = [
     description:
       "Vos données circulent entre vos applications sans double saisie ni intervention manuelle.",
   },
+  {
+    title: "Automatisation back-office",
+    description:
+      "Devis relancés automatiquement à J+2 et J+5, suivi des impayés avec relances graduées, planning d'équipe sans fichier Excel qui plante, rapport d'activité hebdomadaire envoyé au dirigeant sans saisie manuelle. Votre administratif tourne pendant que vous produisez.",
+  },
 ] as const;
 
 export const SOLUTIONS_BRIQUES_IA = [
@@ -249,7 +254,7 @@ export const SOLUTIONS_BRIQUES_IA = [
   {
     title: "Assistant métier sur mesure",
     description:
-      "Rédaction, analyse, synthèse, process internes — entraîné sur votre contexte et vos documents.",
+      "Chiffrages et études de prix pré-remplis à partir de vos anciens devis, rédaction de rapports d'intervention, synthèse de documents, réponse aux appels d'offres. Entraîné sur votre contexte et vos documents — pas un chatbot générique.",
   },
   {
     title: "Intégrations avancées sur mesure",
