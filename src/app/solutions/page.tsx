@@ -96,7 +96,7 @@ function PageHero() {
           </Badge>
           <h1 className="mt-6 text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-[3.25rem]">
             Automatisation et Agents IA{" "}
-            <span className="bg-gradient-to-br from-primary via-amber-200 to-primary bg-clip-text text-transparent">
+            <span className="text-primary">
               sur mesure.
             </span>
           </h1>
