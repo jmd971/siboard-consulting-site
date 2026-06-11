@@ -33,7 +33,15 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Automatisation & Agents IA pour entreprises — Siboard Consulting",
   description:
-    "Prise de RDV automatisée, collecte d'avis, réactivation clients, chatbot IA et agents vocaux pour TPE/PME en Guadeloupe et en France.",
+    "Automatisation des process, back-office et agents IA pour TPE/PME en Guadeloupe et Île-de-France : devis relancés, impayés suivis, RDV remplis, reporting automatique.",
+  keywords: [
+    "automatisation back-office",
+    "relance devis",
+    "suivi impayés",
+    "automatisation administrative",
+    "agent IA entreprise",
+    "Guadeloupe",
+  ],
   alternates: { canonical: "/solutions" },
   openGraph: {
     title: "Automatisation & Agents IA — Siboard Consulting",
