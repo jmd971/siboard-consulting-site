@@ -5,7 +5,6 @@ import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
-import { PROOF_STATS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const fadeUpVariants: Variants = {
@@ -35,12 +34,6 @@ export function Hero() {
     <section className="relative flex min-h-[640px] w-full items-center justify-center overflow-hidden bg-background py-24 sm:min-h-[720px]">
       {/* Structure : grille fine masquée. Pas de glass, pas de glow. */}
       <div aria-hidden className="absolute inset-0 bg-grid-fade" />
-
-      {/* Bloc amber committed : aplat solide ancré en haut à droite, bords nets. */}
-      <div
-        aria-hidden
-        className="absolute -right-24 -top-24 hidden h-[28rem] w-[28rem] rounded-full bg-primary/10 md:block"
-      />
       <div
         aria-hidden
         className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"
@@ -92,7 +85,7 @@ export function Hero() {
             variants={variants}
             initial="hidden"
             animate="visible"
-            className="flex flex-col items-center justify-center gap-3 sm:flex-row"
+            className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6"
           >
             <Link
               href="/solutions"
@@ -106,13 +99,10 @@ export function Hero() {
             </Link>
             <Link
               href="/mission-90j"
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "h-12 w-full border-border bg-surface/40 px-6 text-base font-medium hover:bg-surface sm:w-auto",
-              )}
+              className="group inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               Développer mon offre B2B
-              <ArrowRight className="ml-1 h-4 w-4" />
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </motion.div>
 
@@ -126,33 +116,18 @@ export function Hero() {
             Audit digital offert · Réponse sous 24h · Sans engagement
           </motion.p>
 
-          {/* Preuve chiffrée : ancre le hero dans du résultat concret. */}
-          <motion.div
+          {/* Preuve : une ligne factuelle, pas une grille de métriques. */}
+          <motion.p
             custom={5}
             variants={variants}
             initial="hidden"
             animate="visible"
-            className="mx-auto mt-12 max-w-xl border-t border-border/50 pt-8"
+            className="mx-auto mt-12 max-w-md border-t border-border/50 pt-8 text-sm text-muted-foreground"
           >
-            <p className="mb-5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground/55">
-              Résultats clients récents
-            </p>
-            <dl className="grid grid-cols-3 divide-x divide-border/50">
-              {PROOF_STATS.map((stat) => (
-                <div key={stat.label} className="px-2 text-center sm:px-4">
-                  <dt className="sr-only">{stat.label}</dt>
-                  <dd>
-                    <span className="block text-xl font-semibold tracking-tight text-primary sm:text-2xl">
-                      {stat.value}
-                    </span>
-                    <span className="mt-1.5 block text-[0.72rem] leading-snug text-muted-foreground">
-                      {stat.label}
-                    </span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </motion.div>
+            Des clients passés à la{" "}
+            <span className="font-semibold text-primary">1ère page Google</span>, en
+            Guadeloupe et en Île-de-France.
+          </motion.p>
         </div>
       </div>
     </section>
