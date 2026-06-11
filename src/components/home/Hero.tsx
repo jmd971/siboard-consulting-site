@@ -5,6 +5,7 @@ import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
+import { PROOF_STATS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const fadeUpVariants: Variants = {
@@ -31,7 +32,7 @@ export function Hero() {
   const variants = prefersReducedMotion ? noMotionVariants : fadeUpVariants;
 
   return (
-    <section className="relative flex min-h-[640px] w-full items-center justify-center overflow-hidden bg-background sm:min-h-[720px]">
+    <section className="relative flex min-h-[640px] w-full items-center justify-center overflow-hidden bg-background py-24 sm:min-h-[720px]">
       {/* Structure : grille fine masquée. Pas de glass, pas de glow. */}
       <div aria-hidden className="absolute inset-0 bg-grid-fade" />
 
@@ -124,6 +125,34 @@ export function Hero() {
           >
             Audit digital offert · Réponse sous 24h · Sans engagement
           </motion.p>
+
+          {/* Preuve chiffrée : ancre le hero dans du résultat concret. */}
+          <motion.div
+            custom={5}
+            variants={variants}
+            initial="hidden"
+            animate="visible"
+            className="mx-auto mt-12 max-w-xl border-t border-border/50 pt-8"
+          >
+            <p className="mb-5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground/55">
+              Résultats clients récents
+            </p>
+            <dl className="grid grid-cols-3 divide-x divide-border/50">
+              {PROOF_STATS.map((stat) => (
+                <div key={stat.label} className="px-2 text-center sm:px-4">
+                  <dt className="sr-only">{stat.label}</dt>
+                  <dd>
+                    <span className="block text-xl font-semibold tracking-tight text-primary sm:text-2xl">
+                      {stat.value}
+                    </span>
+                    <span className="mt-1.5 block text-[0.72rem] leading-snug text-muted-foreground">
+                      {stat.label}
+                    </span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </motion.div>
         </div>
       </div>
     </section>
