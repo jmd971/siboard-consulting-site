@@ -1,6 +1,7 @@
 import { DeuxOffres } from "@/components/home/DeuxOffres";
 import { Ecosysteme } from "@/components/home/Ecosysteme";
 import { Hero } from "@/components/home/Hero";
+import { CommentCaMarche } from "@/components/home/CommentCaMarche";
 import { RealisationsApercu } from "@/components/home/RealisationsApercu";
 import { CTABanner } from "@/components/shared/CTABanner";
 
@@ -18,9 +19,10 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <DeuxOffres />
-      <RealisationsApercu />
       <ProofLine />
+      <DeuxOffres />
+      <CommentCaMarche />
+      <RealisationsApercu />
       <Ecosysteme />
       <CTABanner />
     </>
