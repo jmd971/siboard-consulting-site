@@ -46,17 +46,17 @@ export function RealisationsApercu() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                    <h3 className="font-semibold text-foreground">{client.name}</h3>
+                    <h3 className="text-base font-semibold text-foreground">{client.name}</h3>
                     <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
                       <MapPin className="h-3 w-3" />
                       {client.location}
                     </span>
                   </div>
-                  <p className="mt-1 text-xs text-muted-foreground">{client.sector}</p>
-                  <p className="mt-3 text-pretty text-sm font-medium text-foreground">
+                  <p className="mt-1 text-sm text-muted-foreground">{client.sector}</p>
+                  <p className="mt-3 text-pretty text-base font-medium text-foreground">
                     {client.result}
                   </p>
-                  <p className="mt-1 text-pretty text-sm text-muted-foreground">
+                  <p className="mt-1 text-pretty text-sm leading-relaxed text-muted-foreground">
                     {client.detail}
                   </p>
                 </div>
