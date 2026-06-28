@@ -12,6 +12,7 @@ type CTABannerProps = {
   ctaLabel?: string;
   ctaHref?: string;
   note?: string;
+  className?: string;
 };
 
 export function CTABanner({
@@ -21,12 +22,11 @@ export function CTABanner({
   ctaLabel = CTA_PRIMARY.label,
   ctaHref = CTA_PRIMARY.href,
   note = "Réservé aux TPE/PME en Guadeloupe, Martinique, Guyane et Île-de-France.",
+  className,
 }: CTABannerProps) {
   return (
-    <section className="container-page py-20 sm:py-28">
-      {/* Panneau amber plein : surface committed, texte navy. Fin positif fort. */}
+    <section className={cn("container-page py-12 sm:py-16", className)}>
       <div className="relative overflow-hidden rounded-3xl bg-primary p-8 text-primary-foreground sm:p-12">
-        {/* Détail géométrique solide (anneaux), sans blur ni glow. */}
         <div
           aria-hidden
           className="pointer-events-none absolute -right-16 -top-28 h-72 w-72 rounded-full border border-primary-foreground/10"
