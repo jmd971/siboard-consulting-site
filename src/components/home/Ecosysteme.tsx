@@ -82,13 +82,13 @@ export function Ecosysteme() {
                 <p className="text-lg font-semibold tracking-tight text-foreground">
                   {venture.name}
                 </p>
-                <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
+                <p className="text-pretty text-base leading-relaxed text-muted-foreground">
                   {venture.description}
                 </p>
-                <p className="text-xs italic text-muted-foreground/60">
+                <p className="text-sm italic text-muted-foreground/60">
                   {venture.note}
                 </p>
-                <p className="mt-auto inline-flex items-center gap-1.5 font-mono text-xs text-primary/80">
+                <p className="mt-auto inline-flex items-center gap-1.5 font-mono text-sm text-primary/80">
                   {venture.domain}
                 </p>
               </a>
