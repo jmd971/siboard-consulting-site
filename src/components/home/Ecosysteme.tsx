@@ -2,10 +2,35 @@ import { ArrowUpRight } from "lucide-react";
 
 import { ECOSYSTEME } from "@/lib/constants";
 
-const VENTURE_ICONS: Record<string, { emoji: string; color: string; bg: string }> = {
-  AdamBoards: { emoji: "📊", color: "text-primary", bg: "bg-primary/10" },
-  TransmiExpert: { emoji: "🔄", color: "text-accent", bg: "bg-accent/10" },
-  SecureXia: { emoji: "🛡️", color: "text-foreground", bg: "bg-secondary" },
+/* Icônes statiques par produit — classes Tailwind complètes pour éviter la purge */
+function AdamBoardsIcon() {
+  return (
+    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-xl">
+      📊
+    </div>
+  );
+}
+
+function TransmiExpertIcon() {
+  return (
+    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 text-xl">
+      🔄
+    </div>
+  );
+}
+
+function SecureXiaIcon() {
+  return (
+    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary text-xl">
+      🛡️
+    </div>
+  );
+}
+
+const VENTURE_ICONS: Record<string, () => React.JSX.Element> = {
+  AdamBoards: AdamBoardsIcon,
+  TransmiExpert: TransmiExpertIcon,
+  SecureXia: SecureXiaIcon,
 };
 
 export function Ecosysteme() {
@@ -22,7 +47,7 @@ export function Ecosysteme() {
 
       <ul className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-3">
         {ECOSYSTEME.map((venture) => {
-          const icon = VENTURE_ICONS[venture.name];
+          const Icon = VENTURE_ICONS[venture.name];
           return (
             <li key={venture.name}>
               <a
@@ -32,9 +57,7 @@ export function Ecosysteme() {
                 className="group flex h-full flex-col gap-4 rounded-2xl border border-border/60 bg-surface/40 p-7 transition-colors hover:border-primary/30 hover:bg-surface/60 cursor-pointer"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <div className={`flex h-10 w-10 items-center justify-center rounded-xl text-xl ${icon?.bg ?? "bg-secondary"}`}>
-                    {icon?.emoji ?? "🔗"}
-                  </div>
+                  {Icon ? <Icon /> : <div className="h-10 w-10" />}
                   <ArrowUpRight
                     className="h-4 w-4 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
                     aria-hidden
