@@ -1,10 +1,9 @@
-<svg width="280" height="64" viewBox="0 0 280 64" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&family=DM+Sans:wght@400&display=swap');
-    </style>
-  </defs>
-  <text x="0" y="38" font-family="Syne, sans-serif" font-weight="800" font-size="36" fill="#0D0F12" letter-spacing="-1.5">SIBOARD</text>
-  <rect x="1" y="46" width="178" height="2.5" rx="1.25" fill="#D4A853"/>
-  <text x="2" y="62" font-family="DM Sans, sans-serif" font-weight="400" font-size="12" fill="#888888" letter-spacing="3">CONSULTING</text>
+<svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+  <svg x="0" y="0" width="40" height="40" viewBox="0 0 100 100">
+    <path d="M 82 50 A 32 32 0 1 1 68 18" fill="none" stroke="#5C4EFF" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="68" cy="18" r="8" fill="#FF5C35"/>
+    <circle cx="50" cy="50" r="12" fill="#12122A"/>
+  </svg>
+  <text x="52" y="16" font-family="Figtree, sans-serif" font-weight="900" font-size="17" fill="#12122A" letter-spacing="-0.7">SIBOARD</text>
+  <text x="53" y="30" font-family="Figtree, sans-serif" font-weight="300" font-size="9" fill="#5C4EFF" letter-spacing="2">consulting</text>
 </svg>
