@@ -3,6 +3,13 @@ import { ArrowRight, MapPin } from "lucide-react";
 
 import { CLIENTS } from "@/lib/constants";
 
+const AVATAR_STYLES = [
+  "bg-primary text-primary-foreground",
+  "bg-accent text-white",
+  "bg-foreground text-background",
+  "bg-primary/15 text-primary ring-primary/20",
+] as const;
+
 export function RealisationsApercu() {
   const featured = CLIENTS.filter((c) => c.featured).slice(0, 4);
 
@@ -28,12 +35,12 @@ export function RealisationsApercu() {
         </div>
 
         <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-          {featured.map((client) => (
+          {featured.map((client, index) => (
             <li key={client.slug}>
               <article className="group flex h-full items-start gap-5 rounded-2xl border border-border/60 bg-background/60 p-5 transition-colors hover:border-primary/30 hover:bg-surface/60 sm:p-6">
                 <div
                   aria-hidden
-                  className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-secondary text-sm font-semibold text-foreground/80 ring-1 ring-border"
+                  className={`grid h-12 w-12 shrink-0 place-items-center rounded-xl text-sm font-bold ring-1 ring-border ${AVATAR_STYLES[index % AVATAR_STYLES.length]}`}
                 >
                   {client.initials}
                 </div>
