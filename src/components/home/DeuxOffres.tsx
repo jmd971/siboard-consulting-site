@@ -47,7 +47,7 @@ export function DeuxOffres() {
         <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
           Faire entrer plus de clients, sans dépendre de la chance.
         </h2>
-        <p className="mt-4 text-pretty text-muted-foreground">
+        <p className="mt-4 text-pretty text-base text-muted-foreground">
           Choisissez l&apos;approche adaptée à votre situation. Si vous hésitez,
           commencez par l&apos;audit gratuit — on vous oriente sans engagement.
         </p>
@@ -84,14 +84,14 @@ export function DeuxOffres() {
                   <h3 className="text-2xl font-bold tracking-tight">
                     {offer.title}
                   </h3>
-                  <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
+                  <p className="text-pretty text-base leading-relaxed text-muted-foreground">
                     {offer.description}
                   </p>
                 </div>
 
-                <ul className="space-y-2.5 text-sm">
+                <ul className="space-y-2.5">
                   {offer.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-3">
+                    <li key={bullet} className="flex items-start gap-3 text-base">
                       <span
                         aria-hidden
                         className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
@@ -102,7 +102,7 @@ export function DeuxOffres() {
                 </ul>
 
                 {"guarantee" in offer && offer.guarantee ? (
-                  <div className="rounded-lg border border-primary/30 bg-primary/[0.08] px-4 py-2.5 text-xs font-medium text-primary">
+                  <div className="rounded-lg border border-primary/30 bg-primary/[0.08] px-4 py-2.5 text-sm font-medium text-primary">
                     {offer.guarantee}
                   </div>
                 ) : null}
@@ -110,7 +110,7 @@ export function DeuxOffres() {
                 <div className="mt-auto pt-2">
                   <Link
                     href={offer.cta.href}
-                    className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+                    className="group inline-flex items-center gap-1.5 text-base font-medium text-primary transition-colors hover:text-primary/80"
                   >
                     {offer.cta.label}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
