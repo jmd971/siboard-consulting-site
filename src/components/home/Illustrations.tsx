@@ -34,25 +34,18 @@ export function HeroIllustration({ className }: { className?: string }) {
 
       {/* ── Carte principale : dashboard leads ── */}
       <g transform="translate(60, 60)">
-        {/* Shadow */}
         <rect x="4" y="6" width="240" height="170" rx="18" fill="#12122A" opacity="0.07" />
-        {/* Carte */}
         <rect width="240" height="170" rx="18" fill="white" />
-        {/* Header bande colorée */}
         <rect width="240" height="6" rx="3" fill="#5C4EFF" />
-        {/* Label */}
         <text x="18" y="32" fontFamily="Figtree, sans-serif" fontWeight="600" fontSize="11" fill="#12122A" opacity="0.5" letterSpacing="0.5">LEADS CE MOIS</text>
-        {/* Stat principale */}
         <text x="18" y="62" fontFamily="Figtree, sans-serif" fontWeight="900" fontSize="36" fill="#12122A" letterSpacing="-1.5">+47%</text>
         <rect x="18" y="70" width="52" height="3" rx="1.5" fill="#FF5C35" opacity="0.7" />
-        {/* Barres graphique */}
         <rect x="18" y="125" width="22" height="28" rx="5" fill="#5C4EFF" opacity="0.2" />
         <rect x="50" y="110" width="22" height="43" rx="5" fill="#5C4EFF" opacity="0.35" />
         <rect x="82" y="95" width="22" height="58" rx="5" fill="#5C4EFF" opacity="0.55" />
         <rect x="114" y="78" width="22" height="75" rx="5" fill="#5C4EFF" opacity="0.75" />
         <rect x="146" y="55" width="22" height="98" rx="5" fill="#5C4EFF" />
         <rect x="178" y="40" width="22" height="113" rx="5" fill="#FF5C35" />
-        {/* Labels mois */}
         <text x="21" y="163" fontFamily="Figtree, sans-serif" fontSize="8" fill="#12122A" opacity="0.3">Jan</text>
         <text x="53" y="163" fontFamily="Figtree, sans-serif" fontSize="8" fill="#12122A" opacity="0.3">Fév</text>
         <text x="85" y="163" fontFamily="Figtree, sans-serif" fontSize="8" fill="#12122A" opacity="0.3">Mar</text>
@@ -79,16 +72,13 @@ export function HeroIllustration({ className }: { className?: string }) {
         <rect x="3" y="4" width="140" height="80" rx="14" fill="#12122A" opacity="0.08" />
         <rect width="140" height="80" rx="14" fill="white" />
         <rect width="140" height="4" rx="2" fill="#5C4EFF" />
-        {/* Icône agent */}
         <circle cx="22" cy="36" r="13" fill="#EEF0FF" />
         <path d="M 15 36 A 7 7 0 1 1 29 36" fill="none" stroke="#5C4EFF" strokeWidth="2.5" strokeLinecap="round" />
         <circle cx="22" cy="36" r="3" fill="#5C4EFF" />
-        {/* Pulse */}
         <circle cx="32" cy="26" r="4" fill="#12122A" />
         <circle cx="32" cy="26" r="2" fill="#F7F6FF" />
         <text x="44" y="30" fontFamily="Figtree, sans-serif" fontWeight="700" fontSize="11" fill="#12122A">Agent actif</text>
         <text x="44" y="44" fontFamily="Figtree, sans-serif" fontSize="9" fill="#12122A" opacity="0.4">Répond 24h/24</text>
-        {/* Ligne de texte animée */}
         <rect x="14" y="60" width="80" height="4" rx="2" fill="#5C4EFF" opacity="0.15" />
         <rect x="14" y="68" width="55" height="4" rx="2" fill="#5C4EFF" opacity="0.1" />
       </g>
@@ -109,7 +99,6 @@ export function HeroIllustration({ className }: { className?: string }) {
         <rect width="190" height="100" rx="14" fill="white" />
         <rect width="190" height="4" rx="2" fill="#5C4EFF" />
         <text x="14" y="26" fontFamily="Figtree, sans-serif" fontWeight="600" fontSize="10" fill="#12122A" opacity="0.4" letterSpacing="0.5">AGENDA CETTE SEMAINE</text>
-        {/* Jours */}
         {["L","M","M","J","V"].map((d, i) => (
           <g key={i} transform={`translate(${14 + i * 34}, 34)`}>
             <text x="12" y="12" fontFamily="Figtree, sans-serif" fontSize="9" fill="#12122A" opacity="0.35" textAnchor="middle">{d}</text>
@@ -143,7 +132,14 @@ export function HeroIllustration({ className }: { className?: string }) {
 /** Illustration mini — Automatisation (pour carte offre) */
 export function AutomatisationIllustration({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden>
+    <svg
+      viewBox="0 0 320 140"
+      width="100%"
+      height="140"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden
+    >
       {/* Étape 1 */}
       <rect x="0" y="30" width="72" height="72" rx="14" fill="#EEF0FF" />
       <text x="36" y="58" fontFamily="Figtree, sans-serif" fontSize="22" textAnchor="middle">📩</text>
@@ -173,7 +169,14 @@ export function AutomatisationIllustration({ className }: { className?: string }
 /** Illustration mini — Mission 90J (pour carte offre) */
 export function Mission90JIllustration({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden>
+    <svg
+      viewBox="0 0 320 140"
+      width="100%"
+      height="140"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden
+    >
       {/* Timeline 90 jours */}
       <line x1="20" y1="70" x2="300" y2="70" stroke="#EEF0FF" strokeWidth="3" strokeLinecap="round" />
       {/* Segments */}
