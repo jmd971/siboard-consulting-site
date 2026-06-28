@@ -1,13 +1,14 @@
 import Link from "next/link";
-import { ArrowRight, CalendarCheck, Rocket } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { AutomatisationIllustration, Mission90JIllustration } from "@/components/home/Illustrations";
 
 const OFFERS = [
   {
     badge: "Pour les TPE qui perdent des leads ou du temps",
-    icon: CalendarCheck,
+    illustration: AutomatisationIllustration,
     title: "Automatisation + Agents IA",
     description:
       "Vos prospects obtiennent une réponse immédiate. Vos devis sont relancés sans y penser. Vos fichiers Excel cessent d'être votre système d'information. On déploie les briques manquantes — automatisation, agents IA, outils métier sur mesure — sur votre activité.",
@@ -21,7 +22,7 @@ const OFFERS = [
   },
   {
     badge: "Pour les pros avec offre B2B à activer",
-    icon: Rocket,
+    illustration: Mission90JIllustration,
     title: "Mission Croissance 90J",
     description:
       "Vous avez une offre puissante mais pas le temps ni les compétences pour la commercialiser en B2B. On identifie votre produit phare, on construit la mécanique commerciale complète et on l'exécute. Done for you.",
@@ -54,7 +55,7 @@ export function DeuxOffres() {
 
       <div className="mt-12 grid gap-5 md:grid-cols-2">
         {OFFERS.map((offer) => {
-          const Icon = offer.icon;
+          const Illustration = offer.illustration;
           return (
             <Card
               key={offer.title}
@@ -65,10 +66,12 @@ export function DeuxOffres() {
               }
             >
               <CardContent className="relative flex h-full flex-col gap-6 p-7 sm:p-8">
+                {/* Illustration */}
+                <div className="rounded-xl bg-background/60 p-2">
+                  <Illustration className="w-full" />
+                </div>
+
                 <div className="flex items-start justify-between gap-4">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/20">
-                    <Icon className="h-5 w-5" />
-                  </div>
                   <Badge
                     variant="outline"
                     className="border-border/60 bg-background/60 text-xs font-normal text-muted-foreground"
@@ -78,7 +81,7 @@ export function DeuxOffres() {
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-2xl font-semibold tracking-tight">
+                  <h3 className="text-2xl font-bold tracking-tight">
                     {offer.title}
                   </h3>
                   <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
