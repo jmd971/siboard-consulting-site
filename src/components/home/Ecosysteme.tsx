@@ -2,8 +2,6 @@ import { ArrowUpRight } from "lucide-react";
 
 import { ECOSYSTEME } from "@/lib/constants";
 
-/* ── Icônes SVG sur mesure, palette identité Siboard ── */
-
 function AdamBoardsIcon() {
   return (
     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
@@ -43,10 +41,89 @@ function SecureXiaIcon() {
   );
 }
 
+function AdamBoardsMockup() {
+  return (
+    <div className="w-full overflow-hidden rounded-xl border border-primary/20 bg-[#F7F6FF]">
+      <div className="flex items-center gap-1.5 border-b border-primary/10 bg-white/60 px-3 py-2">
+        <div className="h-2 w-2 rounded-full bg-border" />
+        <div className="h-2 w-2 rounded-full bg-border" />
+        <div className="h-2 w-2 rounded-full bg-border" />
+        <div className="ml-2 h-2 w-20 rounded bg-border/60" />
+      </div>
+      <div className="p-3">
+        <div className="mb-2 flex items-end gap-1.5">
+          <div className="h-10 w-4 rounded bg-primary/20" />
+          <div className="h-14 w-4 rounded bg-primary/40" />
+          <div className="h-8 w-4 rounded bg-primary/25" />
+          <div className="h-16 w-4 rounded bg-primary/60" />
+          <div className="h-20 w-4 rounded bg-primary" />
+          <div className="h-24 w-4 rounded bg-accent" />
+        </div>
+        <div className="flex gap-2">
+          <div className="h-2 w-12 rounded bg-primary/20" />
+          <div className="h-2 w-8 rounded bg-accent/30" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TransmiExpertMockup() {
+  return (
+    <div className="w-full overflow-hidden rounded-xl border border-accent/20 bg-[#FFF8F6]">
+      <div className="border-b border-accent/10 bg-white/60 px-3 py-2">
+        <div className="h-2 w-16 rounded bg-accent/30" />
+      </div>
+      <div className="space-y-2 p-3">
+        {[70, 45, 85, 55].map((w, i) => (
+          <div key={i} className="flex items-center gap-2">
+            <div className="h-2 w-2 rounded-full bg-accent/40" />
+            <div className="h-2 flex-1 rounded bg-border/40" />
+            <div className="h-2 rounded bg-accent/60" style={{ width: `${w * 0.6}px`, maxWidth: "60%" }} />
+          </div>
+        ))}
+        <div className="mt-3 h-6 w-full rounded-lg bg-accent/15 flex items-center justify-center">
+          <div className="h-2 w-16 rounded bg-accent/50" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SecureXiaMockup() {
+  return (
+    <div className="w-full overflow-hidden rounded-xl border border-border/40 bg-[#F7F6FF]">
+      <div className="border-b border-border/30 bg-white/60 px-3 py-2">
+        <div className="h-2 w-14 rounded bg-foreground/20" />
+      </div>
+      <div className="space-y-2 p-3">
+        {["Sortie de secours", "Extincteurs", "Détecteurs", "Affichage réglementaire"].map((item, i) => (
+          <div key={i} className="flex items-center gap-2">
+            <div className={`h-4 w-4 shrink-0 rounded flex items-center justify-center ${i < 3 ? "bg-primary" : "bg-border/30"}`}>
+              {i < 3 && (
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                  <path d="M1.5 4 L3 5.5 L6.5 2" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              )}
+            </div>
+            <div className="h-2 flex-1 rounded bg-foreground/15" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const VENTURE_ICONS: Record<string, () => React.JSX.Element> = {
   AdamBoards: AdamBoardsIcon,
   TransmiExpert: TransmiExpertIcon,
   SecureXia: SecureXiaIcon,
+};
+
+const VENTURE_MOCKUPS: Record<string, () => React.JSX.Element> = {
+  AdamBoards: AdamBoardsMockup,
+  TransmiExpert: TransmiExpertMockup,
+  SecureXia: SecureXiaMockup,
 };
 
 export function Ecosysteme() {
@@ -64,14 +141,22 @@ export function Ecosysteme() {
       <ul className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-3">
         {ECOSYSTEME.map((venture) => {
           const Icon = VENTURE_ICONS[venture.name];
+          const Mockup = VENTURE_MOCKUPS[venture.name];
           return (
             <li key={venture.name}>
               <a
                 href={venture.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col gap-4 rounded-2xl border border-border/60 bg-surface/40 p-7 transition-colors hover:border-primary/30 hover:bg-surface/60 cursor-pointer"
+                className="group flex h-full flex-col gap-4 rounded-2xl border border-border/60 bg-surface/40 p-6 transition-colors hover:border-primary/30 hover:bg-surface/60 cursor-pointer"
               >
+                {/* Mini mockup produit */}
+                {Mockup && (
+                  <div className="w-full">
+                    <Mockup />
+                  </div>
+                )}
+
                 <div className="flex items-start justify-between gap-3">
                   {Icon ? <Icon /> : <div className="h-10 w-10" />}
                   <ArrowUpRight
