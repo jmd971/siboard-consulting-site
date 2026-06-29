@@ -110,6 +110,29 @@ export const CLIENTS: Client[] = [
     featured: true,
   },
   {
+    slug: "magik33-studio",
+    name: "Magik33 Studio",
+    initials: "M33",
+    sector: "Studio d'enregistrement & production musicale",
+    location: "Petit-Bourg, Guadeloupe",
+    result: "Présence digitale et visibilité Google activées",
+    detail:
+      "Création de site web + Google Business Profile + stratégie avis clients pour un studio de référence en Guadeloupe.",
+    href: "https://magik33studio.com",
+    featured: false,
+  },
+  {
+    slug: "pole-sante-sud",
+    name: "Pôle Santé Sud",
+    initials: "PSS",
+    sector: "Centre du sommeil & santé pluridisciplinaire",
+    location: "Guadeloupe",
+    result: "Visibilité locale et prise de RDV en ligne opérationnels",
+    detail:
+      "Optimisation Google Business Profile + stratégie avis + automatisation de la prise de rendez-vous.",
+    featured: false,
+  },
+  {
     slug: "bateau-alize",
     name: "Bateau Alizé",
     initials: "BA",
