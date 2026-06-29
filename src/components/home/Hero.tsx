@@ -26,6 +26,18 @@ const noMotionVariants: Variants = {
   visible: { opacity: 1, y: 0 },
 };
 
+const CLIENT_LOGOS = [
+  { name: "Odyssée by Béa", initials: "OB", color: "#5C4EFF" },
+  { name: "Sacodif", initials: "SC", color: "#FF5C35" },
+  { name: "Evolutia Formation", initials: "EF", color: "#5C4EFF" },
+  { name: "DFP France", initials: "DF", color: "#12122A" },
+  { name: "Axiora Consulting", initials: "AC", color: "#FF5C35" },
+  { name: "AdamBoards", initials: "AB", color: "#5C4EFF" },
+];
+
+// Duplicate for seamless infinite scroll
+const LOGOS_DOUBLED = [...CLIENT_LOGOS, ...CLIENT_LOGOS];
+
 export function Hero() {
   const prefersReducedMotion = useReducedMotion();
   const variants = prefersReducedMotion ? noMotionVariants : fadeUpVariants;
@@ -132,18 +144,54 @@ export function Hero() {
 
         </div>
 
-        {/* ── Preuve sociale ── */}
-        <motion.p
+        {/* ── Logo bar clients ── */}
+        <motion.div
           custom={6}
           variants={variants}
           initial="hidden"
           animate="visible"
-          className="mx-auto mt-16 max-w-md border-t border-border/50 pt-8 text-center text-sm text-muted-foreground"
+          className="mt-16 border-t border-border/50 pt-8"
         >
-          Des clients passés à la{" "}
-          <span className="font-bold text-primary">1ère page Google</span>, en
-          Guadeloupe et en Île-de-France.
-        </motion.p>
+          <p className="mb-5 text-center text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground/60">
+            Ils nous font confiance
+          </p>
+
+          {/* Infinite scroll container */}
+          <div className="relative overflow-hidden">
+            {/* Left fade */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent sm:w-24"
+            />
+            {/* Right fade */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent sm:w-24"
+            />
+
+            <div
+              className="flex animate-logo-scroll gap-8 sm:gap-12"
+              style={prefersReducedMotion ? { animationPlayState: "paused" } : undefined}
+            >
+              {LOGOS_DOUBLED.map((client, i) => (
+                <div
+                  key={i}
+                  className="flex shrink-0 items-center gap-2.5 rounded-xl border border-border/40 bg-surface/40 px-4 py-2.5 transition-colors hover:border-primary/20 hover:bg-surface/80"
+                >
+                  <div
+                    className="grid h-7 w-7 shrink-0 place-items-center rounded-md text-[10px] font-bold text-white"
+                    style={{ backgroundColor: client.color }}
+                  >
+                    {client.initials}
+                  </div>
+                  <span className="whitespace-nowrap text-sm font-medium text-foreground/70">
+                    {client.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
