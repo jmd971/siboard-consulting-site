@@ -27,12 +27,15 @@ const noMotionVariants: Variants = {
 };
 
 const CLIENT_LOGOS = [
-  { name: "Odyssée by Béa", initials: "OB", color: "#5C4EFF" },
-  { name: "Sacodif", initials: "SC", color: "#FF5C35" },
-  { name: "Evolutia Formation", initials: "EF", color: "#5C4EFF" },
-  { name: "DFP France", initials: "DF", color: "#12122A" },
-  { name: "Axiora Consulting", initials: "AC", color: "#FF5C35" },
-  { name: "AdamBoards", initials: "AB", color: "#5C4EFF" },
+  { name: "Odyssée by Béa",        initials: "OB",  color: "#5C4EFF" },
+  { name: "Sacodif",               initials: "SC",  color: "#FF5C35" },
+  { name: "Evolutia Formation",    initials: "EF",  color: "#5C4EFF" },
+  { name: "DFP France",            initials: "DF",  color: "#12122A" },
+  { name: "Magik33 Studio",        initials: "M33", color: "#FF5C35" },
+  { name: "Pôle Santé Sud",        initials: "PSS", color: "#5C4EFF" },
+  { name: "Axiora Consulting",     initials: "AC",  color: "#12122A" },
+  { name: "Fast Computer Company", initials: "FCC", color: "#FF5C35" },
+  { name: "AdamBoards",            initials: "AB",  color: "#5C4EFF" },
 ];
 
 // Duplicate for seamless infinite scroll
