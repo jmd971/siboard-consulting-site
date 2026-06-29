@@ -29,15 +29,31 @@ function ProofBand() {
   );
 }
 
+function SectionNumber({ n }: { n: string }) {
+  return (
+    <span className="font-mono text-[10px] font-medium tracking-[0.2em] text-primary/50">
+      {n}
+    </span>
+  );
+}
+
 export default function HomePage() {
   return (
     <>
       <Hero />
       <ProofBand />
-      <DeuxOffres />
-      <CommentCaMarche />
-      <RealisationsApercu />
-      <Ecosysteme />
+      <div id="section-offres" data-section="01">
+        <DeuxOffres />
+      </div>
+      <div id="section-methode" data-section="02">
+        <CommentCaMarche />
+      </div>
+      <div id="section-realisations" data-section="03">
+        <RealisationsApercu />
+      </div>
+      <div id="section-ecosysteme" data-section="04">
+        <Ecosysteme />
+      </div>
       <CTABanner />
     </>
   );
