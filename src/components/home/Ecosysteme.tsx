@@ -131,7 +131,7 @@ export function Ecosysteme() {
     <section className="container-page pt-20 sm:pt-28 pb-4">
       <div className="mx-auto max-w-2xl text-center">
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
-          Notre écosystème
+          04 — Notre écosystème
         </p>
         <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
           Au-delà du consulting — des plateformes que nous avons construites.
