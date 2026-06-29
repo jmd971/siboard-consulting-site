@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -137,11 +138,11 @@ function PageHero() {
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Diplômé de l&apos;EPITA, formé sur le terrain des télécoms et
-              des paiements mobiles. Fondateur de Siboard Consulting depuis 2020.
-              Cinq ans à construire des solutions sur mesure entre la
-              Guadeloupe et l&apos;Île-de-France — jamais de package générique
-              imposé.
+              Diplômé de l&apos;EPITA, 25 ans d&apos;expérience dont 21 ans
+              chez Orange Caraïbe à piloter des projets de transformation
+              digitale. Fondateur de Siboard Consulting depuis 2020. Cinq ans
+              à construire des solutions sur mesure entre la Guadeloupe et
+              l&apos;Île-de-France — jamais de package générique imposé.
             </p>
 
             <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row">
@@ -168,6 +169,21 @@ function PageHero() {
           </div>
 
           <div className="md:col-span-5">
+            {/* Photo fondateur */}
+            <div className="mb-6 flex justify-center md:justify-end">
+              <div className="relative">
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/30 to-accent/20 blur-md" />
+                <Image
+                  src="/images/fondateur.png"
+                  alt="Jean-Marc Dolmare, fondateur de Siboard Consulting"
+                  width={220}
+                  height={220}
+                  className="relative h-44 w-44 rounded-full object-cover ring-4 ring-background sm:h-52 sm:w-52"
+                  priority
+                />
+              </div>
+            </div>
+
             <Card className="border-border/60 bg-surface/60">
               <CardContent className="space-y-6 p-7 sm:p-8">
                 <div>
@@ -187,9 +203,9 @@ function PageHero() {
                     Parcours
                   </p>
                   <p className="mt-2 text-sm text-foreground/90">
-                    Télécoms et paiements mobiles avant Siboard. Connaissance
-                    profonde des stacks d&apos;entreprise et des contraintes
-                    de production.
+                    21 ans chez Orange Caraïbe — Responsable SI, Digital et
+                    Plateformes de Services. Expert transformation digitale,
+                    automatisation et IA.
                   </p>
                 </div>
                 <div>
