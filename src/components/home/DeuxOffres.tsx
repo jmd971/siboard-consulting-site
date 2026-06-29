@@ -42,7 +42,7 @@ export function DeuxOffres() {
     <section className="container-page py-20 sm:py-28">
       <div className="mx-auto max-w-2xl text-center">
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
-          Deux chemins, un objectif
+          01 — Deux chemins, un objectif
         </p>
         <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
           Faire entrer plus de clients, sans dépendre de la chance.
