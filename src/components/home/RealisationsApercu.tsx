@@ -26,7 +26,7 @@ export function RealisationsApercu() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
-              Réalisations
+              03 — Réalisations
             </p>
             <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
               Des secteurs différents, un même fil rouge : un digital qui rapporte.
