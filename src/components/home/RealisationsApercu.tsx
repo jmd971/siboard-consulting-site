@@ -12,7 +12,7 @@ const AVATAR_STYLES = [
 
 const CLIENT_STATS: Record<string, { value: string; label: string; bg: string; text: string }> = {
   "odyssee-by-bea":     { value: "1ère position", label: "Google", bg: "bg-primary/10", text: "text-primary" },
-  "sacodif":            { value: "Page 3 → Page 1", label: "Google", bg: "bg-accent/10", text: "text-accent" },
+  "sacodif":            { value: "Page 3 → Page 1", label: "Google", bg: "bg-accent/10", text: "text-accent-strong" },
   "evolutia-formation": { value: "1ère position", label: "Google", bg: "bg-primary/10", text: "text-primary" },
   "dfp-france":         { value: "RDV automatisé", label: "100%", bg: "bg-foreground/8", text: "text-foreground" },
 };
@@ -34,7 +34,7 @@ export function RealisationsApercu() {
           </div>
           <Link
             href="/realisations"
-            className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+            className="group inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
           >
             Toutes les réalisations
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

@@ -16,6 +16,8 @@
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-primary-on-dark: var(--primary-on-dark);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -63,9 +65,15 @@
   --muted: oklch(0.95 0.012 278);
   --muted-foreground: oklch(0.50 0.025 270);
 
-  /* Accent = corail #FF5C35 */
+  /* Accent = corail #FF5C35 — reserve aux FONDS et aux grands titres */
   --accent: oklch(0.68 0.20 35);
   --accent-foreground: oklch(1 0 0);
+
+  /* Variantes de TEXTE, pour tenir le contraste 4.5:1 (WCAG AA).
+     Ne jamais utiliser --accent ou --primary en couleur de texte
+     sous 24px : ils tombent autour de 3:1. */
+  --accent-strong: oklch(0.48 0.16 32);      /* corail assombri, texte sur fond clair */
+  --primary-on-dark: oklch(0.76 0.13 278);   /* violet eclairci, texte sur fond sombre */
 
   --destructive: oklch(0.65 0.21 25);
 

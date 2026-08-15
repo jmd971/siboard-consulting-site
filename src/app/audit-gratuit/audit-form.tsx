@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 type Status = "idle" | "submitting" | "success" | "error";
 
 const inputClass =
-  "w-full rounded-lg border border-border/60 bg-background/60 px-3.5 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/20";
+  "w-full rounded-lg border border-border/60 bg-background/60 px-3.5 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/20";
 
 export function AuditForm() {
   const [status, setStatus] = useState<Status>("idle");

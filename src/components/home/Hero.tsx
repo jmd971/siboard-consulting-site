@@ -30,13 +30,13 @@ const ROTATING_WORDS = ["des prospects.", "des devis.", "des heures.", "des clie
 
 const CLIENT_LOGOS = [
   { name: "Odyssée by Béa",        initials: "OB",  color: "#5C4EFF" },
-  { name: "Sacodif",               initials: "SC",  color: "#FF5C35" },
+  { name: "Sacodif",               initials: "SC",  color: "#C4441C" },
   { name: "Evolutia Formation",    initials: "EF",  color: "#5C4EFF" },
   { name: "DFP France",            initials: "DF",  color: "#12122A" },
-  { name: "Magik33 Studio",        initials: "M33", color: "#FF5C35" },
+  { name: "Magik33 Studio",        initials: "M33", color: "#C4441C" },
   { name: "Pôle Santé Sud",        initials: "PSS", color: "#5C4EFF" },
   { name: "Axiora Consulting",     initials: "AC",  color: "#12122A" },
-  { name: "Fast Computer Company", initials: "FCC", color: "#FF5C35" },
+  { name: "Fast Computer Company", initials: "FCC", color: "#C4441C" },
 ];
 
 const LOGOS_DOUBLED = [...CLIENT_LOGOS, ...CLIENT_LOGOS];
@@ -114,8 +114,8 @@ function DashboardMockup() {
           <div className="mb-5 grid grid-cols-3 gap-3">
             {[
               { label: "Position Google", value: "#1", color: "text-primary", bg: "bg-primary/8" },
-              { label: "Avis clients", value: "4.9★", color: "text-accent", bg: "bg-accent/8" },
-              { label: "RDV ce mois", value: "+38%", color: "text-green-600", bg: "bg-green-500/8" },
+              { label: "Avis clients", value: "4.9★", color: "text-accent-strong", bg: "bg-accent/8" },
+              { label: "RDV ce mois", value: "+38%", color: "text-green-700", bg: "bg-green-500/8" },
             ].map((kpi) => (
               <div key={kpi.label} className={`rounded-xl ${kpi.bg} p-3`}>
                 <div className="text-[10px] text-muted-foreground">{kpi.label}</div>
