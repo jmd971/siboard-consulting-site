@@ -24,14 +24,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Siboard Consulting — Automatisation & IA pour TPE/PME Guadeloupe et IDF",
+    default: "Siboard Consulting — Diagnostic de process et systèmes pour TPE/PME Guadeloupe et IDF",
     template: `%s · ${SITE.name}`,
   },
   description:
-    "Audit digital, automatisation sur mesure et agents IA pour les TPE/PME en Guadeloupe et Île-de-France. On comprend votre process avant de construire votre solution.",
+    "On analyse comment votre entreprise travaille vraiment, on chiffre ce que vous perdez, puis on construit les systèmes qui le corrigent. Guadeloupe, Antilles-Guyane et Île-de-France.",
   keywords: [
     "automatisation",
-    "audit digital",
+    "diagnostic de process",
+    "logiciel métier sur mesure",
     "Guadeloupe",
     "TPE PME",
     "agent IA",
@@ -46,15 +47,15 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: SITE.url,
     siteName: SITE.name,
-    title: `${SITE.name} — Audit, automatisation, croissance`,
+    title: `${SITE.name} — Diagnostic de process, systèmes et croissance`,
     description:
-      "On comprend votre process avant de construire votre solution. Audit gratuit, automatisation sur mesure et Mission Croissance 90J.",
+      "On regarde comment vous travaillez vraiment. Ensuite on répare. État des lieux chiffré, systèmes installés, logiciel métier sur mesure.",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} — Audit, automatisation, croissance`,
+    title: `${SITE.name} — Diagnostic de process, systèmes et croissance`,
     description:
-      "On comprend votre process avant de construire votre solution.",
+      "On regarde comment vous travaillez vraiment. Ensuite on répare.",
   },
   robots: {
     index: true,

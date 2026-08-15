@@ -79,10 +79,10 @@ const STEPS: Step[] = [
     num: "01",
     color: "#5C4EFF",
     bg: "rgba(92,78,255,0.12)",
-    title: "Audit gratuit",
+    title: "L’État des lieux",
     subtitle: "On lit votre activité, pas votre site.",
     description:
-      "En 30 minutes, on identifie vos 3 plus grosses fuites : leads sans réponse, devis non relancés, temps perdu en saisie manuelle. Vous repartez avec un plan, pas un pitch.",
+      "On suit le parcours réel de votre activité, de la première demande jusqu’à la facture encaissée, et on chiffre chaque fuite en euros et en heures avec vos chiffres. Vous repartez avec un document qui vous appartient, pas avec un pitch.",
     Illustration: AuditIllustration,
   },
   {
@@ -119,7 +119,7 @@ export function CommentCaMarche() {
             Comment ça marche
           </p>
           <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            De zéro à un système qui tourne — en 30 jours.
+            De votre process actuel à un système qui tourne.
           </h2>
           <p className="mt-4 text-base text-white/50">
             Pas de tunnel de vente. Pas de formation imposée. On s&apos;intègre dans votre activité et on livre.
@@ -166,10 +166,10 @@ export function CommentCaMarche() {
 
         <div className="mt-12 flex justify-center">
           <a
-            href="/audit-gratuit"
+            href="/etat-des-lieux"
             className="inline-flex h-12 items-center gap-2 rounded-full bg-[#5C4EFF] px-7 text-sm font-semibold text-white transition-opacity hover:opacity-90"
           >
-            Démarrer mon audit gratuit
+            Demander un état des lieux
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
