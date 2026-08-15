@@ -103,7 +103,7 @@ Le schéma à raconter, toujours le même : on analyse un process chez un client
 | Produit | Domaine | Ce que ça prouve |
 |---|---|---|
 | AdamBoards | adamboards.fr | Logiciel financier multi-sociétés avec une couche IA encadrée par des règles déterministes |
-| TransmiExpert | transmiexpert.fr | Transformer une saisie en document professionnel de 48 pages sans intervention humaine |
+| TransmiExpert | transmiexpert.fr | Livret **patrimonial** numérique (48 pages générées depuis une saisie) **et** application d'accompagnement à l'expertise immobilière. ⚠️ Ce n'est **pas** de la transmission ou cession d'entreprise, erreur récurrente à ne pas réintroduire |
 | SecureXia | securexia.fr | Modéliser une réglementation et la rendre utilisable sur le terrain |
 
 ### Mission Croissance 90J
