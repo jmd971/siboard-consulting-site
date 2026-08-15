@@ -16,12 +16,12 @@ type CTABannerProps = {
 };
 
 export function CTABanner({
-  eyebrow = "Audit gratuit",
-  title = "On analyse votre situation et on vous dit exactement quoi prioriser.",
-  description = "Pas une offre commerciale — un diagnostic honnête, sous 24h, sans engagement.",
+  eyebrow = "L’État des lieux",
+  title = "On regarde comment vous travaillez vraiment. Ensuite on répare.",
+  description = "Le premier échange est gratuit et sans engagement. Il sert à cadrer le périmètre et à vérifier que le diagnostic vous sera utile.",
   ctaLabel = CTA_PRIMARY.label,
   ctaHref = CTA_PRIMARY.href,
-  note = "Réservé aux TPE/PME en Guadeloupe, Martinique, Guyane et Île-de-France.",
+  note = "TPE, PME et collectivités en Guadeloupe, Martinique, Guyane et Île-de-France.",
   className,
 }: CTABannerProps) {
   return (

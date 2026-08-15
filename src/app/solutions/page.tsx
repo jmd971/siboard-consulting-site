@@ -1,428 +1,247 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Bot,
-  CalendarCheck,
-  CheckCircle2,
-  FileText,
-  MapPin,
-  Mic,
-  RefreshCw,
-  Shuffle,
-  Sparkles,
-  Wand2,
-  Wrench,
-  Zap,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { FaqAccordion } from "@/components/faq/FaqAccordion";
 import { CTABanner } from "@/components/shared/CTABanner";
+import { buttonVariants } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
-  CLIENTS,
-  CTA_PRIMARY,
-  SOLUTIONS_BRIQUES_AUTO,
-  SOLUTIONS_BRIQUES_IA,
+  FORMULE_COMPLETE,
+  LOGICIEL_METIER,
+  MODULES,
+  SOCLE,
 } from "@/lib/constants";
-import { faqSolutions, faqSolutionsSchema, howToSchema } from "@/components/faq/FaqSolutions";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Automatisation & Agents IA pour entreprises — Siboard Consulting",
+  title: "Solutions — le Socle Siboard et les cinq systèmes | Siboard Consulting",
   description:
-    "Automatisation des process, back-office et agents IA pour TPE/PME en Guadeloupe et Île-de-France : devis relancés, impayés suivis, RDV remplis, reporting automatique.",
-  keywords: [
-    "automatisation back-office",
-    "relance devis",
-    "suivi impayés",
-    "automatisation administrative",
-    "agent IA entreprise",
-    "Guadeloupe",
-  ],
+    "Une fondation commune, cinq systèmes prescrits après diagnostic : L’Accueil, Le Bureau, Le Fil, Le Retour, Le Point. Prix affichés. Guadeloupe et Île-de-France.",
   alternates: { canonical: "/solutions" },
   openGraph: {
-    title: "Automatisation & Agents IA — Siboard Consulting",
+    title: "Solutions — le Socle Siboard et les cinq systèmes",
     description:
-      "Deux niveaux de service complémentaires : automatisation des process et agents IA sur mesure pour TPE/PME.",
+      "On ne vend pas un catalogue. On installe ce que l’état des lieux a mis au jour.",
     url: "/solutions",
     type: "website",
   },
 };
 
-const AUTO_ICONS = [CalendarCheck, CheckCircle2, RefreshCw, Shuffle, FileText] as const;
-const IA_ICONS = [Bot, Mic, Wand2, Wrench] as const;
-
 export default function SolutionsPage() {
   return (
     <>
-      {/* Schémas JSON-LD : FAQPage + HowTo */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSolutionsSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
-      />
-      <PageHero />
-      <ProblemeSection />
-      <AncrageCoutSection />
-      <MethodeSection />
-      <SolutionsSection />
-      <CasClientsSection />
-      <FaqSection />
-      <CTABanner
-        eyebrow="Audit gratuit"
-        title="Audit digital offert pour toute entreprise en Guadeloupe et en Île-de-France."
-        description="On identifie vos fuites, on priorise, on vous propose un plan concret. Sans engagement."
-        note="Réponse sous 24h — Guadeloupe, Martinique, Guyane et Île-de-France."
-      />
+      <Hero />
+      <Socle />
+      <Systemes />
+      <Formule />
+      <LogicielMetier />
+      <CTABanner />
     </>
   );
 }
 
-function PageHero() {
+function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border/40">
-      <div className="container-page relative pt-20 pb-16 sm:pt-24 sm:pb-20">
-        <div className="mx-auto max-w-3xl text-center">
-          <Badge
-            variant="outline"
-            className="border-primary/30 bg-primary/5 text-xs font-normal text-primary"
+    <section className="relative overflow-hidden">
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-fade" />
+      <div className="container-page relative py-20 sm:py-28">
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+          {"Étape 2 — Ce que nous construisons"}
+        </p>
+        <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-[3.25rem] md:leading-[1.05]">
+          {"L’état des lieux dit quoi réparer. Voici avec quoi."}
+        </h1>
+        <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
+          {"Ces cinq systèmes ne sont pas un catalogue dans lequel on choisit. Ce sont des prescriptions. On installe celui qui répond à ce que le diagnostic a trouvé, et rien d’autre."}
+        </p>
+        <div className="mt-10">
+          <Link
+            href="/etat-des-lieux"
+            className={cn(buttonVariants({ size: "lg" }), "h-12 w-full px-6 text-base sm:w-auto")}
           >
-            Automatisation · Agents IA · Sur mesure
-          </Badge>
-          <h1 className="mt-6 text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-[3.25rem]">
-            Automatisation et Agents IA{" "}
-            <span className="text-primary">
-              sur mesure.
-            </span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Chaque jour, des prospects passent à côté, des RDV s&apos;évaporent,
-            des tâches mangent votre temps. On déploie les briques qui font
-            tourner votre activité — sans vous faire toucher aux outils.
-          </p>
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
-              href={CTA_PRIMARY.href}
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "h-12 w-full px-7 text-base font-medium hover:bg-primary/90 sm:w-auto",
-              )}
-            >
-              Audit gratuit
-              <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
-            <Link
-              href="#solutions"
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "h-12 w-full px-7 text-base font-medium sm:w-auto",
-              )}
-            >
-              Voir les solutions
-            </Link>
-          </div>
+            {"Commencer par l’état des lieux"}
+            <ArrowRight className="ml-1 h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>
   );
 }
 
-function ProblemeSection() {
+function Socle() {
   return (
-    <section className="border-b border-border/40 bg-surface/30">
+    <section className="border-y border-border/60 bg-surface/30">
       <div className="container-page py-16 sm:py-20">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
-            Le problème
-          </p>
-          <blockquote className="mt-5 text-balance text-xl font-medium leading-relaxed text-foreground sm:text-2xl">
-            &ldquo;Chaque jour, des prospects vous contactent… et
-            n&apos;obtiennent pas de réponse. Des clients partent sans laisser
-            d&apos;avis. Vos RDV ont des no-shows. Votre temps part dans des
-            tâches qui pourraient tourner seules.&rdquo;
-          </blockquote>
-          <p className="mt-6 text-pretty text-muted-foreground">
-            Ce n&apos;est pas un problème de volonté — c&apos;est un problème
-            d&apos;outillage. On commence par l&apos;audit pour savoir exactement
-            où vous perdez de l&apos;argent ou du temps.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function AncrageCoutSection() {
-  return (
-    <div className="border-b border-border/40 bg-amber-500/[0.03]">
-      <div className="container-page py-8">
-        <blockquote className="mx-auto max-w-2xl rounded-xl border border-amber-500/20 bg-amber-500/5 px-7 py-6 text-center text-sm leading-relaxed italic text-muted-foreground">
-          &ldquo;Un no-show par semaine coûte en moyenne{" "}
-          <span className="font-semibold not-italic text-foreground">
-            2 400 € par an
-          </span>{" "}
-          à un prestataire à 50 €/h. Un rappel automatique coûte{" "}
-          <span className="font-semibold not-italic text-foreground">
-            moins qu&apos;un café par jour.
-          </span>
-          &rdquo;
-        </blockquote>
-      </div>
-    </div>
-  );
-}
-
-function MethodeSection() {
-  return (
-    <section className="container-page py-20 sm:py-28">
-      <div className="mx-auto max-w-2xl text-center">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
-          La méthode
-        </p>
-        <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-          On part de votre process. Pas d&apos;un catalogue d&apos;outils.
-        </h2>
-      </div>
-
-      <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-3">
-        {[
-          {
-            num: "01",
-            title: "Audit",
-            description:
-              "On cartographie vos flux actuels : où entrent les prospects, où se perdent les RDV, où part votre temps. On priorise ce qui rapporte le plus vite.",
-          },
-          {
-            num: "02",
-            title: "Déploiement",
-            description:
-              "On construit les briques manquantes — automatisation ou agents IA — adaptées à votre stack et à votre activité. Pas de package générique.",
-          },
-          {
-            num: "03",
-            title: "Pilotage",
-            description:
-              "On vous forme à l&apos;usage quotidien : vous gardez la main sur votre activité, vos données, vos décisions. Nous, on fait vivre l&apos;infrastructure — supervision, évolutions, nouvelles briques au fil de vos besoins. Vous pilotez le business, le système travaille.",
-          },
-        ].map((step) => (
-          <Card key={step.num} className="h-full border-border/60 bg-surface/60">
-            <CardContent className="flex h-full flex-col gap-4 p-7">
-              <span className="font-mono text-sm tracking-widest text-primary">
-                {step.num}
+        <div className="grid gap-10 md:grid-cols-12 md:gap-12">
+          <div className="md:col-span-6">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              {"La fondation"}
+            </p>
+            <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+              {SOCLE.name}
+            </h2>
+            <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
+              {SOCLE.intro}
+            </p>
+            <p className="mt-4 text-pretty text-base leading-relaxed text-foreground/85">
+              {SOCLE.benefice}
+            </p>
+            <div className="mt-8 inline-flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-xl border border-primary/25 bg-primary/[0.06] px-5 py-4">
+              <span className="text-2xl font-semibold tracking-tight text-primary">
+                {SOCLE.prix}
               </span>
-              <h3 className="text-xl font-semibold tracking-tight">
-                {step.title}
-              </h3>
-              <p
-                className="text-pretty text-sm leading-relaxed text-muted-foreground"
-                dangerouslySetInnerHTML={{ __html: step.description }}
-              />
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function SolutionsSection() {
-  return (
-    <section
-      id="solutions"
-      className="scroll-mt-20 border-y border-border/40 bg-surface/30"
-    >
-      <div className="container-page py-20 sm:py-28">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
-            Deux niveaux de solution
-          </p>
-          <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-            Automatisation et Agents IA — complémentaires, pas synonymes.
-          </h2>
-          <p className="mt-4 text-pretty text-muted-foreground">
-            L&apos;automatisation structure vos process. Les agents IA vont plus
-            loin — ils comprennent, décident et agissent à votre place.
-          </p>
-        </div>
-
-        <div className="mx-auto mt-14 grid max-w-5xl gap-8 md:grid-cols-2">
-          {/* Bloc A — Automatisation */}
-          <div className="rounded-2xl border border-border/60 bg-background/60 p-7 sm:p-8">
-            <div className="flex items-center gap-3">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/20">
-                <Zap className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                  Niveau 1
-                </p>
-                <h3 className="text-lg font-semibold tracking-tight">
-                  Automatisation
-                </h3>
-              </div>
+              <span className="text-base text-primary/80">{SOCLE.mensuel}</span>
             </div>
-            <p className="mt-4 text-pretty text-sm leading-relaxed text-muted-foreground">
-              Structurer les process répétitifs pour ne plus perdre de leads ni
-              de temps. Idéal pour démarrer ou combler des fuites identifiées.
-            </p>
-            <ul className="mt-6 space-y-4">
-              {SOLUTIONS_BRIQUES_AUTO.map((brique, i) => {
-                const Icon = AUTO_ICONS[i] ?? Sparkles;
-                return (
-                  <li key={brique.title} className="flex items-start gap-3">
-                    <div className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
-                      <Icon className="h-3.5 w-3.5" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-foreground">
-                        {brique.title}
-                      </p>
-                      <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
-                        {brique.description}
-                      </p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
+            <p className="mt-3 text-sm text-muted-foreground">{SOCLE.note}</p>
           </div>
-
-          {/* Bloc B — Agents IA */}
-          <div className="rounded-2xl border border-primary/25 bg-surface ring-1 ring-primary/10 p-7 sm:p-8">
-            <div className="flex items-center gap-3">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/15 text-primary ring-1 ring-primary/25">
-                <Bot className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                  Niveau 2
-                </p>
-                <h3 className="text-lg font-semibold tracking-tight">
-                  Agents IA
-                </h3>
-              </div>
-            </div>
-            <p className="mt-4 text-pretty text-sm leading-relaxed text-muted-foreground">
-              Aller plus loin : des agents qui comprennent, décident et agissent
-              à votre place — 24h/24. Côté clients (réponse, qualification, prise
-              de RDV) comme côté interne (chiffrage, rédaction, analyse de vos
-              documents métier).
-            </p>
-            <ul className="mt-6 space-y-4">
-              {SOLUTIONS_BRIQUES_IA.map((brique, i) => {
-                const Icon = IA_ICONS[i] ?? Sparkles;
-                return (
-                  <li key={brique.title} className="flex items-start gap-3">
-                    <div className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-primary/15 text-primary">
-                      <Icon className="h-3.5 w-3.5" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-foreground">
-                        {brique.title}
-                      </p>
-                      <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
-                        {brique.description}
-                      </p>
-                    </div>
-                  </li>
-                );
-              })}
+          <div className="md:col-span-6">
+            <ul className="grid gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/60">
+              {SOCLE.contenu.map((item) => (
+                <li key={item} className="bg-background/60 px-6 py-4 text-base text-foreground/90">
+                  {item}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
-
-        <p className="mt-8 text-center text-xs text-muted-foreground">
-          Les deux niveaux sont cumulables — on commence souvent par
-          l&apos;automatisation, on ajoute les agents IA quand la base est saine.
-        </p>
       </div>
     </section>
   );
 }
 
-function CasClientsSection() {
-  const clients = CLIENTS.filter((c) =>
-    ["odyssee-by-bea", "dfp-france", "fast-computer-company"].includes(c.slug),
-  );
-
-  return (
-    <section className="container-page py-20 sm:py-28">
-      <div className="mx-auto max-w-2xl text-center">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
-          Cas clients
-        </p>
-        <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-          Ce que ça donne chez des entreprises comme la vôtre.
-        </h2>
-      </div>
-
-      <ul className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-3">
-        {clients.map((client) => (
-          <li key={client.slug}>
-            <article className="flex h-full flex-col gap-4 rounded-2xl border border-border/60 bg-background/60 p-6 transition-colors hover:border-primary/30">
-              <div className="flex items-center gap-3">
-                <div
-                  aria-hidden
-                  className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-secondary text-xs font-semibold text-foreground/80 ring-1 ring-border"
-                >
-                  {client.initials}
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">
-                    {client.name}
-                  </p>
-                  <p className="inline-flex items-center gap-1 text-xs text-muted-foreground">
-                    <MapPin className="h-3 w-3" />
-                    {client.location}
-                  </p>
-                </div>
-              </div>
-              <p className="text-xs text-muted-foreground">{client.sector}</p>
-              <p className="text-pretty text-sm font-medium text-foreground">
-                {client.result}
-              </p>
-              <p className="mt-auto text-pretty text-xs text-muted-foreground">
-                {client.detail}
-              </p>
-            </article>
-          </li>
-        ))}
-      </ul>
-
-      <div className="mt-10 text-center">
-        <Link
-          href="/realisations"
-          className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
-        >
-          Toutes les réalisations
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-        </Link>
-      </div>
-    </section>
-  );
-}
-
-function FaqSection() {
+function Systemes() {
   return (
     <section className="container-page py-20 sm:py-24">
-      <div className="mx-auto max-w-3xl">
-        <div className="text-center">
+      <div className="mx-auto max-w-2xl text-center">
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+          {"Les cinq systèmes"}
+        </p>
+        <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+          {"Chacun règle un problème précis. Aucun ne se vend sans raison."}
+        </h2>
+      </div>
+
+      <div className="mt-14 space-y-5">
+        {MODULES.map((m, i) => (
+          <article
+            key={m.slug}
+            id={m.slug}
+            className="scroll-mt-24 overflow-hidden rounded-2xl border border-border/60 bg-surface/50"
+          >
+            <div className="grid gap-8 p-7 sm:p-9 md:grid-cols-12">
+              <header className="md:col-span-4">
+                <span className="font-mono text-[10px] font-medium tracking-[0.2em] text-primary/50">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-3 text-2xl font-bold tracking-tight">{m.name}</h3>
+                <p className="mt-2 text-pretty text-base leading-relaxed text-muted-foreground">
+                  {m.subtitle}
+                </p>
+                <div className="mt-6 rounded-xl border border-primary/25 bg-primary/[0.06] px-4 py-3">
+                  <p className="text-xl font-semibold tracking-tight text-primary">{m.prix}</p>
+                  <p className="text-sm text-primary/80">{m.mensuel}</p>
+                  {m.prixOption ? (
+                    <p className="mt-2 border-t border-primary/15 pt-2 text-xs text-muted-foreground">
+                      {m.prixOption}
+                    </p>
+                  ) : null}
+                </div>
+              </header>
+
+              <div className="space-y-6 md:col-span-8">
+                <div>
+                  <Badge
+                    variant="outline"
+                    className="border-accent/40 bg-accent/[0.07] text-xs font-normal text-accent"
+                  >
+                    {"On le prescrit quand"}
+                  </Badge>
+                  <p className="mt-3 text-pretty text-base leading-relaxed text-foreground/90">
+                    {m.prescription}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground">{"Ce qu’on installe"}</p>
+                  <p className="mt-2 text-pretty text-base leading-relaxed text-muted-foreground">
+                    {m.installe}
+                  </p>
+                </div>
+                {m.preuve ? (
+                  <div className="rounded-xl border border-border/60 bg-background/60 p-4">
+                    <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground/70">
+                      {"Déjà fait"}
+                    </p>
+                    <p className="mt-2 text-pretty text-sm leading-relaxed text-foreground/80">
+                      {m.preuve}
+                    </p>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Formule() {
+  return (
+    <section className="container-page pb-4">
+      <div className="rounded-3xl border border-primary/25 bg-primary/[0.06] p-8 sm:p-10">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              {"La formule complète"}
+            </p>
+            <h2 className="mt-3 text-balance text-2xl font-semibold tracking-tight sm:text-3xl">
+              {FORMULE_COMPLETE.title}
+            </h2>
+          </div>
+          <div className="shrink-0 sm:text-right">
+            <p className="text-3xl font-semibold tracking-tight text-primary sm:text-4xl">
+              {FORMULE_COMPLETE.prix}
+            </p>
+            <p className="mt-1 text-base text-primary/80">{"puis "}{FORMULE_COMPLETE.mensuel}</p>
+          </div>
+        </div>
+        <p className="mt-6 text-sm text-muted-foreground">
+          {"Tous les prix sont hors taxes. TVA DOM 8,5 %."}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function LogicielMetier() {
+  return (
+    <section className="container-page py-20 sm:py-24">
+      <div className="grid gap-10 md:grid-cols-12 md:gap-12">
+        <div className="md:col-span-7">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
-            Questions fréquentes
+            {"Quand rien de tout cela ne suffit"}
           </p>
           <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-            Ce que vous vous demandez sûrement.
+            {LOGICIEL_METIER.name}
           </h2>
-        </div>
-
-        <div className="mt-12 rounded-2xl border border-border/60 bg-surface/40 px-6 sm:px-8">
-          <FaqAccordion items={faqSolutions} />
+          <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
+            {LOGICIEL_METIER.intro}
+          </p>
+          <p className="mt-4 text-pretty text-base leading-relaxed text-foreground/85">
+            {LOGICIEL_METIER.preuve}
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <span className="text-2xl font-semibold tracking-tight text-primary">
+              {LOGICIEL_METIER.prix}
+            </span>
+            <Link
+              href="/ventures"
+              className="group inline-flex items-center gap-1.5 text-base font-medium text-primary transition-colors hover:text-primary/80"
+            >
+              {"Voir les plateformes que nous éditons"}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

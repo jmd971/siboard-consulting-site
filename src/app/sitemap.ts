@@ -6,11 +6,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   return [
+    { url: BASE_URL, lastModified: now, changeFrequency: "monthly", priority: 1 },
     {
-      url: BASE_URL,
+      url: `${BASE_URL}/etat-des-lieux`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 1,
+      priority: 0.95,
     },
     {
       url: `${BASE_URL}/solutions`,
@@ -19,10 +20,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${BASE_URL}/ventures`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/mission-90j`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.9,
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/realisations`,
@@ -35,12 +42,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "yearly",
       priority: 0.6,
-    },
-    {
-      url: `${BASE_URL}/audit-gratuit`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.7,
     },
     {
       url: `${BASE_URL}/mentions-legales`,

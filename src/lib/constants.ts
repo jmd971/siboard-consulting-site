@@ -1,7 +1,7 @@
 export const SITE = {
   name: "Siboard Consulting",
   shortName: "Siboard",
-  tagline: "Votre activité mérite un digital qui travaille pour vous.",
+  tagline: "On regarde comment vous travaillez vraiment. Ensuite on répare.",
   email: "contact@siboard-consulting.fr",
   phone: "+590 690 00 00 00",
   address: "73 rue Vatable, 97110 Pointe-à-Pitre, Guadeloupe",
@@ -11,20 +11,184 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
+  { href: "/etat-des-lieux", label: "État des lieux" },
   { href: "/solutions", label: "Solutions" },
-  { href: "/mission-90j", label: "Mission 90J" },
+  { href: "/ventures", label: "Nos plateformes" },
   { href: "/realisations", label: "Réalisations" },
   { href: "/a-propos", label: "À propos" },
 ] as const;
 
 export const CTA_PRIMARY = {
-  href: "/audit-gratuit",
-  label: "Audit gratuit",
+  href: "/etat-des-lieux",
+  label: "Demander un état des lieux",
 } as const;
 
 export const AUDIT_WEBHOOK_URL =
   process.env.NEXT_PUBLIC_AUDIT_WEBHOOK_URL ??
   "https://link.siboard-consulting.fr/webhook/audit-gratuit";
+
+/* ------------------------------------------------------------------ */
+/* Étape 1 — L'État des lieux (produit d'entrée, payant)              */
+/* ------------------------------------------------------------------ */
+
+export const ETAT_DES_LIEUX = {
+  eyebrow: "Étape 1",
+  name: "L’État des lieux",
+  title: "On regarde comment vous travaillez vraiment.",
+  intro:
+    "Nous suivons le parcours réel de votre activité, depuis le moment où un client vous découvre jusqu’à la facture encaissée. Nous ouvrons ce que vos outils contiennent déjà : votre historique de ventes, vos délais de réponse, vos devis restés sans suite, votre base clients.",
+  chercheTitle: "Nous cherchons trois choses",
+  cherche: ["Où ça fuit.", "Où ça attend.", "Où quelqu’un recopie de l’information d’un endroit à un autre."],
+  regardeTitle: "Ce que nous regardons",
+  regarde: [
+    "Comment vos prospects arrivent, et ce qu’ils deviennent.",
+    "Le temps qui s’écoule entre leur première demande et votre réponse.",
+    "Ce que vos devis deviennent quand personne ne relance.",
+    "Ce que votre base clients contient réellement, et ce qu’elle vaut.",
+    "Les tâches que quelqu’un refait à la main chaque semaine.",
+    "Les chiffres dont vous avez besoin pour décider, et le temps qu’il vous faut pour les obtenir.",
+  ],
+  livrableTitle: "Ce que vous recevez",
+  livrable:
+    "Un document qui tient debout tout seul. Il contient la carte de votre parcours client avec les points de rupture, le chiffrage de chaque fuite en euros et en heures, l’ordre dans lequel les traiter, et ce que nous vous déconseillons de faire.",
+  livrablePrecision:
+    "Les montants sont calculés à partir de vos données. Pas de moyennes de marché, pas de projections empruntées à d’autres entreprises.",
+  delai:
+    "De deux à quatre semaines selon le périmètre : un entretien de cadrage, une collecte de données, un rendez-vous de restitution.",
+  tarifs: [
+    { perimetre: "TPE, un site, jusqu’à 10 personnes", prix: "1 900 €" },
+    { perimetre: "PME, plusieurs services ou plusieurs sites", prix: "3 900 €" },
+    { perimetre: "Groupe ou collectivité", prix: "à partir de 6 500 €" },
+  ],
+  propriete:
+    "Le document vous appartient. Vous êtes libre de le faire exécuter par qui vous voulez.",
+  garantie:
+    "Si le montant des fuites identifiées ne dépasse pas le prix du diagnostic, nous vous le remboursons.",
+} as const;
+
+/* ------------------------------------------------------------------ */
+/* Étape 2 — Le Socle et les cinq modules                             */
+/* ------------------------------------------------------------------ */
+
+export const SOCLE = {
+  name: "Le Socle Siboard",
+  intro:
+    "Tout ce que nous installons repose sur une même fondation, que nous avons construite et qui nous appartient.",
+  contenu: [
+    "Votre base de données cloisonnée",
+    "La connexion à vos outils existants",
+    "Le moteur qui produit vos documents",
+    "L’envoi par email, SMS et WhatsApp",
+    "L’analyse de votre historique de ventes",
+    "Le journal de ce qui a été fait, par qui et quand",
+  ],
+  benefice:
+    "Le premier système coûte son prix, les suivants coûtent moins cher parce que la fondation est déjà posée. Et le jour où vous voulez quelque chose qui n’existe dans aucun logiciel du marché, nous ne repartons pas de zéro.",
+  prix: "2 900 €",
+  mensuel: "190 € / mois",
+  note: "Il ne se vend jamais seul. Il vient toujours avec au moins un système.",
+} as const;
+
+export type Module = {
+  slug: string;
+  name: string;
+  subtitle: string;
+  prescription: string;
+  installe: string;
+  prix: string;
+  prixOption?: string;
+  mensuel: string;
+  preuve?: string;
+};
+
+export const MODULES: Module[] = [
+  {
+    slug: "accueil",
+    name: "L’Accueil",
+    subtitle: "Répondre en une minute, qualifier, poser le rendez-vous.",
+    prescription:
+      "Vos demandes arrivent le soir et le week-end. Vous répondez en deux jours au lieu de deux heures. Et vous passez vingt minutes à poser les mêmes questions de base à chaque prospect.",
+    installe:
+      "Un assistant qui répond en moins d’une minute sur votre site, sur WhatsApp ou au téléphone. Il pose vos questions de qualification, écarte ce qui n’est pas pour vous, propose un créneau dans votre agenda, et prévient la bonne personne avec tout le contexte déjà réuni.",
+    prix: "2 500 €",
+    prixOption: "6 500 € avec l’agent vocal qui décroche au téléphone",
+    mensuel: "+ 90 € / mois",
+    preuve:
+      "Évolutia Formation : assistant de qualification des candidats et gestion des rendez-vous automatisée. DFP France : prise de rendez-vous entièrement automatisée avec assistant WhatsApp.",
+  },
+  {
+    slug: "bureau",
+    name: "Le Bureau",
+    subtitle: "Les documents traités, classés et tracés sans ressaisie.",
+    prescription:
+      "Quelqu’un chez vous passe une partie de sa semaine à ouvrir un document, lire, recopier ailleurs et classer. Ou vous courez après les pièces que vos clients doivent vous fournir.",
+    installe:
+      "Le circuit complet du document, de son arrivée à son classement. La collecte auprès de vos clients avec les relances automatiques, la lecture et l’extraction des informations, le contrôle de ce qui manque, la production du document final déjà mis en forme, et l’archivage avec la trace de qui a fait quoi.",
+    prix: "à partir de 4 900 €",
+    mensuel: "+ 90 € / mois",
+    preuve:
+      "Un cabinet d’expertise immobilière : le circuit papier des lettres de mission remplacé par une saisie sur tablette avec signature à l’écran, document généré, archivé et horodaté. Axecime : la collecte d’un dossier de 78 pièces réparties en 11 catégories, transformée en portail où le client dépose et voit ce qu’il lui reste à fournir.",
+  },
+  {
+    slug: "fil",
+    name: "Le Fil",
+    subtitle: "Garder le lien jusqu’à la signature.",
+    prescription:
+      "Vos devis restent sans réponse. Vous relancez une fois puis vous passez à autre chose. Et vous découvrez six semaines plus tard que le client a signé ailleurs.",
+    installe:
+      "Une séquence déclenchée par un événement précis, comme un devis envoyé ou un formulaire rempli. Quatre à six messages écrits avec vos mots, répartis sur trois semaines, sur le canal où votre client répond vraiment. La séquence s’arrête net dès qu’il réagit, et vous êtes prévenu avec tout l’historique.",
+    prix: "1 900 €",
+    prixOption:
+      "Option La Preuve, la même mécanique appliquée aux avis Google, 900 €",
+    mensuel: "+ 90 € / mois",
+  },
+  {
+    slug: "retour",
+    name: "Le Retour",
+    subtitle: "Faire revenir les clients qui vous connaissent déjà.",
+    prescription:
+      "Votre base clients dort. Vous payez de la publicité pour trouver des inconnus alors que d’anciens clients ne sont plus jamais contactés. Et vous ne sauriez pas dire qui sont vos meilleurs clients.",
+    installe:
+      "D’abord l’analyse de votre historique. Nous classons vos clients par date du dernier achat, par fréquence et par montant, et nous identifions nommément ceux qui dormaient et ce qu’ils représentent. Ensuite la campagne de réveil, avec un message différent selon le profil.",
+    prix: "1 900 € l’analyse seule",
+    prixOption: "3 500 € avec la campagne installée",
+    mensuel: "+ 90 € / mois",
+    preuve:
+      "Un institut de beauté guadeloupéen : l’analyse d’une année de caisse a montré que 36 clientes faisaient 80 % du chiffre, et a identifié nommément 17 clientes dormantes représentant 3 029 € à récupérer.",
+  },
+  {
+    slug: "point",
+    name: "Le Point",
+    subtitle: "Vos chiffres chaque matin, là où vous travaillez déjà.",
+    prescription:
+      "Il faut ouvrir quatre outils pour savoir où vous en êtes. L’information vous arrive avec deux jours de retard. Et personne n’ouvre le tableau de bord qu’on vous avait installé.",
+    installe:
+      "Un système qui va chercher vos chiffres tout seul, dans votre logiciel de vente, votre comptabilité ou votre outil de gestion, puis vous envoie ce qui compte à l’endroit où vous regardez déjà. Les chiffres de la veille le matin, un récapitulatif chaque semaine, une alerte quand quelque chose sort de l’ordinaire. Aucun nouvel outil à apprendre.",
+    prix: "3 500 €",
+    prixOption:
+      "7 500 € avec le commentaire rédigé automatiquement, qui explique le chiffre au lieu de l’afficher",
+    mensuel: "+ 90 € / mois",
+  },
+];
+
+export const LOGICIEL_METIER = {
+  name: "Le logiciel métier",
+  intro:
+    "Il arrive que le process d’une entreprise ne rentre dans aucun outil du marché. Dans ce cas nous construisons le logiciel qui lui correspond, sur le même socle.",
+  preuve:
+    "Nous l’avons fait pour un cabinet d’expertise immobilière, pour un établissement hospitalier, et pour trois plateformes que nous éditons nous-mêmes.",
+  prix: "à partir de 15 000 €",
+} as const;
+
+export const FORMULE_COMPLETE = {
+  title: "Le socle et trois systèmes, installés en 90 jours",
+  prix: "11 900 €",
+  mensuel: "460 € / mois",
+} as const;
+
+/* ------------------------------------------------------------------ */
+/* Clients                                                             */
+/* ------------------------------------------------------------------ */
 
 export type Client = {
   slug: string;
@@ -162,28 +326,58 @@ export const PROOF_STATS = [
   },
 ] as const;
 
-export const BRIQUES_AUTOMATISATION = [
+/* ------------------------------------------------------------------ */
+/* Nos plateformes (ventures)                                          */
+/* ------------------------------------------------------------------ */
+
+export const ECOSYSTEME = [
   {
-    title: "Prise de RDV automatisée",
+    name: "AdamBoards",
     description:
-      "Confirmations, rappels et anti no-show. Votre agenda se remplit pendant que vous travaillez.",
+      "Accompagnement financier mensuel pour dirigeants de TPE/PME — méthode structurée, suivi personnalisé.",
+    note: "Plateforme et application construites par Siboard.",
+    domain: "adamboards.fr",
+    href: "https://adamboards.fr",
+    partenaire: "Co-édité avec un expert-comptable",
+    role:
+      "Import des écritures comptables, compte de résultat, budget, trésorerie, rapprochement bancaire, et un rapport commenté qui explique les chiffres au dirigeant au lieu de les afficher.",
+    prouve:
+      "Que nous savons construire un logiciel financier multi-sociétés, avec une couche d’intelligence artificielle encadrée par des règles de calcul déterministes.",
+    nourrit: "Le Point",
   },
   {
-    title: "Collecte d'avis Google",
+    name: "TransmiExpert",
     description:
-      "Chaque client satisfait reçoit la bonne demande au bon moment. Votre réputation locale grandit toute seule.",
+      "Diagnostic et accompagnement pour céder ou reprendre une entreprise dans les meilleures conditions.",
+    note: "Site web, application et livret construits par Siboard.",
+    domain: "transmiexpert.fr",
+    href: "https://www.transmiexpert.fr",
+    partenaire: "Co-édité avec un expert en transmission d’entreprise",
+    role:
+      "Une famille remplit son dossier en ligne, et l’application produit automatiquement un livret de succession imprimable de 48 pages, personnalisé et prêt à être remis.",
+    prouve:
+      "Que nous savons transformer une saisie en un document professionnel complet, sans intervention humaine.",
+    nourrit: "Le Bureau",
   },
   {
-    title: "Réactivation clients inactifs",
+    name: "SecureXia",
     description:
-      "Vos anciens clients reviennent grâce à des séquences SMS et WhatsApp personnalisées.",
-  },
-  {
-    title: "Agent IA conversationnel",
-    description:
-      "Un assistant qui répond, qualifie et oriente vos prospects 24h/24, dans votre ton de marque.",
+      "Service managé de mise en conformité incendie pour les ERP en Guadeloupe — visite terrain + plateforme de suivi.",
+    note: "Plateforme client et système de documentation construits par Siboard.",
+    domain: "securexia.fr",
+    href: "https://securexia.fr",
+    partenaire: "Co-édité avec un consultant en conformité ERP",
+    role:
+      "Le suivi de la conformité d’un établissement recevant du public, de la visite terrain au dossier remis à la commission de sécurité.",
+    prouve:
+      "Que nous savons modéliser une réglementation et la rendre utilisable par un exploitant sur le terrain.",
+    nourrit: "Le Bureau",
   },
 ] as const;
+
+/* ------------------------------------------------------------------ */
+/* Mission 90J                                                         */
+/* ------------------------------------------------------------------ */
 
 export const MISSION_90J_DELIVERABLES = [
   {
@@ -208,30 +402,30 @@ export const MISSION_90J_DELIVERABLES = [
   },
 ] as const;
 
-export const ECOSYSTEME = [
+/* ------------------------------------------------------------------ */
+/* Legacy — conservés le temps de la bascule des anciennes pages       */
+/* ------------------------------------------------------------------ */
+
+export const BRIQUES_AUTOMATISATION = [
   {
-    name: "AdamBoards",
+    title: "Prise de RDV automatisée",
     description:
-      "Accompagnement financier mensuel pour dirigeants de TPE/PME — méthode structurée, suivi personnalisé.",
-    note: "Plateforme et application construites par Siboard.",
-    domain: "adamboards.fr",
-    href: "https://adamboards.fr",
+      "Confirmations, rappels et anti no-show. Votre agenda se remplit pendant que vous travaillez.",
   },
   {
-    name: "TransmiExpert",
+    title: "Collecte d'avis Google",
     description:
-      "Diagnostic et accompagnement pour céder ou reprendre une entreprise dans les meilleures conditions.",
-    note: "Site web et outil de diagnostic digital construits par Siboard.",
-    domain: "transmiexpert.fr",
-    href: "https://www.transmiexpert.fr",
+      "Chaque client satisfait reçoit la bonne demande au bon moment. Votre réputation locale grandit toute seule.",
   },
   {
-    name: "SecureXia",
+    title: "Réactivation clients inactifs",
     description:
-      "Service managé de mise en conformité incendie pour les ERP en Guadeloupe — visite terrain + plateforme de suivi.",
-    note: "Plateforme client et système de documentation construits par Siboard.",
-    domain: "securexia.fr",
-    href: "https://securexia.fr",
+      "Vos anciens clients reviennent grâce à des séquences SMS et WhatsApp personnalisées.",
+  },
+  {
+    title: "Agent IA conversationnel",
+    description:
+      "Un assistant qui répond, qualifie et oriente vos prospects 24h/24, dans votre ton de marque.",
   },
 ] as const;
 
@@ -256,11 +450,6 @@ export const SOLUTIONS_BRIQUES_AUTO = [
     description:
       "Vos données circulent entre vos applications sans double saisie ni intervention manuelle.",
   },
-  {
-    title: "Automatisation back-office",
-    description:
-      "Devis relancés automatiquement à J+2 et J+5, suivi des impayés avec relances graduées, planning d'équipe sans fichier Excel qui plante, rapport d'activité hebdomadaire envoyé au dirigeant sans saisie manuelle. Votre administratif tourne pendant que vous produisez.",
-  },
 ] as const;
 
 export const SOLUTIONS_BRIQUES_IA = [
@@ -277,7 +466,7 @@ export const SOLUTIONS_BRIQUES_IA = [
   {
     title: "Assistant métier sur mesure",
     description:
-      "Chiffrages et études de prix pré-remplis à partir de vos anciens devis, rédaction de rapports d'intervention, synthèse de documents, réponse aux appels d'offres. Entraîné sur votre contexte et vos documents — pas un chatbot générique.",
+      "Entraîné sur votre contexte et vos documents — pas un chatbot générique.",
   },
   {
     title: "Intégrations avancées sur mesure",
@@ -295,6 +484,7 @@ export const SECTEURS = [
   "Événementiel",
   "Santé / Bien-être",
   "Immobilier / Courtage",
+  "Collectivité / Secteur public",
   "Autre",
 ] as const;
 
@@ -303,6 +493,8 @@ export const PROBLEMES = [
   "Trop de no-shows sur mes RDV",
   "Mes clients ne laissent pas d'avis",
   "Je veux automatiser des tâches répétitives",
+  "On ressaisit trop d'informations à la main",
+  "Ma base clients dort",
   "J'ai une offre B2B à développer",
   "Je veux créer ou refaire mon site web",
   "Autre",
