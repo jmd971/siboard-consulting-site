@@ -3,15 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Bot,
+  BarChart3,
   Building2,
   CalendarCheck,
   ExternalLink,
+  FileText,
   GraduationCap,
   Handshake,
   MapPin,
+  MessagesSquare,
   RefreshCw,
-  Star,
   Users,
 } from "lucide-react";
 
@@ -25,12 +26,12 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "À propos — Jean-Marc Dolmare, Siboard Consulting Guadeloupe",
   description:
-    "Fondateur de Siboard Consulting, Jean-Marc Dolmare accompagne les TPE/PME en Guadeloupe et en IDF depuis 2020 : automatisation, IA et transformation digitale.",
+    "Fondateur de Siboard Consulting, Jean-Marc Dolmare analyse le process des TPE, PME et collectivités en Guadeloupe et en Île-de-France depuis 2020, puis construit les systèmes qui le corrigent.",
   alternates: { canonical: "/a-propos" },
   openGraph: {
     title: "À propos — Jean-Marc Dolmare, Siboard Consulting Guadeloupe",
     description:
-      "Le modèle Siboard, les produits maison (RDVFlow, AvisFlow, ClientBack, SIA), les ventures partenaires et le stack maîtrisé.",
+      "Le modèle Siboard, le socle et les cinq systèmes construits en interne, les plateformes co-éditées et le stack maîtrisé.",
     url: "/a-propos",
     type: "profile",
   },
@@ -39,31 +40,38 @@ export const metadata: Metadata = {
 const PRODUITS = [
   {
     icon: CalendarCheck,
-    name: "RDVFlow",
-    tagline: "Prise de RDV automatisée",
+    name: "L’Accueil",
+    tagline: "Qualification et prise de rendez-vous",
     description:
-      "Confirmations, rappels, anti no-show. Construit sur GoHighLevel, branché à votre stack existant.",
+      "Un assistant qui répond en moins d’une minute, pose vos questions de qualification et propose un créneau dans votre agenda.",
   },
   {
-    icon: Star,
-    name: "AvisFlow",
-    tagline: "Collecte d'avis Google",
+    icon: FileText,
+    name: "Le Bureau",
+    tagline: "Documents et back-office",
     description:
-      "Demande envoyée au bon moment, au bon canal — votre note locale grimpe sans effort.",
+      "Le circuit complet du document : collecte auprès du client, extraction, contrôle de ce qui manque, production et archivage tracé.",
+  },
+  {
+    icon: MessagesSquare,
+    name: "Le Fil",
+    tagline: "Relance jusqu’à la signature",
+    description:
+      "Quatre à six messages écrits avec vos mots sur trois semaines, sur le canal où votre client répond. La séquence s’arrête dès qu’il réagit.",
   },
   {
     icon: RefreshCw,
-    name: "ClientBack",
-    tagline: "Réactivation clients inactifs",
+    name: "Le Retour",
+    tagline: "Réactivation des clients dormants",
     description:
-      "Séquences SMS et WhatsApp pour rouvrir les conversations endormies. Récupère 10 à 25 % de votre base.",
+      "L’analyse de votre historique par date, fréquence et montant, puis la campagne de réveil. Les dormants sont nommés et chiffrés.",
   },
   {
-    icon: Bot,
-    name: "SIA",
-    tagline: "Assistante IA conversationnelle",
+    icon: BarChart3,
+    name: "Le Point",
+    tagline: "Vos chiffres là où vous travaillez",
     description:
-      "Un chatbot qui répond, qualifie, oriente. Voiceflow + branchement aux outils internes (Calendly, Stripe, CRM).",
+      "Les chiffres de la veille le matin, un récapitulatif chaque semaine, une alerte quand quelque chose sort de l’ordinaire. Aucun outil à apprendre.",
   },
 ] as const;
 
@@ -262,7 +270,7 @@ function ModeleSection() {
           {
             title: "On diagnostique avant de prescrire.",
             description:
-              "Aucune offre commerciale au premier appel. On commence par un audit honnête — y compris quand on conclut que vous n'avez pas besoin de nous.",
+              "Aucune offre commerciale au premier appel. On commence par un état des lieux écrit et chiffré, y compris quand il conclut que vous n'avez pas besoin de nous.",
           },
           {
             title: "On reste joignables après la livraison.",
@@ -295,19 +303,19 @@ function ProduitsSection() {
       <div className="container-page py-20 sm:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
-            Produits maison
+            Ce qu’on installe
           </p>
           <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-            Quatre briques construites en interne. Pas une promesse marketing.
+Cinq systèmes construits en interne. Pas une promesse marketing.
           </h2>
           <p className="mt-4 text-pretty text-muted-foreground">
-            Chaque produit est né d&apos;un cas client réel. Tous tournent
-            actuellement chez au moins un opérateur en Guadeloupe ou en
-            Île-de-France.
+            Chacun est né d&apos;un cas client réel et tourne aujourd&apos;hui chez au
+            moins un opérateur en Guadeloupe ou en Île-de-France. On ne les vend pas
+            au catalogue : on installe celui que l&apos;état des lieux a désigné.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {PRODUITS.map((p) => {
             const Icon = p.icon;
             return (
