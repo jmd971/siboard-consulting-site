@@ -362,7 +362,7 @@ export const ECOSYSTEME = [
     note: "Plateforme et application construites par Siboard.",
     domain: "adamboards.fr",
     href: "https://adamboards.fr",
-    partenaire: "Co-édité avec un expert-comptable",
+    partenaire: "Co-édité avec un consultant en pilotage d’entreprise",
     role:
       "Import des écritures comptables, compte de résultat, budget, trésorerie et rapprochement bancaire. Analyse des ventes client par client et produit par produit. Rapports de préconisation qui disent quelle action mener et sur qui, puis mise en place des campagnes marketing qui l’exécutent.",
     prouve:
