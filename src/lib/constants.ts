@@ -247,7 +247,8 @@ export const CLIENTS: Client[] = [
     sector: "Expert-comptable",
     location: "Créteil, Île-de-France",
     result: "3ème page Google → 3ème position « expert comptable Créteil »",
-    detail: "Repositionnement SEO — refonte du contenu et de la structure du site.",
+    detail:
+      "Repositionnement de la fiche Google en référencement local et gestion automatisée des rendez-vous.",
     href: "https://sacodif.fr",
     featured: true,
   },
@@ -269,8 +270,9 @@ export const CLIENTS: Client[] = [
     initials: "DFP",
     sector: "Films techniques pour vitrages (solaire, sécurité, anti-graffiti)",
     location: "Île-de-France",
-    result: "Agenda en ligne opérationnel, flux de RDV automatisé",
-    detail: "Création complète de A à Z : site web + système de prise de rendez-vous intégré.",
+    result: "Prise de rendez-vous entièrement automatisée",
+    detail:
+      "Création complète du site web et gestion automatisée des rendez-vous.",
     href: "https://www.dfpfrance.fr",
     featured: true,
   },

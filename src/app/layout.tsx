@@ -71,13 +71,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  icons: {
-    icon: [
-      { url: "/logos/siboard-favicon.svg", type: "image/svg+xml" },
-    ],
-    shortcut: "/logos/siboard-favicon.svg",
-    apple: "/logos/siboard-favicon.svg",
-  },
 };
 
 export const viewport: Viewport = {
