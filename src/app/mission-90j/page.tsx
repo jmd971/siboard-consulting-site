@@ -3,7 +3,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { CTABanner } from "@/components/shared/CTABanner";
-import { FaqMission90J } from "@/components/faq/FaqMission90J";
+import { FaqAccordion } from "@/components/faq/FaqAccordion";
+import { faqMission90J, faqMission90JSchema } from "@/components/faq/FaqMission90J";
 import { buttonVariants } from "@/components/ui/button";
 import { CTA_PRIMARY, MISSION_90J_DELIVERABLES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -47,6 +48,10 @@ const JALONS = [
 export default function Mission90JPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqMission90JSchema) }}
+      />
       <Hero />
       <Mecanique />
       <Livrables />
@@ -285,7 +290,7 @@ function Faq() {
           Questions fréquentes
         </h2>
         <div className="mt-10">
-          <FaqMission90J />
+          <FaqAccordion items={faqMission90J} />
         </div>
       </div>
     </section>
