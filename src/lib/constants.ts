@@ -13,6 +13,7 @@ export const SITE = {
 export const NAV_LINKS = [
   { href: "/etat-des-lieux", label: "État des lieux" },
   { href: "/solutions", label: "Solutions" },
+  { href: "/formation-ia", label: "Formation IA" },
   { href: "/ventures", label: "Nos plateformes" },
   { href: "/realisations", label: "Réalisations" },
   { href: "/a-propos", label: "À propos" },
@@ -81,6 +82,7 @@ export const SOCLE = {
     "Le moteur qui produit vos documents",
     "L’envoi par email, SMS et WhatsApp",
     "L’analyse de votre historique de ventes",
+    "La couche d’intelligence artificielle, encadrée par vos règles de calcul",
     "Le journal de ce qui a été fait, par qui et quand",
   ],
   benefice:
@@ -110,7 +112,7 @@ export const MODULES: Module[] = [
     prescription:
       "Vos demandes arrivent le soir et le week-end. Vous répondez en deux jours au lieu de deux heures. Et vous passez vingt minutes à poser les mêmes questions de base à chaque prospect.",
     installe:
-      "Un assistant qui répond en moins d’une minute sur votre site, sur WhatsApp ou au téléphone. Il pose vos questions de qualification, écarte ce qui n’est pas pour vous, propose un créneau dans votre agenda, et prévient la bonne personne avec tout le contexte déjà réuni.",
+      "Un assistant conversationnel, animé par intelligence artificielle, qui répond en moins d’une minute sur votre site, sur WhatsApp ou au téléphone. Il pose vos questions de qualification, écarte ce qui n’est pas pour vous, propose un créneau dans votre agenda, et prévient la bonne personne avec tout le contexte déjà réuni.",
     prix: "2 500 €",
     prixOption: "6 500 € avec l’agent vocal qui décroche au téléphone",
     mensuel: "+ 90 € / mois",
@@ -124,7 +126,7 @@ export const MODULES: Module[] = [
     prescription:
       "Quelqu’un chez vous passe une partie de sa semaine à ouvrir un document, lire, recopier ailleurs et classer. Ou vous courez après les pièces que vos clients doivent vous fournir.",
     installe:
-      "Le circuit complet du document, de son arrivée à son classement. La collecte auprès de vos clients avec les relances automatiques, la lecture et l’extraction des informations, le contrôle de ce qui manque, la production du document final déjà mis en forme, et l’archivage avec la trace de qui a fait quoi.",
+      "Le circuit complet du document, de son arrivée à son classement. La collecte auprès de vos clients avec les relances automatiques, la lecture et l’extraction des informations par intelligence artificielle, le contrôle de ce qui manque, la production du document final déjà mis en forme, et l’archivage avec la trace de qui a fait quoi.",
     prix: "à partir de 4 900 €",
     mensuel: "+ 90 € / mois",
     preuve:
@@ -167,7 +169,7 @@ export const MODULES: Module[] = [
       "Un système qui va chercher vos chiffres tout seul, dans votre logiciel de vente, votre comptabilité ou votre outil de gestion, puis vous envoie ce qui compte à l’endroit où vous regardez déjà. Les chiffres de la veille le matin, un récapitulatif chaque semaine, une alerte quand quelque chose sort de l’ordinaire. Aucun nouvel outil à apprendre.",
     prix: "3 500 €",
     prixOption:
-      "7 500 € avec le commentaire rédigé automatiquement, qui explique le chiffre au lieu de l’afficher",
+      "7 500 € avec le commentaire rédigé par intelligence artificielle, qui explique le chiffre au lieu de l’afficher",
     mensuel: "+ 90 € / mois",
   },
 ];
@@ -190,6 +192,55 @@ export const FORMULE_COMPLETE = {
 /* ------------------------------------------------------------------ */
 /* Clients                                                             */
 /* ------------------------------------------------------------------ */
+
+/* Formation IA salaries — vente directe, hors circuit OPCO.
+   L'IA est ici le SUJET, pas le moyen : c'est la seule page du site ou
+   le vocabulaire IA a le droit d'etre en promesse de tete. */
+export const FORMATION_IA = {
+  titre: "L’intelligence artificielle au quotidien, pour vos équipes.",
+  cadre: [
+    { label: "Format", value: "Une journée de 7 h, en présentiel" },
+    { label: "Groupe", value: "8 participants maximum" },
+    { label: "Lieu", value: "Dans vos locaux, en Guadeloupe" },
+    { label: "Public", value: "Tous services, administratif, commercial, encadrement" },
+  ],
+  programme: [
+    {
+      moment: "Matin",
+      titre: "Prendre en main, sans y laisser sa journée",
+      points: [
+        "Ce que l’intelligence artificielle fait réellement, et ce qu’elle ne fait pas",
+        "Prise en main des outils sur les postes des participants",
+        "Écrire une demande qui donne un résultat exploitable du premier coup",
+        "Rédaction, synthèse, traduction, préparation de réunion : les usages qui servent tous les jours",
+        "Les pièges : réponses fausses, données confidentielles, dépendance à l’outil",
+      ],
+    },
+    {
+      moment: "Après-midi",
+      titre: "Cartographier vos tâches automatisables",
+      points: [
+        "Chaque participant liste les tâches qu’il refait à l’identique chaque semaine",
+        "On les classe : automatisable tout de suite, plus tard, jamais",
+        "On chiffre le temps que chacune coûte réellement",
+        "On repart avec la carte, classée et chiffrée en heures",
+      ],
+    },
+  ],
+  acquis: [
+    "Utiliser l’intelligence artificielle sur leurs propres dossiers, pas sur des exemples",
+    "Reconnaître une réponse fausse au lieu de la recopier",
+    "Savoir ce qui ne doit jamais sortir de l’entreprise",
+    "Gagner du temps dès la semaine suivante sur au moins une tâche identifiée",
+    "Et pour vous : la liste chiffrée de ce que votre entreprise refait à la main",
+  ],
+  tarifs: [
+    { label: "Une session", note: "8 participants, une journée", prix: "2 400 €" },
+    { label: "Trois sessions", note: "jusqu’à 24 personnes formées", prix: "6 600 €" },
+    { label: "Cinq sessions", note: "jusqu’à 40 personnes formées", prix: "10 500 €" },
+    { label: "Point de suivi à 30 jours", note: "en visioconférence, en option", prix: "490 €" },
+  ],
+} as const;
 
 /* Chiffres du portefeuille, releves le 14/08/2026 dans le gestionnaire
    de fiches Google (business.google.com/locations) : 15 fiches gerees,

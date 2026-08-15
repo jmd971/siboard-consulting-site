@@ -38,11 +38,13 @@ export const metadata: Metadata = {
     template: `%s · ${SITE.name}`,
   },
   description:
-    "On analyse comment votre entreprise travaille vraiment, on chiffre ce que vous perdez, puis on construit les systèmes qui le corrigent. Guadeloupe, Antilles-Guyane et Île-de-France.",
+    "On analyse comment votre entreprise travaille vraiment, on chiffre ce que vous perdez, puis on construit les systèmes qui le corrigent : automatisation, agents IA, logiciel métier sur mesure. Guadeloupe, Antilles-Guyane et Île-de-France.",
   keywords: [
     "automatisation",
     "diagnostic de process",
     "logiciel métier sur mesure",
+    "formation IA entreprise",
+    "formation intelligence artificielle Guadeloupe",
     "Guadeloupe",
     "TPE PME",
     "agent IA",
