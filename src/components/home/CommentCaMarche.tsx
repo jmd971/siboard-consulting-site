@@ -6,21 +6,21 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 function AuditIllustration() {
   return (
     <svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="20" y="15" width="62" height="72" rx="8" fill="rgba(92,78,255,0.15)" stroke="#5C4EFF" strokeWidth="1.5" />
-      <rect x="38" y="8" width="26" height="14" rx="4" fill="#12122A" stroke="#5C4EFF" strokeWidth="1.5" />
-      <rect x="30" y="34" width="42" height="3" rx="1.5" fill="#5C4EFF" opacity="0.4" />
-      <rect x="30" y="44" width="32" height="3" rx="1.5" fill="#5C4EFF" opacity="0.25" />
-      <rect x="30" y="54" width="38" height="3" rx="1.5" fill="#5C4EFF" opacity="0.25" />
-      <circle cx="30" cy="67" r="5" fill="rgba(255,92,53,0.2)" />
-      <path d="M27.5 67 L29.5 69 L32.5 64.5" stroke="#FF5C35" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      <rect x="38" y="64" width="28" height="3" rx="1.5" fill="#FF5C35" opacity="0.4" />
-      <circle cx="30" cy="79" r="5" fill="rgba(255,92,53,0.2)" />
-      <path d="M27.5 79 L29.5 81 L32.5 76.5" stroke="#FF5C35" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      <rect x="38" y="76" width="22" height="3" rx="1.5" fill="#FF5C35" opacity="0.4" />
-      <circle cx="88" cy="30" r="16" fill="rgba(92,78,255,0.08)" stroke="#5C4EFF" strokeWidth="1.5" />
-      <circle cx="88" cy="30" r="9" fill="rgba(92,78,255,0.15)" />
-      <circle cx="88" cy="30" r="3" fill="#FF5C35" />
-      <line x1="99" y1="42" x2="108" y2="54" stroke="#5C4EFF" strokeWidth="2.5" strokeLinecap="round" />
+      <rect x="20" y="15" width="62" height="72" rx="8" fill="rgba(25,18,14,0.15)" stroke="#19120E" strokeWidth="1.5" />
+      <rect x="38" y="8" width="26" height="14" rx="4" fill="#19120E" stroke="#19120E" strokeWidth="1.5" />
+      <rect x="30" y="34" width="42" height="3" rx="1.5" fill="#19120E" opacity="0.4" />
+      <rect x="30" y="44" width="32" height="3" rx="1.5" fill="#19120E" opacity="0.25" />
+      <rect x="30" y="54" width="38" height="3" rx="1.5" fill="#19120E" opacity="0.25" />
+      <circle cx="30" cy="67" r="5" fill="rgba(204,44,5,0.2)" />
+      <path d="M27.5 67 L29.5 69 L32.5 64.5" stroke="#CC2C05" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="38" y="64" width="28" height="3" rx="1.5" fill="#CC2C05" opacity="0.4" />
+      <circle cx="30" cy="79" r="5" fill="rgba(204,44,5,0.2)" />
+      <path d="M27.5 79 L29.5 81 L32.5 76.5" stroke="#CC2C05" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="38" y="76" width="22" height="3" rx="1.5" fill="#CC2C05" opacity="0.4" />
+      <circle cx="88" cy="30" r="16" fill="rgba(25,18,14,0.08)" stroke="#19120E" strokeWidth="1.5" />
+      <circle cx="88" cy="30" r="9" fill="rgba(25,18,14,0.15)" />
+      <circle cx="88" cy="30" r="3" fill="#CC2C05" />
+      <line x1="99" y1="42" x2="108" y2="54" stroke="#19120E" strokeWidth="2.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -28,21 +28,21 @@ function AuditIllustration() {
 function DeploiementIllustration() {
   return (
     <svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="50" r="10" fill="rgba(255,92,53,0.15)" stroke="#FF5C35" strokeWidth="1.5" />
-      <text x="20" y="55" fontSize="10" fill="#FF5C35" textAnchor="middle" fontFamily="sans-serif" fontWeight="700">A</text>
-      <circle cx="60" cy="25" r="10" fill="rgba(92,78,255,0.15)" stroke="#5C4EFF" strokeWidth="1.5" />
-      <circle cx="60" cy="75" r="10" fill="rgba(92,78,255,0.15)" stroke="#5C4EFF" strokeWidth="1.5" />
-      <circle cx="100" cy="50" r="10" fill="rgba(92,78,255,0.3)" stroke="#5C4EFF" strokeWidth="1.5" />
-      <text x="100" y="55" fontSize="10" fill="#5C4EFF" textAnchor="middle" fontFamily="sans-serif" fontWeight="700">B</text>
-      <line x1="30" y1="50" x2="50" y2="30" stroke="#FF5C35" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6" />
-      <line x1="30" y1="50" x2="50" y2="70" stroke="#FF5C35" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6" />
-      <line x1="70" y1="25" x2="90" y2="45" stroke="#5C4EFF" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6" />
-      <line x1="70" y1="75" x2="90" y2="55" stroke="#5C4EFF" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6" />
-      <circle cx="100" cy="50" r="18" stroke="#5C4EFF" strokeWidth="1" opacity="0.15" />
-      <circle cx="108" cy="24" r="8" fill="#5C4EFF" />
+      <circle cx="20" cy="50" r="10" fill="rgba(204,44,5,0.15)" stroke="#CC2C05" strokeWidth="1.5" />
+      <text x="20" y="55" fontSize="10" fill="#CC2C05" textAnchor="middle" fontFamily="sans-serif" fontWeight="700">A</text>
+      <circle cx="60" cy="25" r="10" fill="rgba(25,18,14,0.15)" stroke="#19120E" strokeWidth="1.5" />
+      <circle cx="60" cy="75" r="10" fill="rgba(25,18,14,0.15)" stroke="#19120E" strokeWidth="1.5" />
+      <circle cx="100" cy="50" r="10" fill="rgba(25,18,14,0.3)" stroke="#19120E" strokeWidth="1.5" />
+      <text x="100" y="55" fontSize="10" fill="#19120E" textAnchor="middle" fontFamily="sans-serif" fontWeight="700">B</text>
+      <line x1="30" y1="50" x2="50" y2="30" stroke="#CC2C05" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6" />
+      <line x1="30" y1="50" x2="50" y2="70" stroke="#CC2C05" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6" />
+      <line x1="70" y1="25" x2="90" y2="45" stroke="#19120E" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6" />
+      <line x1="70" y1="75" x2="90" y2="55" stroke="#19120E" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6" />
+      <circle cx="100" cy="50" r="18" stroke="#19120E" strokeWidth="1" opacity="0.15" />
+      <circle cx="108" cy="24" r="8" fill="#19120E" />
       <path d="M105 24 L107 26.5 L111 21" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      <text x="60" y="29" fontSize="12" fill="#5C4EFF" textAnchor="middle">⚡</text>
-      <text x="60" y="79" fontSize="12" fill="#5C4EFF" textAnchor="middle">📅</text>
+      <text x="60" y="29" fontSize="12" fill="#19120E" textAnchor="middle">⚡</text>
+      <text x="60" y="79" fontSize="12" fill="#19120E" textAnchor="middle">📅</text>
     </svg>
   );
 }
@@ -50,15 +50,15 @@ function DeploiementIllustration() {
 function ResultatsIllustration() {
   return (
     <svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="10" y="15" width="100" height="70" rx="10" fill="rgba(92,78,255,0.08)" stroke="#5C4EFF" strokeWidth="1" opacity="0.6" />
-      <rect x="10" y="15" width="100" height="4" rx="2" fill="#5C4EFF" opacity="0.5" />
-      <polyline points="18,72 30,62 42,65 55,45 68,50 80,30 92,22 104,18" fill="none" stroke="#5C4EFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
-      <circle cx="55" cy="45" r="3.5" fill="#5C4EFF" />
-      <circle cx="80" cy="30" r="3.5" fill="#5C4EFF" />
-      <circle cx="104" cy="18" r="4.5" fill="#FF5C35" />
-      <rect x="70" y="32" width="44" height="22" rx="6" fill="#12122A" stroke="#FF5C35" strokeWidth="1" />
-      <text x="92" y="42" fontSize="8" fill="#FF5C35" textAnchor="middle" fontFamily="sans-serif" opacity="0.7">CE MOIS</text>
-      <text x="92" y="52" fontSize="11" fill="#FF5C35" textAnchor="middle" fontFamily="sans-serif" fontWeight="700">+47%</text>
+      <rect x="10" y="15" width="100" height="70" rx="10" fill="rgba(25,18,14,0.08)" stroke="#19120E" strokeWidth="1" opacity="0.6" />
+      <rect x="10" y="15" width="100" height="4" rx="2" fill="#19120E" opacity="0.5" />
+      <polyline points="18,72 30,62 42,65 55,45 68,50 80,30 92,22 104,18" fill="none" stroke="#19120E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
+      <circle cx="55" cy="45" r="3.5" fill="#19120E" />
+      <circle cx="80" cy="30" r="3.5" fill="#19120E" />
+      <circle cx="104" cy="18" r="4.5" fill="#CC2C05" />
+      <rect x="70" y="32" width="44" height="22" rx="6" fill="#19120E" stroke="#CC2C05" strokeWidth="1" />
+      <text x="92" y="42" fontSize="8" fill="#CC2C05" textAnchor="middle" fontFamily="sans-serif" opacity="0.7">CE MOIS</text>
+      <text x="92" y="52" fontSize="11" fill="#CC2C05" textAnchor="middle" fontFamily="sans-serif" fontWeight="700">+47%</text>
       <rect x="18" y="74" width="86" height="1.5" rx="0.75" fill="white" opacity="0.1" />
     </svg>
   );
@@ -78,7 +78,7 @@ const STEPS: Step[] = [
   {
     num: "01",
     color: "var(--primary-on-dark)",
-    bg: "rgba(92,78,255,0.12)",
+    bg: "rgba(25,18,14,0.12)",
     title: "L’État des lieux",
     subtitle: "On lit votre activité, pas votre site.",
     description:
@@ -88,7 +88,7 @@ const STEPS: Step[] = [
   {
     num: "02",
     color: "#FF8A63",
-    bg: "rgba(255,92,53,0.10)",
+    bg: "rgba(204,44,5,0.10)",
     title: "Déploiement",
     subtitle: "2 à 4 semaines. Sans perturber votre quotidien.",
     description:
@@ -98,7 +98,7 @@ const STEPS: Step[] = [
   {
     num: "03",
     color: "var(--primary-on-dark)",
-    bg: "rgba(92,78,255,0.12)",
+    bg: "rgba(25,18,14,0.12)",
     title: "Résultats mesurés",
     subtitle: "Vous voyez exactement ce que le système vous rapporte.",
     description:
@@ -113,7 +113,7 @@ export function CommentCaMarche() {
   const reduced = useReducedMotion();
 
   return (
-    <section ref={ref} className="bg-[#12122A] py-20 sm:py-28">
+    <section ref={ref} className="bg-[#19120E] py-20 sm:py-28">
       <div className="container-page">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary-on-dark">
@@ -145,7 +145,7 @@ export function CommentCaMarche() {
               }
               className="relative flex flex-col items-center px-6 py-8 text-center"
             >
-              <div className="relative z-10 mb-6 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#12122A]">
+              <div className="relative z-10 mb-6 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#19120E]">
                 <span className="text-sm font-bold" style={{ color: step.color }}>
                   {step.num}
                 </span>
@@ -172,7 +172,7 @@ export function CommentCaMarche() {
         <div className="mt-12 flex justify-center">
           <a
             href="/etat-des-lieux"
-            className="inline-flex h-12 items-center gap-2 rounded-full bg-[#5C4EFF] px-7 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            className="inline-flex h-12 items-center gap-2 rounded-full bg-[#19120E] px-7 text-sm font-semibold text-white transition-opacity hover:opacity-90"
           >
             Demander un état des lieux
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
