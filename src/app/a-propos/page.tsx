@@ -113,7 +113,7 @@ export default function AProposPage() {
       <CTABanner
         eyebrow="Premier échange"
         title="On regarde votre activité ensemble. Honnêtement."
-        description="Audit gratuit sous 24h. Si Siboard n'est pas le bon partenaire pour votre cas, on vous le dit."
+        description="Le premier échange est gratuit et sans engagement, réponse sous 24h. Si Siboard n'est pas le bon partenaire pour votre cas, on vous le dit."
       />
     </>
   );

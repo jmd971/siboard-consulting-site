@@ -40,7 +40,7 @@ export default function RealisationsPage() {
       <CTABanner
         eyebrow="Votre cas, ensuite"
         title="On peut regarder ensemble ce qui bloque votre activité."
-        description="Audit gratuit, réponse sous 24h, sans engagement. On vous dit franchement si on est le bon partenaire — ou non."
+        description="Premier échange gratuit, réponse sous 24h, sans engagement. On vous dit franchement si on est le bon partenaire pour votre cas."
       />
     </>
   );

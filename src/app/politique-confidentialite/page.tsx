@@ -49,7 +49,7 @@ export default function PolitiqueConfidentialitePage() {
               2. Données collectées
             </h2>
             <p>
-              Lors de la soumission du formulaire d&apos;audit gratuit, les données
+              Lors de la soumission du formulaire de contact, les données
               suivantes sont collectées :
             </p>
             <ul className="mt-3 list-disc list-inside space-y-1 text-muted-foreground">
