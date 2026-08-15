@@ -4,7 +4,10 @@
  * SiboardLogo     : symbole orbital + wordmark SIBOARD consulting
  * SiboardLogomark : icône seule (orbite + centre)
  *
- * Identité v4 2026 — Figtree 900 · violet #5C4EFF · corail #FF5C35
+ * Identite v5 2026, registre rapport : Archivo 800, encre #19120E,
+ * un seul point de couleur, le noeud en vermillon #CC2C05.
+ * Le vermillon est reserve au signal ; il ne sert nulle part ailleurs
+ * dans le logo.
  */
 
 interface LogoProps {
@@ -26,14 +29,14 @@ export function SiboardLogomark({ className }: LogoProps) {
       <path
         d="M 82 50 A 32 32 0 1 1 68 18"
         fill="none"
-        stroke="#5C4EFF"
+        stroke="#19120E"
         strokeWidth="7"
         strokeLinecap="round"
       />
       {/* Nœud terminal corail */}
-      <circle cx="68" cy="18" r="8" fill="#FF5C35" />
+      <circle cx="68" cy="18" r="8" fill="#CC2C05" />
       {/* Centre solide */}
-      <circle cx="50" cy="50" r="12" fill="#12122A" />
+      <circle cx="50" cy="50" r="12" fill="#19120E" />
     </svg>
   );
 }
@@ -49,14 +52,14 @@ export function SiboardLogo({ className }: LogoProps) {
       <SiboardLogomark />
       <div className="flex flex-col justify-center leading-none">
         <span
-          className="text-[17px] font-black tracking-[-0.04em] text-foreground"
-          style={{ fontFamily: "var(--font-figtree), sans-serif" }}
+          className="text-[17px] font-extrabold tracking-[-0.04em] text-foreground"
+          style={{ fontFamily: "var(--font-archivo), sans-serif" }}
         >
           SIBOARD
         </span>
         <span
-          className="text-[9px] font-light tracking-[0.18em] text-primary mt-[1px]"
-          style={{ fontFamily: "var(--font-figtree), sans-serif" }}
+          className="text-[9px] font-normal tracking-[0.18em] text-muted-foreground mt-[1px]"
+          style={{ fontFamily: "var(--font-archivo), sans-serif" }}
         >
           consulting
         </span>
