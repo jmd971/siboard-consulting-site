@@ -198,11 +198,13 @@ export const FORMULE_COMPLETE = {
    le vocabulaire IA a le droit d'etre en promesse de tete. */
 export const FORMATION_IA = {
   titre: "L’intelligence artificielle au quotidien, pour vos équipes.",
+  intervenant:
+    "Journée conçue et animée avec Digital Smart Concept Innovations, qui forme déjà des agents de collectivité. Le programme est adapté au public : entreprise ou service public.",
   cadre: [
     { label: "Format", value: "Une journée de 7 h, en présentiel" },
     { label: "Groupe", value: "8 participants maximum" },
     { label: "Lieu", value: "Dans vos locaux, en Guadeloupe" },
-    { label: "Public", value: "Tous services, administratif, commercial, encadrement" },
+    { label: "Public", value: "Salariés d’entreprise ou agents de collectivité, tous services" },
   ],
   programme: [
     {
@@ -234,11 +236,18 @@ export const FORMATION_IA = {
     "Gagner du temps dès la semaine suivante sur au moins une tâche identifiée",
     "Et pour vous : la liste chiffrée de ce que votre entreprise refait à la main",
   ],
-  tarifs: [
-    { label: "Une session", note: "8 participants, une journée", prix: "2 400 €" },
-    { label: "Trois sessions", note: "jusqu’à 24 personnes formées", prix: "6 600 €" },
-    { label: "Cinq sessions", note: "jusqu’à 40 personnes formées", prix: "10 500 €" },
-    { label: "Point de suivi à 30 jours", note: "en visioconférence, en option", prix: "490 €" },
+  /* ⚠️ Pas de prix public sur cette page, a la difference du reste du
+     site. Deux publics, deux grilles : entreprise et collectivite
+     n'ont ni le meme cadre ni les memes circuits de financement.
+     Le dire explicitement plutot que de rester muet. */
+  prixNote:
+    "Le format est fixe, le prix ne l’est pas : il dépend du nombre de sessions et du cadre, entreprise ou collectivité, qui n’ont ni les mêmes circuits ni les mêmes contraintes. Nous le chiffrons après le questionnaire de recueil, dans une proposition écrite.",
+  proposition: [
+    "Le questionnaire de recueil des besoins, envoyé au responsable et aux participants",
+    "Le programme de la journée, construit sur vos métiers et non sur un support générique",
+    "Le nombre de sessions et les dates proposées",
+    "Le point de suivi à 30 jours, en option",
+    "Le prix, ferme et détaillé",
   ],
 } as const;
 

@@ -28,7 +28,7 @@ export default function FormationPage() {
       <Cadre />
       <Programme />
       <Acquis />
-      <Prix />
+      <Proposition />
       <Suite />
       <CTABanner
         eyebrow="Formation IA"
@@ -71,10 +71,10 @@ function Hero() {
           <ArrowRight className="ml-1.5 h-4 w-4" />
         </Link>
         <Link
-          href="#prix"
+          href="#proposition"
           className="group inline-flex h-12 min-h-11 items-center justify-center gap-1.5 rounded-sm border border-rule-strong px-6 text-base font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
         >
-          Voir le prix
+          Voir la proposition
         </Link>
       </div>
     </section>
@@ -185,47 +185,51 @@ function Acquis() {
   );
 }
 
-function Prix() {
+function Proposition() {
   return (
-    <section id="prix" className="container-page scroll-mt-20 py-16 sm:py-20">
-      <div className="max-w-2xl">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
-          Le prix est public
-        </p>
-        <h2 className="mt-4 text-balance text-3xl font-extrabold tracking-tight sm:text-4xl">
-          Une journée, huit personnes, dans vos locaux.
-        </h2>
-      </div>
-
-      <ol className="mt-10">
-        {FORMATION_IA.tarifs.map((t, i) => (
-          <li
-            key={t.label}
-            className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 border-t border-rule py-6 last:border-b-2 last:border-b-rule-strong"
+    <section id="proposition" className="container-page scroll-mt-20 py-16 sm:py-20">
+      <div className="grid gap-x-14 gap-y-8 md:grid-cols-12">
+        <div className="md:col-span-5">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
+            La proposition
+          </p>
+          <h2 className="mt-4 text-balance text-3xl font-extrabold tracking-tight sm:text-4xl">
+            Le format est fixe. Le prix dépend de vous.
+          </h2>
+          <p className="prose-report mt-5 text-pretty text-muted-foreground">
+            {FORMATION_IA.prixNote}
+          </p>
+          <Link
+            href="/etat-des-lieux#demander"
+            className={cn(
+              buttonVariants({ size: "lg" }),
+              "mt-8 h-12 w-full rounded-sm px-6 text-base font-semibold sm:w-auto",
+            )}
           >
-            <div className="flex items-baseline gap-5">
-              <span className="figure shrink-0 text-sm text-muted-foreground">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <p className="text-pretty text-lg leading-snug text-foreground">{t.label}</p>
-                {t.note ? (
-                  <p className="mt-1 text-sm text-muted-foreground">{t.note}</p>
-                ) : null}
-              </div>
-            </div>
-            <p className="figure shrink-0 text-3xl font-semibold text-accent-strong sm:text-4xl">
-              {t.prix}
-            </p>
-          </li>
-        ))}
-      </ol>
+            Demander une proposition
+            <ArrowRight className="ml-1.5 h-4 w-4" />
+          </Link>
+        </div>
 
-      <p className="prose-report mt-8 max-w-2xl text-pretty text-sm text-muted-foreground">
-        Prix hors taxes, TVA DOM 8,5 %. Siboard n’est pas organisme de formation certifié Qualiopi :
-        la prestation se règle en direct et n’entre pas dans un circuit de prise en charge OPCO.
-        C’est dit d’emblée pour que personne ne perde de temps.
-      </p>
+        <div className="md:col-span-7">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+            Ce qu’elle contient
+          </p>
+          <ol className="mt-4">
+            {FORMATION_IA.proposition.map((item, i) => (
+              <li key={item} className="flex gap-5 border-t border-rule py-4 last:border-b">
+                <span className="figure shrink-0 text-sm text-muted-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="text-pretty text-[15px] leading-snug text-foreground/90">{item}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="prose-report mt-6 text-pretty text-sm text-muted-foreground">
+            {FORMATION_IA.intervenant}
+          </p>
+        </div>
+      </div>
     </section>
   );
 }
