@@ -114,7 +114,7 @@ function DashboardMockup() {
           <div className="mb-5 grid grid-cols-3 gap-3">
             {[
               { label: "Position Google", value: "#1", color: "text-primary", bg: "bg-primary/8" },
-              { label: "Avis clients", value: "4.9★", color: "text-accent-strong", bg: "bg-accent/8" },
+              { label: "Avis Google", value: "4,8★", color: "text-accent-strong", bg: "bg-accent/8" },
               { label: "RDV ce mois", value: "+38%", color: "text-green-700", bg: "bg-green-500/8" },
             ].map((kpi) => (
               <div key={kpi.label} className={`rounded-xl ${kpi.bg} p-3`}>
