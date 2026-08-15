@@ -2,374 +2,176 @@
 
 ## Contexte projet
 
-Site vitrine de **Siboard Consulting**, cabinet d'accompagnement digital fondé par Jean-Marc Dolmare, basé en Guadeloupe, actif en DOM et Île-de-France.
+Site vitrine de **Siboard Consulting**, cabinet digital fondé par Jean-Marc Dolmare, basé en Guadeloupe, actif en DOM et Île-de-France.
 
-**Objectif du site** : convertir un visiteur TPE/PME en prospect qualifié via deux chemins distincts selon son besoin. Le site ne doit pas expliquer ce qu'est l'IA — il doit convaincre en 30 secondes que Siboard comprend le problème du visiteur et s'engage sur un résultat.
+**Positionnement (refonte août 2026)** :
 
-**Principe anti-commodité — à appliquer partout sur le site** :
-- Ne jamais nommer les outils (GHL, Voiceflow, Make, Vapi) dans les titres et accrochés — seulement dans les sections techniques ou la page À propos
-- Toujours parler résultat avant technologie : "agenda rempli automatiquement" avant "GoHighLevel", "agent qui répond à votre place" avant "chatbot Voiceflow"
-- La garantie Mission 90J doit apparaître dès la homepage — c'est le signal anti-commodité le plus fort
-- Siboard vend une relation et un résultat, pas une prestation technique
+> Siboard analyse comment une entreprise travaille réellement, chiffre ce qu'elle perd, puis construit les systèmes qui le corrigent.
+
+Un cabinet de conseil analyse et laisse un rapport. Une agence installe sans avoir analysé. Siboard fait les deux gestes, et c'est la même personne qui signe le constat et qui construit la réponse.
+
+**Le diagnostic est la valeur ajoutée principale de Jean-Marc.** Tout le site doit le refléter : c'est le produit d'entrée, il est payant, il n'est jamais présenté comme un préliminaire commercial.
+
+---
+
+## ⚠️ Règles éditoriales — non négociables
+
+1. **Il n'y a plus d'audit gratuit.** L'ancienne route `/audit-gratuit` redirige vers `/etat-des-lieux`. Ne jamais réintroduire un « audit offert », « diagnostic gratuit » ou équivalent comme CTA principal. Ce qui est gratuit et sans engagement, c'est le **premier échange de cadrage**, pas le diagnostic.
+2. **L'IA n'est jamais le titre.** Elle arrive dans l'amélioration des process, comme moyen. Ne pas mettre « intelligence artificielle », « agents IA » ou « automatisation » en promesse de tête. Les concurrents locaux (Suity, Digitallis) occupent ce terrain et il se commoditise.
+3. **Ne jamais nommer les outils** (GoHighLevel, Voiceflow, Make, n8n, Vapi, Supabase) dans les titres ni les accroches. Uniquement dans les sections techniques ou la page À propos.
+4. **Les prix sont affichés.** C'est un choix délibéré contre l'usage du marché : les concurrents cachent leurs prix, Siboard les montre. Seul le logiciel métier n'a qu'un plancher. Ne jamais créer de page « Tarifs » isolée : le prix reste attaché à chaque produit, après la description de ce qu'il règle.
+5. **Les cinq systèmes sont des prescriptions, pas un catalogue.** Toujours les présenter avec un bloc « On le prescrit quand » qui décrit le symptôme en langage dirigeant.
+6. **Jamais de résultat garanti sans condition de vérification.** Les deux seules garanties autorisées sont celle de l'État des lieux (remboursé si les fuites trouvées sont inférieures au prix) et celle de la Mission 90J (10 RDV ou prolongation).
+7. **Pas de logo de venture dans le mur de logos clients.** AdamBoards, TransmiExpert et SecureXia sont des produits édités par Siboard, pas des clients. Ils vivent sur `/ventures`.
+8. **Écriture humaine.** Éviter les tirets cadratins, les points médians décoratifs et les énumérations systématiques par trois. Phrases courtes, mots concrets, langage du dirigeant.
 
 ---
 
 ## Stack technique
 
 - **Framework** : Next.js 14 (App Router)
-- **Styling** : Tailwind CSS
+- **Styling** : Tailwind CSS v4 (tokens dans `src/app/globals.css`)
 - **Composants** : shadcn/ui
-- **Déploiement** : Vercel
-- **Formulaires** : connectés à GoHighLevel via webhook
+- **Déploiement** : Vercel, auto-deploy `main` → production
+- **Formulaires** : `AuditForm` (`src/app/audit-gratuit/audit-form.tsx`), POST webhook GoHighLevel
+- **Contenu** : centralisé dans `src/lib/constants.ts`, pas de CMS
 - **Langue** : Français
-- **TVA** : 8,5% (DOM) — à mentionner si prix affichés
+- **TVA** : 8,5 % (DOM), mentionnée partout où des prix apparaissent
 
 ---
 
-## Architecture — 6 pages
+## Architecture — 8 routes
 
 ```
-/ (Homepage)
-├── /solutions             → Automatisation + Agents IA (deux briques distinctes)
-├── /mission-90j           → Offre Mission Croissance 90J
-├── /realisations          → Portfolio clients
-├── /a-propos              → Jean-Marc + positionnement
-└── /audit-gratuit         → Formulaire CTA principal
+/                        Homepage
+├── /etat-des-lieux      Produit d'entrée payant + formulaire de contact  ← CTA principal
+├── /solutions           Le Socle + les 5 systèmes + le logiciel métier
+├── /ventures            Les 3 plateformes éditées par Siboard
+├── /mission-90j         Mission Croissance 90J
+├── /realisations        Portfolio clients
+├── /a-propos            Jean-Marc + positionnement
+└── /audit-gratuit       → redirige vers /etat-des-lieux (route conservée pour les liens existants)
 ```
 
----
-
-## Identité visuelle
-
-- **Couleurs** : à définir avec Jean-Marc (suggestion : dark navy + accent chaud — éviter le bleu IA générique)
-- **Typographie** : moderne, lisible, pas de serif
-- **Ton** : direct, concret, sans jargon technique visible
-- **Règle** : jamais les noms d'outils en titre — toujours le résultat ("agenda rempli", "clients qui reviennent", "agent qui répond 24h/24")
+`/automatisation` redirige vers `/solutions` (historique).
 
 ---
 
-## Page 1 — Homepage `/`
+## L'offre — source de vérité
 
-### Objectif
-Orienter le visiteur vers le bon chemin (Persona A ou B) en moins de 30 secondes.
+Tout le contenu commercial vit dans `src/lib/constants.ts`. Modifier là, pas dans les composants.
 
-### Sections dans l'ordre
+### Étape 1 — L'État des lieux (`ETAT_DES_LIEUX`)
 
-**1. Hero**
-- Headline : *"Votre activité mérite un digital qui travaille pour vous."*
-- Sous-titre : *"Audit, automatisation, missions de croissance. On comprend votre process avant de construire votre solution."*
-- CTA A : `"Automatiser mon activité →"` → `/automatisation`
-- CTA B : `"Développer mon offre B2B →"` → `/mission-90j`
+Diagnostic de process payant. On suit le parcours réel du client, de la découverte à la facture encaissée, et on cherche où ça fuit, où ça attend, et où l'on ressaisit de l'information.
 
-**2. Preuve sociale rapide (3 chiffres)**
-- Odyssée by Béa : Zéro présence digitale → 3ème position Google Maps
-- Sacodif : 3ème page Google → 3ème position "expert comptable Créteil"
-- FCC : Site + chatbot + RDV automatisés — acquisition client 24h/24 depuis zéro
+Livrable écrit : carte du parcours avec les points de rupture, chiffrage de chaque fuite en euros et en heures **à partir des données du client** (jamais de moyennes de marché), ordre de traitement, et ce qui est déconseillé.
 
-**3. Les deux offres (deux cartes)**
-- Carte A — Automatisation + Agents IA : pour les TPE qui perdent des leads ou du temps. CTA → `/solutions`
-- Carte B — Mission Croissance 90J : pour les pros avec une offre B2B à activer, done for you. Mention de la garantie visible sur la carte : *"10 RDV qualifiés garantis ou on continue gratuitement."* CTA → `/mission-90j`
+| Périmètre | Prix HT |
+|---|---|
+| TPE, un site, jusqu'à 10 personnes | 1 900 € |
+| PME, plusieurs services ou sites | 3 900 € |
+| Groupe ou collectivité | à partir de 6 500 € |
 
-Note : ne pas illustrer cette offre avec un cas client nommé pour l'instant — la Mission 90J n'a pas encore de client signé à référencer publiquement. Mettre en avant la garantie et la méthode uniquement.
+Deux engagements à toujours afficher ensemble : le document appartient au client et il est libre de le faire exécuter ailleurs ; le diagnostic est remboursé si les fuites identifiées ne dépassent pas son prix.
 
-**4. Réalisations en aperçu**
-Logos ou noms de 4-5 clients + secteur + résultat en une ligne chacun.
+**Le diagnostic n'est pas déduit d'une installation.** Le déduire reviendrait à dire que la vraie valeur est ailleurs.
 
-**5. Notre écosystème**
+### Étape 2 — Le Socle et les cinq systèmes (`SOCLE`, `MODULES`)
 
-Section sobre, 3 cartes côte à côte. Titre de section : *"Au-delà du consulting — des plateformes que nous avons construites."*
+Le Socle Siboard est la fondation technique commune, construite et détenue par Siboard. Il ne se vend jamais seul. 2 900 € + 190 €/mois.
 
-Chaque carte contient : logo ou nom stylisé + domaine en une ligne + lien vers le site externe.
-
-| Produit | Domaine | Lien |
+| Système | Sous-titre | Prix HT |
 |---|---|---|
-| **AdamBoards** | Accompagnement financier mensuel pour dirigeants de TPE/PME — méthode structurée, suivi personnalisé. *Plateforme et application construites par Siboard.* | adamboards.fr |
-| **TransmiExpert** | Diagnostic et accompagnement pour céder ou reprendre une entreprise dans les meilleures conditions. *Site web et outil de diagnostic digital construits par Siboard.* | transmiexpert.fr |
-| **SecureXia** | Service managé de mise en conformité incendie pour les ERP en Guadeloupe — visite terrain + plateforme de suivi. *Plateforme client et système de documentation construits par Siboard.* | securexia.fr |
+| L'Accueil | Répondre en une minute, qualifier, poser le rendez-vous | 2 500 € (6 500 € vocal) + 90 €/mois |
+| Le Bureau | Les documents traités, classés et tracés sans ressaisie | dès 4 900 € + 90 €/mois |
+| Le Fil | Garder le lien jusqu'à la signature | 1 900 € + 90 €/mois (option La Preuve 900 €) |
+| Le Retour | Faire revenir les clients qui vous connaissent déjà | 1 900 € analyse / 3 500 € avec campagne |
+| Le Point | Vos chiffres chaque matin, là où vous travaillez déjà | 3 500 € (7 500 € commenté) + 90 €/mois |
 
-Note de développement : les liens s'ouvrent dans un nouvel onglet (`target="_blank"`). Les cartes sont volontairement sobres — pas de descriptions longues, l'objectif est la crédibilité, pas la conversion vers ces produits.
+Logiciel métier sur mesure : à partir de 15 000 €.
+Formule complète (socle + trois systèmes en 90 jours) : 11 900 € + 460 €/mois.
 
-**6. CTA final**
-> *"Audit digital offert — on analyse votre situation et on vous dit exactement quoi prioriser. Sans engagement."*
-Bouton → `/audit-gratuit`
+**Preuve manquante à combler** : Le Fil et Le Point n'ont pas encore de cas client chiffré (champ `preuve` vide dans `MODULES`). Ne pas inventer de chiffre. Remplir dès qu'un client autorise la citation.
 
----
+### Les ventures (`ECOSYSTEME`, page `/ventures`)
 
-## Page 2 — Solutions `/solutions`
+Trois logiciels métier en production, chacun co-édité avec un professionnel du secteur. Ils ne sont pas décoratifs : ce sont la preuve que Siboard construit du logiciel et non seulement des paramétrages, et l'antichambre commerciale de l'offre logiciel métier.
 
-### Objectif
-Présenter les deux niveaux de service de Siboard — Automatisation et Agents IA — comme des briques complémentaires, pas des synonymes.
+Le schéma à raconter, toujours le même : on analyse un process chez un client, on le construit en logiciel, puis on le généralise au secteur avec un expert du métier.
 
-### Personas cibles
-- Dirigeant TPE/commerce/service, 1–15 salariés
-- Guadeloupe prioritaire, IDF secondaire
-- Budget : 500–3 000€
+| Produit | Domaine | Ce que ça prouve |
+|---|---|---|
+| AdamBoards | adamboards.fr | Logiciel financier multi-sociétés avec une couche IA encadrée par des règles déterministes |
+| TransmiExpert | transmiexpert.fr | Transformer une saisie en document professionnel de 48 pages sans intervention humaine |
+| SecureXia | securexia.fr | Modéliser une réglementation et la rendre utilisable sur le terrain |
 
-### Sections
+### Mission Croissance 90J
 
-**1. Le problème**
-> *"Chaque jour, des prospects vous contactent... et n'obtiennent pas de réponse. Des clients partent sans laisser d'avis. Vos RDV ont des no-shows. Votre temps part dans des tâches qui pourraient tourner seules."*
+Inchangée. 1 500 € HT/mois × 3 mois + 80 € HT par RDV qualifié tracé, garantie de 10 RDV ou prolongation sans facturation, exclusivité sectorielle contractualisée.
 
-**2. La méthode en 3 étapes**
-- Audit (on identifie les fuites et les priorités)
-- Déploiement (on construit les briques manquantes)
-- Autonomie (vous pilotez, on reste disponibles)
-
-**3. Deux niveaux de solution — présentés en deux blocs visuels distincts**
-
-**Bloc A — Automatisation**
-Structurer les process répétitifs pour ne plus perdre de leads ni de temps.
-- Agenda rempli automatiquement (confirmations, rappels, anti no-show)
-- Collecte d'avis Google après chaque prestation
-- Réactivation clients inactifs par WhatsApp/SMS
-- Synchronisation des données entre vos outils
-
-**Bloc B — Agents IA**
-Aller plus loin : des agents qui comprennent, décident et agissent à votre place.
-- Agent conversationnel qui qualifie vos leads 24h/24 et répond à leur place
-- Agent vocal qui décroche, filtre et prend des RDV sans intervention humaine
-- Assistant métier sur mesure (rédaction, analyse, process internes)
-- Intégrations avancées sur mesure (API, bases de données, outils métier)
-
-Note éditoriale : ne pas nommer les outils dans ces descriptions — parler uniquement du bénéfice client.
-
-**4. Cas clients**
-- Odyssée by Béa — boutique mode Guadeloupe — zéro présence → 3ème Google Maps + site + RDV + paiement
-- DFP France — films vitrages IDF — site + agenda en ligne
-- Fast Computer Company — magasin informatique Guadeloupe
-
-**5. CTA**
-> *"Audit digital offert pour toute entreprise en Guadeloupe et en Île-de-France."*
-Bouton → `/audit-gratuit`
-
----
-
-## Page 3 — Mission Croissance 90J `/mission-90j`
-
-### Objectif
-Convaincre le Persona B (professionnel IDF avec offre B2B) que le risque est zéro et le résultat garanti.
-
-### Personas cibles
-- Prestataire services, événementiel, B2B
-- IDF prioritaire
-- Budget : 1 500€/mois × 3 mois minimum
-
-### Sections
-
-**1. La promesse**
-> *"Vos premiers clients B2B signés en 90 jours. Sans prospecter vous-même. Sans gérer les outils. Done for you."*
-
-**2. Pourquoi commencer par votre produit le plus fort**
-On identifie le produit ou service avec le différenciateur le plus puissant. On construit toute la mécanique commerciale autour. On l'exécute.
-
-**3. Ce qu'on fait pour vous (5 blocs)**
-- Brief web + pilotage de votre prestataire (page dédiée au produit)
-- LinkedIn management : optimisation + 1 post/semaine rédigé et validé
-- Prospection LinkedIn active : 40 messages/semaine ciblés (DRH, RSE, Achats...)
-- Tableau de bord commercial partagé en temps réel
-- Campagne de réactivation de votre base clients existante
-
-**4. La garantie**
-> *"10 RDV qualifiés en 90 jours ou on continue sans vous facturer."*
-+ Exclusivité sectorielle contractualisée : un seul opérateur du même secteur accompagné à la fois.
-
-**5. Pricing transparent — bloc visuel dédié**
-
-Afficher le prix et la garantie dans le même bloc visuel. Ne jamais séparer les deux.
-
-```
-1 500 € HT / mois × 3 mois
-+ 80 € HT par RDV qualifié tracé
-
-10 RDV qualifiés en 90 jours
-ou on continue sans vous facturer.
-```
-
-Note de développement : ce bloc doit être visuellement accentué (bordure or ou fond légèrement distinct). Le prix seul fait peur — la garantie dans le même bloc le rend irréfutable. Afficher aussi : "Exclusivité sectorielle — un seul concurrent accompagné à la fois."
-
-**6. CTA**
-> *"Réserver un appel de 30 min — on analyse votre offre et on vous dit si la Mission 90J est adaptée."*
-Bouton → `/audit-gratuit` (ou calendrier Calendly/GHL direct)
-
-Note : pas de cas client nommé sur cette page pour l'instant — la preuve est la garantie elle-même (10 RDV ou prolongation gratuite) et l'exclusivité sectorielle. Ajouter un cas client dès la première mission signée.
-
----
-
-## Page 4 — Réalisations `/realisations`
-
-### Objectif
-Prouver la diversité sectorielle et l'impact mesurable. Chaque cas = secteur + mission + résultat chiffré ou qualifié.
-
-### Cas clients
-
-| Client | Secteur | Localisation | Mission | Résultat |
-|---|---|---|---|---|
-| [Odyssée by Béa](https://odysseebybea.fr) | Boutique mode & accessoires, showroom privé | Baie-Mahault, Guadeloupe | Création digitale complète (zéro existant) : site web + Google Business Profile + prise de RDV en ligne + lien de paiement Stripe | Zéro présence digitale → 3ème position Google Maps |
-| [Sacodif](https://sacodif.fr) | Expert-comptable | Créteil, IDF | Repositionnement SEO — refonte du contenu et de la structure du site | 3ème page Google → 3ème position sur "expert comptable Créteil" |
-| [DFP France](https://www.dfpfrance.fr) | Pose de films techniques pour vitrages (solaire, sécurité, anti-graffiti) | Île-de-France | Création complète de A à Z : site web + système de prise de rendez-vous intégré | Agenda en ligne opérationnel, flux de RDV automatisé |
-| [Axecime](https://axecime.com) | Courtage financier (prêts immobiliers, assurance) | Les Abymes, Guadeloupe | Application métier sur mesure : gestion et automatisation des données clients pour prêts et assurance, workflow de récupération des dossiers incomplets, relances automatiques pour fichiers manquants + SEO + Google Business Profile | Processus de collecte de dossiers entièrement automatisé, zéro relance manuelle |
-| [Fast Computer Company](https://fcc-gp.com) | Magasin informatique & réparation | Baie-Mahault, Guadeloupe | Création complète de A à Z : site web + Google Business Profile + chatbot support et acquisition client + automatisation des prises de RDV | Présence digitale complète, acquisition et support client automatisés 24h/24 |
-
-### Format d'affichage recommandé
-Grille de cartes, une par client. Chaque carte : logo ou initiales + secteur + localisation + ce qui a été construit (en gras) + résultat en headline.
-
-Chaque carte doit inclure un lien vers le site du client (`target="_blank"`) quand disponible — c'est la preuve irréfutable que le travail est réel. Libellé du lien : "Voir le site →"
-
-Note : Bateau Alizé n'a pas encore de lien public à afficher — laisser sans lien pour l'instant.
-
----
-
-## Page 5 — À propos `/a-propos`
-
-### Sections
-
-**1. Jean-Marc Dolmare**
-Ingénieur EPITA, background télécoms et paiements mobiles. Fondateur de Siboard Consulting depuis 2020. 5 ans de terrain en Guadeloupe et Île-de-France. Construit des solutions sur mesure — jamais de package générique imposé.
-
-**2. Le modèle Siboard**
-On part du process du client, pas de l'outil. On diagnostique avant de prescrire. On reste disponibles après le déploiement.
-
-**3. Les produits maison (preuves d'exécution)**
-- RDVFlow — automatisation de la prise de RDV
-- AvisFlow — collecte d'avis Google automatique
-- ClientBack — réactivation de clients inactifs
-- SIA — assistante IA conversationnelle
-
-**4. Les ventures partenaires**
-- AdamBoards — accompagnement financier TPE/PME
-- SecureXia — conformité incendie ERP Guadeloupe
-- TransmiExpert — transmission d'entreprise
-
-**5. Stack maîtrisé**
-GoHighLevel · Voiceflow · Make/n8n · Supabase · Stripe · Next.js · Vercel
-
----
-
-## Page 6 — Audit gratuit `/audit-gratuit`
-
-### Objectif
-Point d'entrée principal. Formulaire simple, confirmation rapide.
-
-### Champs du formulaire
-- Prénom + Nom
-- Société
-- Secteur d'activité (liste courte : Commerce/Retail / Services / Restauration / Artisanat / Événementiel / Autre)
-- Localisation (Guadeloupe / Île-de-France / Autre DOM / Autre)
-- Problème principal (cases à cocher) :
-  - Je perds des prospects / leads
-  - Mes RDV ont trop de no-shows
-  - Mes clients ne laissent pas d'avis
-  - Je veux automatiser des tâches répétitives
-  - J'ai un produit B2B à développer
-  - Autre
-- Email
-- Téléphone / WhatsApp
-
-### Confirmation
-Message de confirmation à l'écran + webhook GHL pour déclencher un message WhatsApp automatique dans les 24h.
-
-### Promesse affichée
-> *"On vous répond sous 24h. Pas une offre commerciale — un diagnostic honnête de votre situation."*
+⚠️ Cette offre n'a pas encore de client signé référençable publiquement. Pas de cas client nommé sur cette page : la preuve est la garantie et l'exclusivité.
 
 ---
 
 ## Règles globales de développement
 
-1. **Mobile-first — PRIORITÉ ABSOLUE**
-   - Breakpoints Tailwind : `sm` (640px), `md` (768px), `lg` (1024px)
-   - Concevoir et tester d'abord en 375px (iPhone SE) avant toute vue desktop
-   - Navigation mobile : menu hamburger avec drawer latéral ou menu déroulant
-   - CTAs : hauteur minimum 48px, largeur full sur mobile (`w-full sm:w-auto`)
-   - Typographie : headline 28px max sur mobile (pas de débordement)
-   - Cards des deux offres : empilées verticalement sur mobile, côte à côte sur desktop (`grid-cols-1 md:grid-cols-2`)
-   - Section Écosystème : 1 colonne sur mobile, 3 colonnes sur desktop
-   - Formulaire `/audit-gratuit` : 100% largeur sur mobile, labels au-dessus des champs
-   - Pas de tableau HTML — utiliser des cartes empilées pour les réalisations sur mobile
-   - Tester avec Chrome DevTools en mode responsive avant chaque livraison de page
+1. **Mobile-first, priorité absolue**
+   - Concevoir et tester d'abord en 375px avant toute vue desktop
+   - CTA : hauteur minimum 48px, pleine largeur sur mobile (`w-full sm:w-auto`)
+   - Titre principal : 28px maximum sur mobile
+   - Cartes empilées en une colonne sur mobile, jamais de tableau HTML pour du contenu
 
 2. **Performance**
-   - Images : format WebP uniquement, attribut `width` et `height` obligatoires (évite CLS)
-   - Lazy loading sur toutes les images hors hero (`loading="lazy"`)
-   - Fonts Google : `display=swap` + préconnexion `<link rel="preconnect">`
-   - Core Web Vitals cibles : LCP < 2.5s, CLS < 0.1, FID < 100ms
-   - Pas de librairies inutiles — Tailwind + shadcn/ui suffisent pour la V1
+   - Images en WebP, `width` et `height` obligatoires, `loading="lazy"` hors hero
+   - Cibles Core Web Vitals : LCP < 2,5 s, CLS < 0,1
+   - Pas de librairie supplémentaire, Tailwind et shadcn/ui suffisent
 
-3. **SEO — voir section dédiée ci-dessous**
+3. **Accessibilité**
+   - Contraste minimum 4,5:1
+   - `alt` descriptif, `aria-label` sur les boutons icône, focus visible
 
-4. **Accessibilité**
-   - Contraste minimum 4.5:1 texte/fond (critique pour l'accent or #D4A853 sur fond clair)
-   - Attribut `alt` descriptif sur toutes les images
-   - Balises `aria-label` sur les boutons icône
-   - Focus visible sur tous les éléments interactifs
-
-5. **Pas de dépendance CMS** en V1 — contenu en dur dans les composants
-6. **Formulaire `/audit-gratuit`** connecté à GHL via webhook POST
+4. **Typographie et apostrophes**
+   - Dans le JSX, préférer `{"texte"}` avec apostrophes typographiques plutôt que `&apos;` dispersés
+   - Le contenu long vit dans `constants.ts` et se rend via `{}`
 
 ---
 
-## SEO — Stratégie et mots-clés cibles
+## SEO
 
-### Pourquoi Next.js résout le problème SEO actuel
-Le site actuel (Bolt/React SPA) retourne un `<div id="root">` vide à Google — seule la homepage est indexée. Next.js App Router génère du HTML côté serveur : toutes les pages sont indexables dès le lancement.
+### Balises par page
 
-### Balises à générer par page
+| Route | `<title>` | `<h1>` |
+|---|---|---|
+| `/` | Siboard Consulting — Diagnostic de process et systèmes pour TPE/PME Guadeloupe et IDF | Votre activité mérite un digital qui travaille pour vous. |
+| `/etat-des-lieux` | L'État des lieux — diagnostic de process pour TPE et PME \| Siboard | On regarde comment vous travaillez vraiment. |
+| `/solutions` | Solutions — le Socle Siboard et les cinq systèmes \| Siboard Consulting | L'état des lieux dit quoi réparer. Voici avec quoi. |
+| `/ventures` | Nos plateformes — les logiciels que Siboard édite \| Siboard Consulting | Nous n'installons pas seulement des outils. Nous en éditons. |
+| `/mission-90j` | Mission Croissance 90J — 10 RDV B2B garantis — Siboard | Vos premiers clients B2B signés en 90 jours. |
+| `/realisations` | Réalisations — Clients Siboard Consulting Guadeloupe et IDF | Nos réalisations |
+| `/a-propos` | À propos — Jean-Marc Dolmare, Siboard Consulting Guadeloupe | Siboard Consulting — qui sommes-nous ? |
 
-| Page | `<title>` | `<meta description>` | `<h1>` |
-|---|---|---|---|
-| `/` | Siboard Consulting — Automatisation & IA pour TPE/PME Guadeloupe et IDF | Audit digital, automatisation sur mesure et agents IA pour les TPE/PME en Guadeloupe et Île-de-France. On comprend votre process avant de construire votre solution. | Votre activité mérite un digital qui travaille pour vous. |
-| `/solutions` | Automatisation & Agents IA pour entreprises — Siboard Consulting | Prise de RDV automatisée, collecte d'avis, réactivation clients, chatbot IA et agents vocaux pour TPE/PME en Guadeloupe et en France. | Automatisation et Agents IA sur mesure |
-| `/mission-90j` | Mission Croissance 90J — 10 RDV B2B garantis — Siboard | Mission commerciale done for you : LinkedIn, prospection, page web, tableau de bord. 10 RDV qualifiés en 90 jours ou prolongation gratuite. | Vos premiers clients B2B signés en 90 jours. |
-| `/realisations` | Réalisations — Clients Siboard Consulting Guadeloupe et IDF | Découvrez les projets réalisés par Siboard : création de site, SEO, automatisation et agents IA pour des entreprises en Guadeloupe et en Île-de-France. | Nos réalisations |
-| `/a-propos` | À propos — Jean-Marc Dolmare, Siboard Consulting Guadeloupe | Fondateur de Siboard Consulting, Jean-Marc Dolmare accompagne les TPE/PME en Guadeloupe et en IDF depuis 2020 : automatisation, IA et transformation digitale. | Siboard Consulting — qui sommes-nous ? |
-| `/audit-gratuit` | Audit Digital Gratuit — Siboard Consulting Guadeloupe | Demandez votre audit digital gratuit. On analyse votre situation et vous dit exactement quoi prioriser. Réponse sous 24h, sans engagement. | Audit digital gratuit |
+### Mots-clés prioritaires
 
-### Mots-clés prioritaires par zone
+**Guadeloupe (971)** : audit digital Guadeloupe, diagnostic process entreprise Guadeloupe, automatisation PME Guadeloupe, agent IA Guadeloupe, agence digitale Guadeloupe, création site web Guadeloupe, logiciel métier sur mesure Guadeloupe
 
-**Guadeloupe (971) — requêtes à cibler en priorité**
-- "consultant IA Guadeloupe"
-- "automatisation PME Guadeloupe"
-- "agent IA Guadeloupe"
-- "agence digitale Guadeloupe"
-- "création site web Guadeloupe"
-- "audit digital Guadeloupe"
+**Secteur public** : diagnostic numérique collectivité, logiciel métier mairie, conformité ERP Guadeloupe
 
-**IDF / national — pour la Mission 90J**
-- "mission commerciale B2B done for you"
-- "prospection LinkedIn PME"
-- "développer offre B2B prestataire de services"
-- "consultant croissance commerciale TPE"
+**IDF / national, pour la Mission 90J** : mission commerciale B2B done for you, prospection LinkedIn PME, consultant croissance commerciale TPE
 
-### Fichiers techniques à générer
-- `sitemap.xml` — généré automatiquement via `next-sitemap`
-- `robots.txt` — autoriser tout sauf `/api/`
-- `app/layout.tsx` — inclure données structurées JSON-LD type `Organization` :
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Siboard Consulting",
-  "url": "https://www.siboard-consulting.fr",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "73 rue Vatable",
-    "addressLocality": "Pointe-à-Pitre",
-    "postalCode": "97110",
-    "addressCountry": "FR"
-  },
-  "areaServed": ["Guadeloupe", "Île-de-France", "Martinique", "Guyane"]
-}
-```
-- Google Search Console : soumettre le sitemap après déploiement Vercel
+### Fichiers techniques
+- `src/app/sitemap.ts` — tenir à jour à chaque nouvelle route
+- `public/robots.txt` — ouvert, sauf `/api/`
+- `public/llms.txt` — résumé de l'offre pour les moteurs IA, à mettre à jour à chaque changement de prix ou d'offre
+- JSON-LD `Organization` dans `src/app/layout.tsx`
 
 ---
 
-## Informations légales à intégrer
+## Informations légales
 
 - **Société** : Siboard Consulting
 - **SIRET** : 89080598900013
 - **Adresse** : 73 rue Vatable, 97110 Pointe-à-Pitre, Guadeloupe
 - **TVA** : FR79890805989
 - **Email** : contact@siboard-consulting.fr
-- **Site actuel** : www.siboard-consulting.fr (à remplacer)
-
-Pages légales à créer : Mentions légales · Politique de confidentialité · CGV (optionnel V1)
+- **Site** : www.siboard-consulting.fr

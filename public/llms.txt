@@ -1,48 +1,31 @@
 # Siboard Consulting
 
-> Siboard Consulting accompagne les TPE/PME en Guadeloupe et Île-de-France en automatisation digitale, agents IA et missions de croissance commerciale B2B. Fondé par Jean-Marc Dolmare, ingénieur EPITA, depuis 2020.
+> Cabinet digital basé à Pointe-à-Pitre (Guadeloupe), actif en Guadeloupe, Martinique, Guyane et Île-de-France. Siboard analyse le process réel d'une TPE, d'une PME ou d'une collectivité, chiffre ce qu'elle perd, puis construit les systèmes qui le corrigent.
 
-## Ce que nous faisons
+Siboard fait deux gestes que le marché sépare habituellement : le diagnostic (métier d'un cabinet de conseil) et la construction (métier d'une agence ou d'un éditeur). C'est la même personne qui signe le constat et qui installe la réponse.
 
-Siboard Consulting propose deux offres principales :
+## L'offre
 
-1. **Accompagnement Automatisation & Agents IA** — audit digital, déploiement d'automatisations sur mesure (prise de RDV, collecte d'avis, réactivation clients, chatbots) et agents IA conversationnels ou vocaux pour TPE/PME.
+- [L'État des lieux](https://www.siboard-consulting.fr/etat-des-lieux) : diagnostic de process payant, point d'entrée unique. On suit le parcours réel du client, de la découverte à la facture encaissée. Livrable écrit : carte du parcours, points de rupture, chiffrage de chaque fuite en euros et en heures à partir des données du client, ordre de traitement, et ce qui est déconseillé. 1 900 € HT pour une TPE, 3 900 € HT pour une PME multi-sites, à partir de 6 500 € HT pour un groupe ou une collectivité. Le document appartient au client. Remboursé si les fuites identifiées ne dépassent pas le prix du diagnostic.
+- [Les solutions](https://www.siboard-consulting.fr/solutions) : le Socle Siboard (fondation technique commune, 2 900 € + 190 €/mois) et cinq systèmes prescrits après diagnostic.
+  - L'Accueil : répondre en une minute, qualifier, poser le rendez-vous. 2 500 € (6 500 € avec agent vocal) + 90 €/mois.
+  - Le Bureau : documents traités, classés et tracés sans ressaisie. À partir de 4 900 € + 90 €/mois.
+  - Le Fil : relance des devis et des prospects jusqu'à la signature. 1 900 € + 90 €/mois. Option La Preuve (avis Google) 900 €.
+  - Le Retour : analyse et réactivation des clients dormants. 1 900 € l'analyse, 3 500 € avec la campagne.
+  - Le Point : reporting quotidien et hebdomadaire envoyé là où l'équipe travaille déjà. 3 500 € (7 500 € commenté) + 90 €/mois.
+  - Logiciel métier sur mesure à partir de 15 000 € quand aucun outil du marché ne convient.
+  - Formule complète (socle + trois systèmes en 90 jours) : 11 900 € + 460 €/mois.
+- [Mission Croissance 90J](https://www.siboard-consulting.fr/mission-90j) : mission commerciale B2B done for you sur 90 jours, avec garantie de 10 rendez-vous qualifiés ou prolongation sans facturation.
+- [Nos plateformes](https://www.siboard-consulting.fr/ventures) : AdamBoards (pilotage financier TPE/PME), TransmiExpert (transmission d'entreprise), SecureXia (conformité incendie ERP). Trois logiciels métier construits et édités par Siboard avec un expert de chaque secteur.
 
-2. **Mission Croissance 90J** — mission commerciale done for you sur 90 jours : identification du produit phare, construction de la mécanique commerciale (LinkedIn, prospection, page dédiée, tableau de bord), exécution complète. Garantie : 10 RDV qualifiés en 90 jours ou prolongation sans facturation.
+## Preuves
 
-## Pour qui
+- [Réalisations](https://www.siboard-consulting.fr/realisations) : Odyssée by Béa (zéro présence digitale à la 1ère position Google), Sacodif (3e page à la 3e position sur « expert comptable Créteil »), Évolutia Formation (1ère position Google + assistant de qualification), DFP France (prise de rendez-vous automatisée), Axecime (collecte de dossiers automatisée), Fast Computer Company.
+- Un institut de beauté guadeloupéen : l'analyse d'une année de caisse a identifié nommément 17 clientes dormantes représentant 3 029 € à récupérer.
 
-- TPE/PME en Guadeloupe, Martinique, Guyane, Île-de-France
-- Dirigeants qui perdent des leads ou du temps sur des tâches répétitives
-- Prestataires de services B2B avec une offre à activer commercialement
+## À savoir
 
-## Nos engagements
-
-- On part du process du client, jamais d'un catalogue d'outils
-- Résultats mesurables : 3ème position Google Maps depuis zéro (Odyssée by Béa), page 3 → 3ème position Google (Sacodif), acquisition client automatisée 24h/24 (FCC)
-- Garantie résultat sur la Mission 90J (10 RDV qualifiés ou prolongation gratuite)
-
-## Fondateur
-
-**Jean-Marc Dolmare** — ingénieur EPITA, background télécoms et paiements mobiles, fondateur de Siboard Consulting depuis octobre 2020. Actif en Guadeloupe et Île-de-France. Co-fondateur de AdamBoards, TransmiExpert et SecureXia.
-
-## Pages clés
-
-- /solutions : Automatisation et Agents IA sur mesure pour TPE/PME
-- /mission-90j : Mission Croissance 90J — 10 RDV B2B garantis ou prolongation gratuite
-- /realisations : Cas clients avec résultats mesurables
-- /a-propos : Jean-Marc Dolmare et le modèle Siboard
-- /audit-gratuit : Audit digital gratuit — réponse sous 24h, sans engagement
-
-## Contact
-
-- Email : contact@siboard-consulting.fr
-- Adresse : 73 rue Vatable, 97110 Pointe-à-Pitre, Guadeloupe
-- SIRET : 89080598900013
-- Site : https://www.siboard-consulting.fr
-
-## Écosystème
-
-- **AdamBoards** (adamboards.fr) — accompagnement financier mensuel pour dirigeants TPE/PME
-- **TransmiExpert** (transmiexpert.fr) — diagnostic et accompagnement pour la transmission d'entreprise
-- **SecureXia** (securexia.fr) — conformité incendie ERP en Guadeloupe, service managé
+- L'intelligence artificielle et l'automatisation sont des moyens chez Siboard, jamais la promesse de départ. Le point de départ est toujours le process du client.
+- Prix hors taxes, TVA DOM 8,5 %.
+- [À propos](https://www.siboard-consulting.fr/a-propos) : fondé par Jean-Marc Dolmare, ingénieur EPITA, 5 ans de terrain. SIRET 89080598900013.
+- Contact : contact@siboard-consulting.fr

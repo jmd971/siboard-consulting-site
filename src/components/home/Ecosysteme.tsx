@@ -1,4 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { ECOSYSTEME } from "@/lib/constants";
 
@@ -98,7 +99,7 @@ function SecureXiaMockup() {
       </div>
       <div className="space-y-2 p-3">
         {["Sortie de secours", "Extincteurs", "Détecteurs", "Affichage réglementaire"].map((item, i) => (
-          <div key={i} className="flex items-center gap-2">
+          <div key={item} className="flex items-center gap-2">
             <div className={`h-4 w-4 shrink-0 rounded flex items-center justify-center ${i < 3 ? "bg-primary" : "bg-border/30"}`}>
               {i < 3 && (
                 <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
@@ -131,11 +132,16 @@ export function Ecosysteme() {
     <section className="container-page pt-20 sm:pt-28 pb-4">
       <div className="mx-auto max-w-2xl text-center">
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
-          04 — Notre écosystème
+          04 — Nos plateformes
         </p>
         <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-          Au-delà du consulting — des plateformes que nous avons construites.
+          Nous n&apos;installons pas seulement des outils. Nous en éditons.
         </h2>
+        <p className="mt-4 text-pretty text-base text-muted-foreground">
+          Trois logiciels métier en production, chacun co-édité avec un professionnel de son
+          secteur. C&apos;est ce qui nous permet de construire le vôtre quand aucun outil du marché
+          ne convient.
+        </p>
       </div>
 
       <ul className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-3">
@@ -150,7 +156,6 @@ export function Ecosysteme() {
                 rel="noopener noreferrer"
                 className="group flex h-full flex-col gap-4 rounded-2xl border border-border/60 bg-surface/40 p-6 transition-colors hover:border-primary/30 hover:bg-surface/60 cursor-pointer"
               >
-                {/* Mini mockup produit */}
                 {Mockup && (
                   <div className="w-full">
                     <Mockup />
@@ -170,9 +175,7 @@ export function Ecosysteme() {
                 <p className="text-pretty text-base leading-relaxed text-muted-foreground">
                   {venture.description}
                 </p>
-                <p className="text-sm italic text-muted-foreground/60">
-                  {venture.note}
-                </p>
+                <p className="text-sm italic text-muted-foreground/60">{venture.note}</p>
                 <p className="mt-auto inline-flex items-center gap-1.5 font-mono text-sm text-primary/80">
                   {venture.domain}
                 </p>
@@ -181,6 +184,16 @@ export function Ecosysteme() {
           );
         })}
       </ul>
+
+      <div className="mt-10 text-center">
+        <Link
+          href="/ventures"
+          className="group inline-flex items-center gap-1.5 text-base font-medium text-primary transition-colors hover:text-primary/80"
+        >
+          Comment naissent ces plateformes, et ce que ça change pour vous
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </Link>
+      </div>
     </section>
   );
 }

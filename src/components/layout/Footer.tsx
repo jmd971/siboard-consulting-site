@@ -26,8 +26,8 @@ export function Footer() {
               5 ans · 2 territoires · 6 secteurs accompagnés
             </p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Audit digital, automatisation sur mesure et missions de croissance pour les TPE/PME.
-              On comprend votre process avant de construire votre solution.
+              On analyse comment vous travaillez vraiment, on chiffre ce que vous perdez, puis on
+              construit les systèmes qui le corrigent.
             </p>
             <div className="mt-6 space-y-2 text-sm text-muted-foreground">
               <a
@@ -59,10 +59,10 @@ export function Footer() {
               ))}
               <li>
                 <Link
-                  href="/audit-gratuit"
+                  href="/mission-90j"
                   className="text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Audit gratuit
+                  Mission 90J
                 </Link>
               </li>
             </ul>

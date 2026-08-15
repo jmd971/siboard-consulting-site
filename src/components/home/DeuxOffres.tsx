@@ -7,25 +7,25 @@ import { AutomatisationIllustration, Mission90JIllustration } from "@/components
 
 const OFFERS = [
   {
-    badge: "Pour les TPE qui perdent des leads ou du temps",
+    badge: "Pour les TPE et PME qui perdent des leads ou du temps",
     illustration: AutomatisationIllustration,
-    title: "Automatisation + Agents IA",
+    title: "L’État des lieux, puis les systèmes",
     description:
-      "Vos prospects obtiennent une réponse immédiate. Vos devis sont relancés sans y penser. Vos fichiers Excel cessent d'être votre système d'information. On déploie les briques manquantes — automatisation, agents IA, outils métier sur mesure — sur votre activité.",
+      "On commence toujours par regarder comment vous travaillez vraiment, de la première demande d’un client jusqu’à la facture encaissée. On chiffre ce que vous perdez avec vos chiffres à vous. Ensuite seulement, on installe ce que le constat a désigné.",
     bullets: [
-      "Diagnostic de vos fuites : leads sans réponse, devis non relancés, temps administratif",
-      "Déploiement des automatisations qui comptent — acquisition ET back-office",
-      "Le système vit : supervision, évolutions, rapport mensuel de ce qu'il vous rapporte",
+      "Le diagnostic écrit, chiffré en euros et en heures, à partir de vos données",
+      "Cinq systèmes prescrits selon ce qu’on trouve, jamais choisis dans un catalogue",
+      "Le logiciel sur mesure quand aucun outil du marché ne convient",
     ],
-    cta: { href: "/solutions", label: "Voir les solutions" },
-    featured: false,
+    cta: { href: "/etat-des-lieux", label: "Commencer par l’état des lieux" },
+    featured: true,
   },
   {
-    badge: "Pour les pros avec offre B2B à activer",
+    badge: "Pour les pros avec une offre B2B à activer",
     illustration: Mission90JIllustration,
     title: "Mission Croissance 90J",
     description:
-      "Vous avez une offre puissante mais pas le temps ni les compétences pour la commercialiser en B2B. On identifie votre produit phare, on construit la mécanique commerciale complète et on l'exécute. Done for you.",
+      "Vous avez une offre puissante mais pas le temps ni les compétences pour la commercialiser en B2B. On identifie votre produit phare, on construit la mécanique commerciale complète et on l’exécute. Done for you.",
     bullets: [
       "Brief web + LinkedIn + prospection ciblée",
       "Tableau de bord commercial partagé en temps réel",
@@ -33,7 +33,7 @@ const OFFERS = [
     ],
     guarantee: "10 RDV garantis ou on continue gratuitement.",
     cta: { href: "/mission-90j", label: "Voir la Mission 90J" },
-    featured: true,
+    featured: false,
   },
 ] as const;
 
@@ -48,8 +48,9 @@ export function DeuxOffres() {
           Faire entrer plus de clients, sans dépendre de la chance.
         </h2>
         <p className="mt-4 text-pretty text-base text-muted-foreground">
-          Choisissez l&apos;approche adaptée à votre situation. Si vous hésitez,
-          commencez par l&apos;audit gratuit — on vous oriente sans engagement.
+          Un cabinet analyse et vous laisse un rapport. Une agence installe sans avoir regardé.
+          Nous faisons les deux gestes, et c&apos;est la même personne qui signe le constat et qui
+          construit la réponse.
         </p>
       </div>
 
@@ -66,7 +67,6 @@ export function DeuxOffres() {
               }
             >
               <CardContent className="relative flex h-full flex-col gap-6 p-7 sm:p-8">
-                {/* Illustration */}
                 <div className="rounded-xl bg-background/60 p-2">
                   <Illustration className="w-full" />
                 </div>
@@ -81,9 +81,7 @@ export function DeuxOffres() {
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-2xl font-bold tracking-tight">
-                    {offer.title}
-                  </h3>
+                  <h3 className="text-2xl font-bold tracking-tight">{offer.title}</h3>
                   <p className="text-pretty text-base leading-relaxed text-muted-foreground">
                     {offer.description}
                   </p>
