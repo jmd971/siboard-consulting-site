@@ -1,3 +1,4 @@
+import { PORTEFEUILLE } from "@/lib/constants";
 import { DeuxOffres } from "@/components/home/DeuxOffres";
 import { Ecosysteme } from "@/components/home/Ecosysteme";
 import { Hero } from "@/components/home/Hero";
@@ -7,9 +8,12 @@ import { CTABanner } from "@/components/shared/CTABanner";
 
 function ProofBand() {
   const stats = [
-    { value: "5 ans", label: "d'expérience terrain" },
-    { value: "2 territoires", label: "Guadeloupe & Île-de-France" },
-    { value: "6 secteurs", label: "accompagnés" },
+    {
+      value: String(PORTEFEUILLE.etablissements),
+      label: "établissements dont nous pilotons la visibilité locale",
+    },
+    { value: `${PORTEFEUILLE.secteurs} secteurs`, label: "de la santé au bâtiment" },
+    { value: `${PORTEFEUILLE.territoires} territoires`, label: PORTEFEUILLE.territoiresDetail },
     { value: "100%", label: "des sites en 1ère page Google" },
   ];
 

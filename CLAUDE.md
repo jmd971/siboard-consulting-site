@@ -171,6 +171,18 @@ Inchangée. 1 500 € HT/mois × 3 mois + 80 € HT par RDV qualifié tracé, ga
 
 ---
 
+## Les chiffres de preuve
+
+Ils vivent dans `PORTEFEUILLE` et `SECTEURS_ACCOMPAGNES` (`src/lib/constants.ts`) et alimentent la barre de chiffres de l'accueil ainsi que le pied de page.
+
+**Source unique : le gestionnaire de fiches Google** (business.google.com/locations), compte jdolmare@gmail.com. Au 14/08/2026 : 15 fiches gérées, dont celle de Siboard, donc **14 établissements clients**, répartis sur **9 secteurs** (santé et bien-être, formation, assurance et courtage, RH, informatique, bâtiment, artisanat, restauration, commerce et mode) et **5 territoires** (Guadeloupe, Martinique, Guyane, Île-de-France, Sarthe).
+
+⚠️ Ne jamais arrondir ni gonfler ces nombres. Ils se recomptent en trente secondes dans le gestionnaire, et un prospect qui vérifie et trouve un écart ne revient pas. Les mettre à jour quand une fiche entre ou sort du portefeuille.
+
+Le « 100 % des sites en 1ère page Google » est une affirmation du dirigeant, conservée telle quelle.
+
+---
+
 ## Informations légales
 
 - **Société** : Siboard Consulting

@@ -3,7 +3,7 @@ import { Mail, MapPin } from "lucide-react";
 
 import { SiboardLogo } from "@/components/ui/logo";
 import { Separator } from "@/components/ui/separator";
-import { NAV_LINKS, SITE } from "@/lib/constants";
+import { NAV_LINKS, PORTEFEUILLE, SITE } from "@/lib/constants";
 
 const LEGAL_LINKS = [
   { href: "/mentions-legales", label: "Mentions légales" },
@@ -23,7 +23,8 @@ export function Footer() {
               Cabinet digital Guadeloupe &amp; Île-de-France
             </p>
             <p className="mt-1 text-xs text-muted-foreground/40">
-              5 ans · 2 territoires · 6 secteurs accompagnés
+              {PORTEFEUILLE.anciennete} · {PORTEFEUILLE.etablissements} établissements ·{" "}
+              {PORTEFEUILLE.secteurs} secteurs
             </p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               On analyse comment vous travaillez vraiment, on chiffre ce que vous perdez, puis on
