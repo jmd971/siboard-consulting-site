@@ -372,15 +372,15 @@ export const ECOSYSTEME = [
   {
     name: "TransmiExpert",
     description:
-      "Diagnostic et accompagnement pour céder ou reprendre une entreprise dans les meilleures conditions.",
-    note: "Site web, application et livret construits par Siboard.",
+      "Un livret patrimonial numérique pour les familles, et une application d’accompagnement à l’expertise immobilière.",
+    note: "Site web, livret et application construits par Siboard.",
     domain: "transmiexpert.fr",
     href: "https://www.transmiexpert.fr",
-    partenaire: "Co-édité avec un expert en transmission d’entreprise",
+    partenaire: "Co-édité avec un expert évaluateur immobilier",
     role:
-      "Une famille remplit son dossier en ligne, et l’application produit automatiquement un livret de succession imprimable de 48 pages, personnalisé et prêt à être remis.",
+      "Une famille remplit son patrimoine en ligne, et le livret imprimable de 48 pages se génère tout seul, personnalisé et prêt à être remis. L’application d’expertise, elle, remplace le circuit papier de la visite : saisie sur tablette, signature à l’écran, rapport produit et archivé avec sa piste d’audit.",
     prouve:
-      "Que nous savons transformer une saisie en un document professionnel complet, sans intervention humaine.",
+      "Que nous savons transformer une saisie en document professionnel complet sans intervention humaine, et remplacer un circuit papier de terrain par un circuit tracé.",
     nourrit: "Le Bureau",
   },
   {

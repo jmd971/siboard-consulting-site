@@ -92,9 +92,9 @@ const VENTURES = [
   },
   {
     name: "TransmiExpert",
-    sector: "Transmission d'entreprise",
+    sector: "Patrimoine et expertise immobilière",
     description:
-      "Accompagnement à la transmission, cession et reprise pour les dirigeants de PME en sortie.",
+      "Livret patrimonial numérique pour les familles, et application d'accompagnement à l'expertise immobilière.",
     href: null,
   },
 ] as const;
