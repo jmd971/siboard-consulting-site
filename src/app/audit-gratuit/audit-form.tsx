@@ -30,7 +30,7 @@ export function AuditForm() {
       email: String(formData.get("email") ?? "").trim(),
       sector: String(formData.get("sector") ?? "").trim(),
       probleme: String(formData.get("probleme") ?? "").trim(),
-      source: "etat-des-lieux",
+      source: "audit-gratuit",  // ne pas renommer sans verifier les filtres GoHighLevel
       submittedAt: new Date().toISOString(),
     };
 
