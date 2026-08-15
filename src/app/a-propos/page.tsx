@@ -78,9 +78,9 @@ const PRODUITS = [
 const VENTURES = [
   {
     name: "AdamBoards",
-    sector: "Accompagnement financier TPE/PME",
+    sector: "Pilotage de TPE/PME",
     description:
-      "Pilotage et structuration financière des dirigeants en croissance, par un courtier en financement et un expert-comptable.",
+      "Les chiffres, l'analyse des ventes, les rapports de préconisation et les campagnes marketing qui les exécutent.",
     href: null,
   },
   {

@@ -7,6 +7,16 @@ import { buttonVariants } from "@/components/ui/button";
 import { ECOSYSTEME, LOGICIEL_METIER } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+/* Ancres des systemes sur /solutions, pour relier une plateforme aux
+   briques qu'elle a fait naitre. */
+const SYSTEME_ANCRES: Record<string, string> = {
+  "L’Accueil": "accueil",
+  "Le Bureau": "bureau",
+  "Le Fil": "fil",
+  "Le Retour": "retour",
+  "Le Point": "point",
+};
+
 export const metadata: Metadata = {
   title: "Nos plateformes — les logiciels que Siboard édite | Siboard Consulting",
   description:
@@ -164,13 +174,20 @@ function Plateformes() {
                     {v.prouve}
                   </p>
                   <p className="mt-3 text-sm text-muted-foreground">
-                    {"Technologie réutilisée dans le système "}
-                    <Link
-                      href={`/solutions#${v.nourrit === "Le Bureau" ? "bureau" : "point"}`}
-                      className="font-medium text-foreground underline underline-offset-4 hover:text-accent-strong"
-                    >
-                      {v.nourrit}
-                    </Link>
+                    {v.nourrit.length > 1
+                      ? "Technologies réutilisées dans les systèmes "
+                      : "Technologie réutilisée dans le système "}
+                    {v.nourrit.map((n, k) => (
+                      <span key={n}>
+                        {k > 0 ? (k === v.nourrit.length - 1 ? " et " : ", ") : ""}
+                        <Link
+                          href={`/solutions#${SYSTEME_ANCRES[n]}`}
+                          className="font-medium text-foreground underline underline-offset-4 hover:text-accent-strong"
+                        >
+                          {n}
+                        </Link>
+                      </span>
+                    ))}
                     {"."}
                   </p>
                 </div>
