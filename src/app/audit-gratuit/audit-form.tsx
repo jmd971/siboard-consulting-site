@@ -2,16 +2,17 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 
-import { buttonVariants } from "@/components/ui/button";
 import { AUDIT_WEBHOOK_URL, PROBLEMES, SECTEURS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-const inputClass =
-  "w-full rounded-lg border border-border/60 bg-background/60 px-3.5 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/20";
+/* 16px minimum sur les champs : sous ce seuil, iOS Safari zoome
+   automatiquement a la mise au point. */
+const champ =
+  "w-full rounded-sm border border-input bg-background px-3.5 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-foreground focus:outline-none focus:ring-2 focus:ring-ring/30";
 
 export function AuditForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -58,31 +59,31 @@ export function AuditForm() {
   }
 
   if (status === "success") {
-    return <SuccessState />;
+    return <Confirmation />;
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="rounded-2xl border border-border/60 bg-surface/40 p-6 sm:p-8"
-      noValidate
-    >
-      {/* Prénom */}
-      <Field label="Prénom" htmlFor="firstName">
-        <input
-          id="firstName"
-          name="firstName"
-          type="text"
-          autoComplete="given-name"
-          required
-          placeholder="Jean-Marc"
-          className={inputClass}
-        />
-      </Field>
+    <form onSubmit={handleSubmit} noValidate>
+      <p className="border-b-2 border-rule-strong pb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
+        Demande d&apos;état des lieux
+      </p>
 
-      {/* Email */}
-      <div className="mt-4">
-        <Field label="Email professionnel" htmlFor="email">
+      <div className="border-b border-rule py-5">
+        <Champ label="Prénom" htmlFor="firstName">
+          <input
+            id="firstName"
+            name="firstName"
+            type="text"
+            autoComplete="given-name"
+            required
+            placeholder="Jean-Marc"
+            className={champ}
+          />
+        </Champ>
+      </div>
+
+      <div className="border-b border-rule py-5">
+        <Champ label="Email professionnel" htmlFor="email">
           <input
             id="email"
             name="email"
@@ -91,21 +92,14 @@ export function AuditForm() {
             autoComplete="email"
             required
             placeholder="vous@societe.fr"
-            className={inputClass}
+            className={champ}
           />
-        </Field>
+        </Champ>
       </div>
 
-      {/* Secteur */}
-      <div className="mt-4">
-        <Field label="Secteur d'activité" htmlFor="sector">
-          <select
-            id="sector"
-            name="sector"
-            required
-            className={inputClass}
-            defaultValue=""
-          >
+      <div className="border-b border-rule py-5">
+        <Champ label="Secteur d'activité" htmlFor="sector">
+          <select id="sector" name="sector" required className={champ} defaultValue="">
             <option value="" disabled>
               Votre secteur…
             </option>
@@ -115,19 +109,12 @@ export function AuditForm() {
               </option>
             ))}
           </select>
-        </Field>
+        </Champ>
       </div>
 
-      {/* Problème principal */}
-      <div className="mt-4">
-        <Field label="Votre problème principal" htmlFor="probleme">
-          <select
-            id="probleme"
-            name="probleme"
-            required
-            className={inputClass}
-            defaultValue=""
-          >
+      <div className="border-b border-rule py-5">
+        <Champ label="Votre problème principal" htmlFor="probleme">
+          <select id="probleme" name="probleme" required className={champ} defaultValue="">
             <option value="" disabled>
               Ce qui bloque votre activité…
             </option>
@@ -137,13 +124,13 @@ export function AuditForm() {
               </option>
             ))}
           </select>
-        </Field>
+        </Champ>
       </div>
 
       {errorMsg ? (
         <p
           role="alert"
-          className="mt-6 rounded-lg border border-red-500/30 bg-red-500/5 px-4 py-3 text-sm text-red-300"
+          className="mt-6 border-l-2 border-destructive bg-destructive/5 px-4 py-3 text-sm text-destructive"
         >
           {errorMsg}
         </p>
@@ -153,7 +140,9 @@ export function AuditForm() {
         type="submit"
         disabled={status === "submitting"}
         className={cn(
-          "mt-6 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-foreground px-6 text-base font-medium text-background transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60",
+          "mt-7 flex h-12 w-full items-center justify-center gap-2 rounded-sm bg-foreground px-6",
+          "text-base font-semibold text-background transition-opacity hover:opacity-90",
+          "disabled:cursor-not-allowed disabled:opacity-60",
         )}
       >
         {status === "submitting" ? (
@@ -169,14 +158,15 @@ export function AuditForm() {
         )}
       </button>
 
-      <p className="mt-4 text-center text-xs text-muted-foreground">
-        Réponse sous 24h. Le premier échange est gratuit et sans engagement, et on vous dit franchement si on est le bon partenaire.
+      <p className="mt-4 text-pretty text-xs text-muted-foreground">
+        Réponse sous 24 h. Le premier échange est gratuit et sans engagement, et on vous dit
+        franchement si on est le bon partenaire.
       </p>
     </form>
   );
 }
 
-function Field({
+function Champ({
   label,
   htmlFor,
   children,
@@ -189,7 +179,7 @@ function Field({
     <div>
       <label
         htmlFor={htmlFor}
-        className="mb-1.5 block text-sm font-medium text-foreground"
+        className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground"
       >
         {label}
       </label>
@@ -198,34 +188,31 @@ function Field({
   );
 }
 
-function SuccessState() {
+function Confirmation() {
   return (
-    <div
-      role="status"
-      className="rounded-2xl border border-primary/30 bg-primary/5 p-8 text-center"
-    >
-      <CheckCircle2
-        className="mx-auto h-10 w-10 text-primary"
-        aria-hidden
-      />
-      <h2 className="mt-4 text-xl font-semibold tracking-tight text-foreground">
-        Demande reçue.
-      </h2>
-      <p className="mt-3 text-pretty text-sm leading-relaxed text-muted-foreground">
-        On revient vers vous sous 24h pour caler le premier échange et cadrer le périmètre. Pas une offre commerciale.
+    <div role="status">
+      <p className="border-b-2 border-rule-strong pb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
+        Demande reçue
       </p>
-      <p className="mt-6 text-xs text-muted-foreground">
+
+      <p className="prose-report mt-6 text-pretty text-lg text-foreground">
+        On revient vers vous sous 24 h pour caler le premier échange et cadrer le périmètre.
+        Pas une offre commerciale.
+      </p>
+
+      <p className="prose-report mt-4 text-pretty text-muted-foreground">
         Un message WhatsApp de confirmation va arriver sous peu.
       </p>
-      <Link
-        href="/"
-        className={cn(
-          buttonVariants({ variant: "outline", size: "lg" }),
-          "mt-8 h-11",
-        )}
-      >
-        Retour à l&apos;accueil
-      </Link>
+
+      <div className="mt-8 border-t border-rule pt-6">
+        <Link
+          href="/"
+          className="group inline-flex min-h-11 items-center gap-1.5 text-base font-semibold text-foreground underline-offset-4 transition-colors hover:text-accent-strong hover:underline"
+        >
+          Retour à l&apos;accueil
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </Link>
+      </div>
     </div>
   );
 }
