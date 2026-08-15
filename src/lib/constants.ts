@@ -358,16 +358,16 @@ export const ECOSYSTEME = [
   {
     name: "AdamBoards",
     description:
-      "Accompagnement financier mensuel pour dirigeants de TPE/PME — méthode structurée, suivi personnalisé.",
+      "Le pilotage d’une TPE de bout en bout : les chiffres, l’analyse des ventes, les actions à mener, et les campagnes qui les exécutent.",
     note: "Plateforme et application construites par Siboard.",
     domain: "adamboards.fr",
     href: "https://adamboards.fr",
     partenaire: "Co-édité avec un expert-comptable",
     role:
-      "Import des écritures comptables, compte de résultat, budget, trésorerie, rapprochement bancaire, et un rapport commenté qui explique les chiffres au dirigeant au lieu de les afficher.",
+      "Import des écritures comptables, compte de résultat, budget, trésorerie et rapprochement bancaire. Analyse des ventes client par client et produit par produit. Rapports de préconisation qui disent quelle action mener et sur qui, puis mise en place des campagnes marketing qui l’exécutent.",
     prouve:
-      "Que nous savons construire un logiciel financier multi-sociétés, avec une couche d’intelligence artificielle encadrée par des règles de calcul déterministes.",
-    nourrit: "Le Point",
+      "Que nous savons relier une donnée comptable à une action commerciale chiffrée et aller jusqu’à son exécution, avec une couche d’intelligence artificielle encadrée par des règles de calcul déterministes.",
+    nourrit: ["Le Retour", "Le Point"],
   },
   {
     name: "TransmiExpert",
@@ -381,7 +381,7 @@ export const ECOSYSTEME = [
       "Une famille remplit son patrimoine en ligne, et le livret imprimable de 48 pages se génère tout seul, personnalisé et prêt à être remis. L’application d’expertise, elle, remplace le circuit papier de la visite : saisie sur tablette, signature à l’écran, rapport produit et archivé avec sa piste d’audit.",
     prouve:
       "Que nous savons transformer une saisie en document professionnel complet sans intervention humaine, et remplacer un circuit papier de terrain par un circuit tracé.",
-    nourrit: "Le Bureau",
+    nourrit: ["Le Bureau"],
   },
   {
     name: "SecureXia",
@@ -395,7 +395,7 @@ export const ECOSYSTEME = [
       "Le suivi de la conformité d’un établissement recevant du public, de la visite terrain au dossier remis à la commission de sécurité.",
     prouve:
       "Que nous savons modéliser une réglementation et la rendre utilisable par un exploitant sur le terrain.",
-    nourrit: "Le Bureau",
+    nourrit: ["Le Bureau"],
   },
 ] as const;
 
