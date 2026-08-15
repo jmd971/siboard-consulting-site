@@ -38,8 +38,8 @@ export function Navbar() {
       className={cn(
         "sticky top-0 z-50 w-full transition-colors duration-300",
         scrolled || open
-          ? "border-b border-border/60 bg-background/95"
-          : "border-b border-transparent bg-transparent",
+          ? "border-b border-rule bg-background"
+          : "border-b border-transparent bg-background",
       )}
     >
       <div className="container-page flex h-16 items-center justify-between gap-4">
