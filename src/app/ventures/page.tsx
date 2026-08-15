@@ -5,6 +5,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { CTABanner } from "@/components/shared/CTABanner";
 import { buttonVariants } from "@/components/ui/button";
 import { ECOSYSTEME, LOGICIEL_METIER } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 /* Ancres des systemes sur /solutions, pour relier une plateforme aux
    briques qu'elle a fait naitre. */
@@ -15,7 +16,6 @@ const SYSTEME_ANCRES: Record<string, string> = {
   "Le Retour": "retour",
   "Le Point": "point",
 };
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Nos plateformes — les logiciels que Siboard édite | Siboard Consulting",
