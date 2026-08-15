@@ -72,7 +72,7 @@
   /* Variantes de TEXTE, pour tenir le contraste 4.5:1 (WCAG AA).
      Ne jamais utiliser --accent ou --primary en couleur de texte
      sous 24px : ils tombent autour de 3:1. */
-  --accent-strong: oklch(0.48 0.16 32);      /* corail assombri, texte sur fond clair */
+  --accent-strong: oklch(0.53 0.17 34);      /* corail assombri, texte sur fond clair (>= 5:1) */
   --primary-on-dark: oklch(0.76 0.13 278);   /* violet eclairci, texte sur fond sombre */
 
   --destructive: oklch(0.65 0.21 25);
