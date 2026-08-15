@@ -18,16 +18,30 @@ function ProofBand() {
   ];
 
   return (
-    <div className="bg-primary/[0.06] border-y border-primary/10">
-      <div className="container-page py-8">
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.value} className="text-center">
-              <p className="text-2xl font-black tracking-tight text-primary sm:text-3xl">{s.value}</p>
-              <p className="mt-1 text-xs text-muted-foreground">{s.label}</p>
+    <div className="border-y border-rule bg-surface">
+      <div className="container-page">
+        <dl className="grid sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((s, i) => (
+            <div
+              key={s.value}
+              className={
+                "border-rule py-7 sm:py-8 " +
+                (i > 0 ? "border-t sm:border-t-0 lg:border-l " : "") +
+                (i === 2 ? "sm:border-t " : "") +
+                (i === 3 ? "sm:border-t sm:border-l lg:border-t-0 " : "") +
+                (i === 1 ? "sm:border-l lg:border-l " : "") +
+                "sm:px-7 lg:px-8 first:lg:pl-0"
+              }
+            >
+              <dt className="figure text-3xl font-semibold leading-none text-accent-strong sm:text-4xl">
+                {s.value}
+              </dt>
+              <dd className="mt-3 max-w-[22ch] text-pretty text-sm leading-snug text-muted-foreground">
+                {s.label}
+              </dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </div>
   );

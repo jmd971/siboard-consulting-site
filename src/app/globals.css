@@ -7,9 +7,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-figtree);
+  --font-sans: var(--font-archivo);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-figtree);
+  --font-heading: var(--font-archivo);
+  --font-serif: var(--font-literata);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -30,58 +31,63 @@
   --color-card: var(--card);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
-  --animate-logo-scroll: logo-scroll 28s linear infinite;
+  --animate-logo-scroll: logo-scroll 34s linear infinite;
 }
 
-/* Siboard palette v2 : fond lavande clair + violet #5C4EFF + corail #FF5C35 */
+/* Siboard v3 — registre « rapport d'expertise ».
+   Champ = papier chaud. Encre = presque noir chaud, jamais #000.
+   Le vermillon porte la surface (stratégie engagée) ; il remplace
+   l'indigo, qui devient rare. Contrastes verifies : encre/papier 17,2,
+   attenue/papier 6,7, vermillon texte/papier 6,6, blanc/vermillon 5,4. */
 :root {
-  /* Backgrounds */
-  --background: oklch(0.98 0.008 278);      /* #F7F6FF — lavande très claire */
-  --foreground: oklch(0.14 0.04 270);       /* #12122A — encre profonde */
+  --background: oklch(0.975 0.006 70);       /* #F9F6F2 papier */
+  --foreground: oklch(0.19 0.014 48);        /* #19120E encre */
 
-  --surface: oklch(1 0 0);                  /* blanc pur */
-  --surface-elevated: oklch(0.99 0.004 278);
+  --surface: oklch(0.993 0.004 70);          /* #FFFCFA feuille */
+  --surface-elevated: oklch(1 0 0);
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.14 0.04 270);
+  --card: oklch(0.993 0.004 70);
+  --card-foreground: oklch(0.19 0.014 48);
 
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.14 0.04 270);
+  --popover: oklch(0.993 0.004 70);
+  --popover-foreground: oklch(0.19 0.014 48);
 
-  /* Primary = violet #5C4EFF */
-  --primary: oklch(0.55 0.22 270);
-  --primary-foreground: oklch(1 0 0);
+  /* Primary = vermillon #CC2C05, la couleur qui porte la surface */
+  --primary: oklch(0.55 0.20 33);
+  --primary-foreground: oklch(0.985 0.004 70);
 
-  /* Secondary = lavande douce #EEF0FF */
-  --secondary: oklch(0.95 0.022 275);
-  --secondary-foreground: oklch(0.55 0.22 270);
+  --secondary: oklch(0.945 0.014 55);
+  --secondary-foreground: oklch(0.48 0.17 33);
 
-  --muted: oklch(0.95 0.012 278);
-  --muted-foreground: oklch(0.50 0.025 270);
+  --muted: oklch(0.945 0.008 65);
+  --muted-foreground: oklch(0.46 0.014 52);  /* #5F5651 */
 
-  /* Accent = corail #FF5C35 — reserve aux FONDS et aux grands titres */
-  --accent: oklch(0.68 0.20 35);
-  --accent-foreground: oklch(1 0 0);
+  /* Accent = indigo #3847A4, devenu rare et reserve aux reperes */
+  --accent: oklch(0.44 0.15 272);
+  --accent-foreground: oklch(0.985 0.004 70);
 
-  /* Variantes de TEXTE, pour tenir le contraste 4.5:1 (WCAG AA).
-     Ne jamais utiliser --accent ou --primary en couleur de texte
-     sous 24px : ils tombent autour de 3:1. */
-  --accent-strong: oklch(0.53 0.17 34);      /* corail assombri, texte sur fond clair (>= 5:1) */
-  --primary-on-dark: oklch(0.76 0.13 278);   /* violet eclairci, texte sur fond sombre */
+  /* Variantes de texte, contraste AA garanti */
+  --accent-strong: oklch(0.48 0.17 33);      /* vermillon texte #A8260A */
+  --primary-on-dark: oklch(0.74 0.15 40);    /* vermillon sur fond sombre */
 
-  --destructive: oklch(0.65 0.21 25);
+  --destructive: oklch(0.52 0.20 27);
 
-  --border: oklch(0.90 0.015 270);
-  --input: oklch(0.92 0.012 270);
-  --ring: oklch(0.55 0.22 270);
+  /* Filets : la structure du rapport passe par eux, pas par des cartes */
+  --rule: oklch(0.87 0.008 65);              /* #D8D3CF */
+  --rule-strong: oklch(0.19 0.014 48);
+  --border: oklch(0.87 0.008 65);
+  --input: oklch(0.84 0.008 65);
+  --ring: oklch(0.55 0.20 33);
 
-  --radius: 0.75rem;
+  --radius: 0.25rem;
 }
 
 @layer base {
@@ -94,15 +100,14 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
-    font-feature-settings: "ss01", "cv11";
+    font-variant-numeric: tabular-nums;
   }
   h1, h2, h3, h4 {
     @apply tracking-tight font-heading;
-    font-feature-settings: "ss01";
   }
   ::selection {
-    background-color: oklch(0.55 0.22 270 / 0.15);
-    color: oklch(0.14 0.04 270);
+    background-color: oklch(0.55 0.20 33 / 0.18);
+    color: oklch(0.19 0.014 48);
   }
 }
 
@@ -110,22 +115,32 @@
   .container-page {
     @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
   }
-  .text-balance {
-    text-wrap: balance;
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  /* Corps de texte long : serif de lecture, pas serif de titre.
+     C'est ce qui donne la forme d'un rapport plutot que d'un magazine. */
+  .prose-report {
+    font-family: var(--font-literata), Georgia, serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
   }
-  .text-pretty {
-    text-wrap: pretty;
+  /* Chiffres : le produit de Siboard, ce sont des montants. */
+  .figure {
+    font-family: var(--font-literata), Georgia, serif;
+    font-variant-numeric: tabular-nums lining-nums;
+    letter-spacing: -0.01em;
   }
+  .rule-top { border-top: 1px solid var(--rule); }
+  .rule-bottom { border-bottom: 1px solid var(--rule); }
+
   .bg-grid-fade {
     background-image:
-      linear-gradient(to right, oklch(0.55 0.22 270 / 0.08) 1px, transparent 1px),
-      linear-gradient(to bottom, oklch(0.55 0.22 270 / 0.08) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+      linear-gradient(to bottom, oklch(0.19 0.014 48 / 0.05) 1px, transparent 1px);
+    background-size: 100% 2.25rem;
+    mask-image: linear-gradient(to bottom, #000 0%, transparent 70%);
   }
-  .animate-logo-scroll {
-    animation: logo-scroll 28s linear infinite;
-  }
+  .animate-logo-scroll { animation: logo-scroll 34s linear infinite; }
 }
 
 @keyframes logo-scroll {
