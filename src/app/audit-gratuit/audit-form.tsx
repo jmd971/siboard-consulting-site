@@ -30,7 +30,7 @@ export function AuditForm() {
       email: String(formData.get("email") ?? "").trim(),
       sector: String(formData.get("sector") ?? "").trim(),
       probleme: String(formData.get("probleme") ?? "").trim(),
-      source: "audit-gratuit",
+      source: "audit-gratuit",  // ne pas renommer sans verifier les filtres GoHighLevel
       submittedAt: new Date().toISOString(),
     };
 
@@ -163,14 +163,14 @@ export function AuditForm() {
           </>
         ) : (
           <>
-            Demander mon audit gratuit
+            Demander un état des lieux
             <ArrowRight className="h-4 w-4" aria-hidden />
           </>
         )}
       </button>
 
       <p className="mt-4 text-center text-xs text-muted-foreground">
-        Réponse sous 24h — sans engagement — on vous dit franchement si on est le bon partenaire.
+        Réponse sous 24h. Le premier échange est gratuit et sans engagement, et on vous dit franchement si on est le bon partenaire.
       </p>
     </form>
   );
@@ -212,7 +212,7 @@ function SuccessState() {
         Demande reçue.
       </h2>
       <p className="mt-3 text-pretty text-sm leading-relaxed text-muted-foreground">
-        On revient vers vous sous 24h avec un diagnostic honnête de votre situation — pas une offre commerciale.
+        On revient vers vous sous 24h pour caler le premier échange et cadrer le périmètre. Pas une offre commerciale.
       </p>
       <p className="mt-6 text-xs text-muted-foreground">
         Un message WhatsApp de confirmation va arriver sous peu.
