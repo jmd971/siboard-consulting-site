@@ -11,8 +11,10 @@ export const organizationSchema = {
   founder: {
     "@type": "Person",
     name: "Jean-Marc Dolmare",
-    jobTitle: "Fondateur",
-    alumniOf: "EPITA",
+    // Ne pas ajouter de diplome ici : decision du dirigeant, aucune
+    // mention de formation initiale sur le site ni dans les donnees
+    // structurees.
+    jobTitle: "Fondateur, ingénieur réseaux et télécommunications",
   },
   contactPoint: {
     "@type": "ContactPoint",
