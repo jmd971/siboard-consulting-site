@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Figtree, Geist_Mono } from "next/font/google";
+import { Archivo, Geist_Mono, Literata } from "next/font/google";
 
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
@@ -8,10 +8,18 @@ import { organizationSchema } from "@/lib/schemas";
 
 import "./globals.css";
 
-const figtree = Figtree({
-  variable: "--font-figtree",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const literata = Literata({
+  variable: "--font-literata",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -71,7 +79,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F7F6FF",
+  themeColor: "#F9F6F2",
   width: "device-width",
   initialScale: 1,
 };
@@ -85,7 +93,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${figtree.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${archivo.variable} ${literata.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <script
