@@ -152,7 +152,7 @@ function Systemes() {
                 <div>
                   <Badge
                     variant="outline"
-                    className="border-accent/40 bg-accent/[0.07] text-xs font-normal text-accent"
+                    className="border-accent/40 bg-accent/[0.07] text-xs font-normal text-accent-strong"
                   >
                     {"On le prescrit quand"}
                   </Badge>
@@ -236,7 +236,7 @@ function LogicielMetier() {
             </span>
             <Link
               href="/ventures"
-              className="group inline-flex items-center gap-1.5 text-base font-medium text-primary transition-colors hover:text-primary/80"
+              className="group inline-flex min-h-11 items-center gap-1.5 text-base font-medium text-primary transition-colors hover:text-primary/80"
             >
               {"Voir les plateformes que nous éditons"}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

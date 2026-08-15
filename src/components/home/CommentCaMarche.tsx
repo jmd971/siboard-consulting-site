@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 
 function AuditIllustration() {
   return (
@@ -77,7 +77,7 @@ type Step = {
 const STEPS: Step[] = [
   {
     num: "01",
-    color: "#5C4EFF",
+    color: "var(--primary-on-dark)",
     bg: "rgba(92,78,255,0.12)",
     title: "L’État des lieux",
     subtitle: "On lit votre activité, pas votre site.",
@@ -87,7 +87,7 @@ const STEPS: Step[] = [
   },
   {
     num: "02",
-    color: "#FF5C35",
+    color: "#FF8A63",
     bg: "rgba(255,92,53,0.10)",
     title: "Déploiement",
     subtitle: "2 à 4 semaines. Sans perturber votre quotidien.",
@@ -97,7 +97,7 @@ const STEPS: Step[] = [
   },
   {
     num: "03",
-    color: "#5C4EFF",
+    color: "var(--primary-on-dark)",
     bg: "rgba(92,78,255,0.12)",
     title: "Résultats mesurés",
     subtitle: "Vous voyez exactement ce que le système vous rapporte.",
@@ -110,12 +110,13 @@ const STEPS: Step[] = [
 export function CommentCaMarche() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const reduced = useReducedMotion();
 
   return (
     <section ref={ref} className="bg-[#12122A] py-20 sm:py-28">
       <div className="container-page">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#5C4EFF]">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary-on-dark">
             Comment ça marche
           </p>
           <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
@@ -135,9 +136,13 @@ export function CommentCaMarche() {
           {STEPS.map((step, i) => (
             <motion.div
               key={step.num}
-              initial={{ opacity: 0, y: 24 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              initial={reduced ? false : { opacity: 0, y: 24 }}
+              animate={inView || reduced ? { opacity: 1, y: 0 } : {}}
+              transition={
+                reduced
+                  ? { duration: 0 }
+                  : { duration: 0.5, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }
+              }
               className="relative flex flex-col items-center px-6 py-8 text-center"
             >
               <div className="relative z-10 mb-6 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#12122A]">

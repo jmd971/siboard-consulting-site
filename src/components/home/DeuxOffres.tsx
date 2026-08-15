@@ -108,7 +108,7 @@ export function DeuxOffres() {
                 <div className="mt-auto pt-2">
                   <Link
                     href={offer.cta.href}
-                    className="group inline-flex items-center gap-1.5 text-base font-medium text-primary transition-colors hover:text-primary/80"
+                    className="group inline-flex min-h-11 items-center gap-1.5 text-base font-medium text-primary transition-colors hover:text-primary/80"
                   >
                     {offer.cta.label}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

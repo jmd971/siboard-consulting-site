@@ -128,7 +128,7 @@ function Plateformes() {
                   href={v.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group mt-5 inline-flex items-center gap-1.5 font-mono text-sm text-primary transition-colors hover:text-primary/80"
+                  className="group mt-5 inline-flex min-h-11 items-center gap-1.5 font-mono text-sm text-primary transition-colors hover:text-primary/80"
                 >
                   {v.domain}
                   <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

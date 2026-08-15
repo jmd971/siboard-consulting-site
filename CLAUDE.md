@@ -119,7 +119,8 @@ Inchangée. 1 500 € HT/mois × 3 mois + 80 € HT par RDV qualifié tracé, ga
 1. **Mobile-first, priorité absolue**
    - Concevoir et tester d'abord en 375px avant toute vue desktop
    - CTA : hauteur minimum 48px, pleine largeur sur mobile (`w-full sm:w-auto`)
-   - Titre principal : 28px maximum sur mobile
+   - Titre principal : jusqu'à 36px sur mobile, la seule contrainte est l'absence de débordement à 375px (vérifié)
+   - Champs de formulaire : **16px minimum**, sinon iOS Safari zoome automatiquement à la mise au point
    - Cartes empilées en une colonne sur mobile, jamais de tableau HTML pour du contenu
 
 2. **Performance**
@@ -129,6 +130,9 @@ Inchangée. 1 500 € HT/mois × 3 mois + 80 € HT par RDV qualifié tracé, ga
 
 3. **Accessibilité**
    - Contraste minimum 4,5:1
+   - ⚠️ `--accent` (corail) et `--primary` (violet) tombent autour de 3:1 en couleur de texte. Utiliser **`text-accent-strong`** sur fond clair et **`text-primary-on-dark`** sur fond sombre pour tout texte sous 24px. Les fonds gardent `--accent` et `--primary`.
+   - Liens secondaires et liens en carte : `min-h-11` pour tenir les 44px tactiles
+   - Toute animation doit respecter `prefers-reduced-motion` (hook `useReducedMotion` de framer-motion)
    - `alt` descriptif, `aria-label` sur les boutons icône, focus visible
 
 4. **Typographie et apostrophes**
