@@ -308,6 +308,40 @@ export const CLIENTS: Client[] = [
   },
 ];
 
+export const GOOGLE_PROFILE = {
+  url: "https://www.google.com/maps?cid=12852653531767729933",
+  rating: "4,8",
+  count: 5,
+} as const;
+
+/* Avis publics de la fiche Google Business Profile de Siboard.
+   Citations reprises telles quelles, coupees a une fin de phrase.
+   Ne jamais reformuler un avis ni inventer une fonction : le lien
+   vers la fiche doit permettre de verifier chaque mot. */
+export const TEMOIGNAGES = [
+  {
+    author: "Joel J.",
+    role: "",
+    quote:
+      "Incroyable service avec SIA, l’assistante IA de Siboard. En seulement deux semaines, j’ai gagné de nombreux rendez-vous, considérablement réduit les absences et recueilli plusieurs avis Google positifs sans effort.",
+    truncated: true,
+  },
+  {
+    author: "Michaella Regent",
+    role: "",
+    quote:
+      "Très réactif. Des solutions personnalisées correspondant à nos besoins nous ont été proposées.",
+    truncated: false,
+  },
+  {
+    author: "Béatrice P.",
+    role: "",
+    quote:
+      "Une équipe très professionnelle, à l’écoute et très réactive.",
+    truncated: true,
+  },
+] as const;
+
 export const PROOF_STATS = [
   {
     label: "Odyssée by Béa",

@@ -3,6 +3,7 @@ import { Ecosysteme } from "@/components/home/Ecosysteme";
 import { Hero } from "@/components/home/Hero";
 import { CommentCaMarche } from "@/components/home/CommentCaMarche";
 import { RealisationsApercu } from "@/components/home/RealisationsApercu";
+import { Temoignages } from "@/components/home/Temoignages";
 import { CTABanner } from "@/components/shared/CTABanner";
 
 function ProofBand() {
@@ -51,7 +52,10 @@ export default function HomePage() {
       <div id="section-realisations" data-section="03">
         <RealisationsApercu />
       </div>
-      <div id="section-ecosysteme" data-section="04">
+      <div id="section-temoignages" data-section="04">
+        <Temoignages />
+      </div>
+      <div id="section-ecosysteme" data-section="05">
         <Ecosysteme />
       </div>
       <CTABanner />
