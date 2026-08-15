@@ -26,7 +26,7 @@ const noMotionVariants: Variants = {
   visible: { opacity: 1, y: 0 },
 };
 
-const ROTATING_WORDS = ["qui travaille.", "qui rapporte.", "qui convertit.", "qui performe."];
+const ROTATING_WORDS = ["des prospects.", "des devis.", "des heures.", "des clients."];
 
 const CLIENT_LOGOS = [
   { name: "Odyssée by Béa",        initials: "OB",  color: "#5C4EFF" },
@@ -37,7 +37,6 @@ const CLIENT_LOGOS = [
   { name: "Pôle Santé Sud",        initials: "PSS", color: "#5C4EFF" },
   { name: "Axiora Consulting",     initials: "AC",  color: "#12122A" },
   { name: "Fast Computer Company", initials: "FCC", color: "#FF5C35" },
-  { name: "AdamBoards",            initials: "AB",  color: "#5C4EFF" },
 ];
 
 const LOGOS_DOUBLED = [...CLIENT_LOGOS, ...CLIENT_LOGOS];
@@ -56,7 +55,7 @@ function RotatingWord({ reduced }: { reduced: boolean }) {
   }
 
   return (
-    <span className="relative inline-block overflow-hidden align-bottom" style={{ minWidth: "13ch" }}>
+    <span className="relative inline-block overflow-hidden align-bottom" style={{ minWidth: "14ch" }}>
       <AnimatePresence mode="wait">
         <motion.span
           key={index}
@@ -235,7 +234,7 @@ export function Hero() {
               animate="visible"
               className="text-balance mb-6 text-4xl font-black leading-[1.1] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-6xl"
             >
-              Votre activité mérite un digital{" "}
+              Chaque semaine, votre activité perd{" "}
               <RotatingWord reduced={prefersReducedMotion ?? false} />
             </motion.h1>
 
@@ -246,8 +245,8 @@ export function Hero() {
               animate="visible"
               className="mb-10 max-w-lg text-pretty text-base font-normal leading-relaxed text-muted-foreground sm:text-lg"
             >
-              Audit, automatisation, missions de croissance. On comprend votre
-              process avant de construire votre solution, pas l&apos;inverse.
+              On regarde comment vous travaillez vraiment, on chiffre ce que ces
+              pertes vous coûtent, puis on construit les systèmes qui les arrêtent.
             </motion.p>
 
             <motion.div
@@ -258,13 +257,13 @@ export function Hero() {
               className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4"
             >
               <Link
-                href="/solutions"
+                href="/etat-des-lieux"
                 className={cn(
                   buttonVariants({ size: "lg" }),
                   "h-12 w-full px-7 text-base font-bold tracking-[-0.01em] hover:bg-primary/90 sm:w-auto",
                 )}
               >
-                Automatiser mon activité
+                Demander un état des lieux
                 <ArrowRight className="ml-1.5 h-4 w-4" />
               </Link>
               <Link
@@ -283,7 +282,7 @@ export function Hero() {
               animate="visible"
               className="mt-6 text-xs text-muted-foreground"
             >
-              Audit digital offert · Réponse sous 24h · Sans engagement
+              Premier échange gratuit · Réponse sous 24h · Le diagnostic vous appartient
             </motion.p>
           </div>
 
