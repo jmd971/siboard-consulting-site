@@ -1,84 +1,99 @@
 import type { Metadata } from "next";
-import { ArrowUpRight, MapPin, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 import { CTABanner } from "@/components/shared/CTABanner";
-import { CLIENTS } from "@/lib/constants";
+import { CLIENTS, PORTEFEUILLE, SECTEURS_ACCOMPAGNES } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Réalisations — Clients Siboard Consulting Guadeloupe et IDF",
   description:
-    "Découvrez les projets réalisés par Siboard : création de site, SEO, automatisation et agents IA pour des entreprises en Guadeloupe et en Île-de-France.",
+    "Les projets réalisés par Siboard : création de site, référencement local, automatisation et logiciel métier pour des entreprises en Guadeloupe, aux Antilles-Guyane et en Île-de-France.",
   alternates: { canonical: "/realisations" },
   openGraph: {
     title: "Réalisations — Clients Siboard Consulting Guadeloupe et IDF",
     description:
-      "Cas clients TPE/PME accompagnés par Siboard : automatisation, missions de croissance, repositionnement digital.",
+      "Des secteurs différents, une seule méthode. Les sites sont en ligne, le travail est vérifiable.",
     url: "/realisations",
     type: "website",
   },
 };
 
-const SECTOR_BADGES = [
-  "Commerce / Retail",
-  "Services pros",
-  "Formation professionnelle",
-  "Informatique",
-  "Courtage financier",
-  "Artisanat / Industrie",
-] as const;
-
-// Clients à afficher — sans Bateau Alizé (pas encore de lien public)
-const DISPLAYED_CLIENTS = CLIENTS.filter((c) => c.slug !== "bateau-alize");
+// Bateau Alizé n'a pas encore de lien public à montrer.
+const AFFICHES = CLIENTS.filter((c) => c.slug !== "bateau-alize");
 
 export default function RealisationsPage() {
   return (
     <>
-      <PageHero />
-      <ClientsGrid />
+      <Hero />
+      <Secteurs />
+      <Clients />
       <CTABanner
         eyebrow="Votre cas, ensuite"
         title="On peut regarder ensemble ce qui bloque votre activité."
-        description="Premier échange gratuit, réponse sous 24h, sans engagement. On vous dit franchement si on est le bon partenaire pour votre cas."
+        description="Premier échange gratuit, réponse sous 24 h, sans engagement. On vous dit franchement si on est le bon partenaire pour votre cas."
       />
     </>
   );
 }
 
-function PageHero() {
+function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border/40">
-      <div className="container-page relative pt-20 pb-14 sm:pt-24 sm:pb-16">
-        <div className="mx-auto max-w-3xl text-center">
-          <Badge
-            variant="outline"
-            className="border-primary/30 bg-primary/5 text-xs font-normal text-primary"
-          >
-            Réalisations · 2020 — 2026
-          </Badge>
-          <h1 className="mt-6 text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-[3.5rem]">
-            Des secteurs différents.{" "}
-            <span className="text-primary">
-              Une seule méthode.
-            </span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Chaque mission part du même principe : comprendre le process avant
-            de proposer l&apos;outil. Les sites sont en ligne — le travail est
-            vérifiable.
-          </p>
+    <section className="container-page pb-12 pt-12 sm:pb-14 sm:pt-16">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-rule pb-3">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
+          Réalisations
+        </p>
+        <p className="text-[11px] text-muted-foreground">2020 à 2026</p>
+      </div>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
-            {SECTOR_BADGES.map((label) => (
-              <Badge
-                key={label}
-                variant="outline"
-                className="border-border/60 bg-surface/60 text-xs font-normal text-muted-foreground"
-              >
-                {label}
-              </Badge>
+      <h1 className="mt-12 max-w-3xl text-balance text-[2.25rem] font-extrabold leading-[1.05] tracking-[-0.035em] sm:text-5xl lg:text-[3.25rem]">
+        Des secteurs différents. Une seule méthode.
+      </h1>
+      <p className="prose-report mt-7 max-w-2xl text-pretty text-muted-foreground">
+        Chaque mission part du même principe : comprendre le process avant de proposer
+        l&apos;outil. Les sites sont en ligne et le travail est vérifiable, lien par lien.
+      </p>
+    </section>
+  );
+}
+
+function Secteurs() {
+  const chiffres = [
+    { v: String(PORTEFEUILLE.etablissements), l: "établissements accompagnés" },
+    { v: String(PORTEFEUILLE.secteurs), l: "secteurs" },
+    { v: String(PORTEFEUILLE.territoires), l: "territoires" },
+  ];
+
+  return (
+    <section className="border-y border-rule bg-surface">
+      <div className="container-page py-12 sm:py-14">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-14">
+          <dl className="md:col-span-4">
+            {chiffres.map((c) => (
+              <div key={c.l} className="flex items-baseline gap-4 border-t border-rule py-3 last:border-b">
+                <dt className="figure w-12 shrink-0 text-2xl font-semibold text-accent-strong">
+                  {c.v}
+                </dt>
+                <dd className="text-sm text-muted-foreground">{c.l}</dd>
+              </div>
             ))}
+          </dl>
+
+          <div className="md:col-span-8">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
+              Les secteurs accompagnés
+            </p>
+            <ul className="mt-4 grid sm:grid-cols-2">
+              {SECTEURS_ACCOMPAGNES.map((s) => (
+                <li
+                  key={s}
+                  className="border-t border-rule py-2.5 text-[15px] text-foreground/90"
+                >
+                  {s}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
@@ -86,78 +101,60 @@ function PageHero() {
   );
 }
 
-function ClientsGrid() {
+function Clients() {
   return (
     <section className="container-page py-16 sm:py-20">
-      <ul className="grid gap-5 md:grid-cols-2">
-        {DISPLAYED_CLIENTS.map((c, i) => (
-          <li key={c.slug}>
-            <Card className="group relative overflow-hidden border-border/60 bg-surface/60 transition-colors hover:border-primary/30">
-              <CardContent className="relative flex h-full flex-col gap-5 p-7 sm:p-8">
-                {/* Header */}
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className="grid h-14 w-14 place-items-center rounded-xl bg-primary/15 text-base font-semibold text-primary ring-1 ring-primary/30">
-                      {c.initials}
-                    </div>
-                    <div>
-                      <p className="text-lg font-semibold tracking-tight">
-                        {c.name}
-                      </p>
-                      <p className="mt-0.5 inline-flex items-center gap-1.5 text-xs text-muted-foreground">
-                        <MapPin className="h-3.5 w-3.5" aria-hidden />
-                        {c.location}
-                      </p>
-                    </div>
-                  </div>
-                  <span
-                    aria-hidden
-                    className="font-mono text-xs text-muted-foreground/60"
-                  >
+      <ol>
+        {AFFICHES.map((c, i) => (
+          <li key={c.slug} className="border-t border-rule">
+            <article className="grid gap-x-10 gap-y-4 py-9 md:grid-cols-12">
+              <header className="md:col-span-4">
+                <div className="flex items-baseline gap-4">
+                  <span className="figure text-sm text-muted-foreground">
                     {String(i + 1).padStart(2, "0")}
                   </span>
+                  <div>
+                    <h2 className="text-xl font-bold tracking-tight">{c.name}</h2>
+                    <p className="mt-1 text-sm text-muted-foreground">{c.location}</p>
+                    <p className="mt-2 max-w-[26ch] text-pretty text-sm leading-snug text-muted-foreground">
+                      {c.sector}
+                    </p>
+                  </div>
                 </div>
+              </header>
 
-                {/* Secteur */}
-                <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                  {c.sector}
-                </p>
-
-                {/* Ce qui a été construit */}
-                <p className="text-pretty text-sm font-semibold leading-relaxed text-foreground/90">
-                  {c.detail}
-                </p>
-
-                {/* Résultat — headline */}
-                <p className="text-pretty text-lg font-medium leading-snug text-primary">
+              <div className="md:col-span-8">
+                <p className="text-pretty text-lg font-semibold leading-snug text-accent-strong">
                   {c.result}
                 </p>
-
-                {/* Lien site client */}
+                <p className="prose-report mt-3 text-pretty text-[15px] text-muted-foreground">
+                  {c.detail}
+                </p>
                 {c.href ? (
                   <a
                     href={c.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
-                    aria-label={`Voir le site de ${c.name} (nouvelle fenêtre)`}
+                    aria-label={`Voir le site de ${c.name}, nouvelle fenêtre`}
+                    className={cn(
+                      "group mt-4 inline-flex min-h-11 items-center gap-1.5 text-sm text-foreground",
+                      "underline-offset-4 transition-colors hover:text-accent-strong hover:underline",
+                    )}
                   >
                     Voir le site
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </a>
                 ) : null}
-              </CardContent>
-            </Card>
+              </div>
+            </article>
           </li>
         ))}
-      </ul>
+      </ol>
+      <div className="border-t-2 border-rule-strong" />
 
-      <p className="mt-12 flex items-center justify-center gap-3 text-center text-sm text-muted-foreground">
-        <Sparkles className="h-4 w-4 shrink-0 text-primary" aria-hidden />
-        <span>
-          D&apos;autres missions sont en cours, certaines sous accord de
-          confidentialité — disponibles sur demande lors d&apos;un appel.
-        </span>
+      <p className="prose-report mt-8 max-w-2xl text-pretty text-sm text-muted-foreground">
+        D&apos;autres missions sont en cours, certaines sous accord de confidentialité. Elles sont
+        présentables lors d&apos;un premier échange.
       </p>
     </section>
   );
