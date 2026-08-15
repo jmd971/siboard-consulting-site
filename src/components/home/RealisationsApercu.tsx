@@ -1,93 +1,75 @@
 import Link from "next/link";
-import { ArrowRight, MapPin, TrendingUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { CLIENTS } from "@/lib/constants";
-
-const AVATAR_STYLES = [
-  "bg-primary text-primary-foreground",
-  "bg-accent text-white",
-  "bg-foreground text-background",
-  "bg-primary/15 text-primary ring-primary/20",
-] as const;
-
-const CLIENT_STATS: Record<string, { value: string; label: string; bg: string; text: string }> = {
-  "odyssee-by-bea":     { value: "1ère position", label: "Google", bg: "bg-primary/10", text: "text-primary" },
-  "sacodif":            { value: "Page 3 → Page 1", label: "Google", bg: "bg-accent/10", text: "text-accent-strong" },
-  "evolutia-formation": { value: "1ère position", label: "Google", bg: "bg-primary/10", text: "text-primary" },
-  "dfp-france":         { value: "RDV automatisé", label: "100%", bg: "bg-foreground/8", text: "text-foreground" },
-};
+import { cn } from "@/lib/utils";
 
 export function RealisationsApercu() {
   const featured = CLIENTS.filter((c) => c.featured).slice(0, 4);
 
   return (
-    <section className="border-t border-border/60 bg-surface/30">
-      <div className="container-page py-20 sm:py-28">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-xl">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
-              03 — Réalisations
-            </p>
-            <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-              Des secteurs différents, un même fil rouge : un digital qui rapporte.
-            </h2>
-          </div>
-          <Link
-            href="/realisations"
-            className="group inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
-          >
-            Toutes les réalisations
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </Link>
-        </div>
-
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-          {featured.map((client, index) => {
-            const stat = CLIENT_STATS[client.slug];
-            return (
-              <li key={client.slug}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-background/60 transition-colors hover:border-primary/30 hover:bg-surface/60">
-                  {/* Stat bar en haut */}
-                  {stat && (
-                    <div className={`flex items-center gap-2.5 border-b border-border/40 px-5 py-3 ${stat.bg}`}>
-                      <TrendingUp className={`h-4 w-4 shrink-0 ${stat.text}`} />
-                      <span className={`text-sm font-semibold ${stat.text}`}>{stat.value}</span>
-                      <span className="text-xs text-muted-foreground">·</span>
-                      <span className="text-xs text-muted-foreground">{stat.label}</span>
-                    </div>
-                  )}
-
-                  {/* Contenu */}
-                  <div className="flex flex-1 items-start gap-5 p-5 sm:p-6">
-                    <div
-                      aria-hidden
-                      className={`grid h-12 w-12 shrink-0 place-items-center rounded-xl text-sm font-bold ring-1 ring-border ${AVATAR_STYLES[index % AVATAR_STYLES.length]}`}
-                    >
-                      {client.initials}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                        <h3 className="text-base font-semibold text-foreground">{client.name}</h3>
-                        <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
-                          <MapPin className="h-3 w-3" />
-                          {client.location}
-                        </span>
-                      </div>
-                      <p className="mt-1 text-sm text-muted-foreground">{client.sector}</p>
-                      <p className="mt-3 text-pretty text-base font-medium text-foreground">
-                        {client.result}
-                      </p>
-                      <p className="mt-1 text-pretty text-sm leading-relaxed text-muted-foreground">
-                        {client.detail}
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              </li>
-            );
-          })}
-        </ul>
+    <section className="container-page py-16 sm:py-20">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-rule pb-3">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
+          03 — Réalisations
+        </p>
+        <Link
+          href="/realisations"
+          className="group inline-flex items-center gap-1.5 text-[11px] text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+        >
+          Toutes les réalisations
+          <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+        </Link>
       </div>
+
+      <h2 className="mt-12 max-w-2xl text-balance text-3xl font-extrabold tracking-tight sm:text-4xl">
+        Des secteurs différents, un même fil rouge.
+      </h2>
+
+      <ol className="mt-12">
+        {featured.map((client, i) => (
+          <li key={client.slug} className="border-t border-rule">
+            <article className="grid gap-x-10 gap-y-4 py-8 md:grid-cols-12">
+              <header className="md:col-span-4">
+                <div className="flex items-baseline gap-4">
+                  <span className="figure text-sm text-muted-foreground">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="text-xl font-bold tracking-tight">{client.name}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">{client.location}</p>
+                  </div>
+                </div>
+              </header>
+
+              <div className="md:col-span-8 md:pl-0">
+                <p className="text-pretty text-lg font-semibold leading-snug text-accent-strong">
+                  {client.result}
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">{client.sector}</p>
+                <p className="prose-report mt-3 text-pretty text-[15px] text-muted-foreground">
+                  {client.detail}
+                </p>
+                {client.href ? (
+                  <a
+                    href={client.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      "group mt-3 inline-flex min-h-11 items-center gap-1.5 text-sm",
+                      "text-foreground underline-offset-4 transition-colors hover:text-accent-strong hover:underline",
+                    )}
+                  >
+                    Voir le site
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                ) : null}
+              </div>
+            </article>
+          </li>
+        ))}
+      </ol>
+      <div className="border-t-2 border-rule-strong" />
     </section>
   );
 }
