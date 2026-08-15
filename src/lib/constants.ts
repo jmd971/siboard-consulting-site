@@ -53,6 +53,7 @@ export const ETAT_DES_LIEUX = {
     "Un document qui tient debout tout seul. Il contient la carte de votre parcours client avec les points de rupture, le chiffrage de chaque fuite en euros et en heures, l’ordre dans lequel les traiter, et ce que nous vous déconseillons de faire.",
   livrablePrecision:
     "Les montants sont calculés à partir de vos données. Pas de moyennes de marché, pas de projections empruntées à d’autres entreprises.",
+  delaiCourt: "Deux à quatre semaines",
   delai:
     "De deux à quatre semaines selon le périmètre : un entretien de cadrage, une collecte de données, un rendez-vous de restitution.",
   tarifs: [
