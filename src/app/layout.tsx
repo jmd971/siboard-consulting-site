@@ -8,18 +8,20 @@ import { organizationSchema } from "@/lib/schemas";
 
 import "./globals.css";
 
+// Archivo et Literata sont des polices variables : ne pas lister de
+// graisses discretes ni d'italique, next/font telecharge alors un
+// fichier par combinaison et le build casse sur un module introuvable.
+// Sans `weight`, on recupere l'axe complet, que le CSS exploite en 400
+// a 800.
 const archivo = Archivo({
   variable: "--font-archivo",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 const literata = Literata({
   variable: "--font-literata",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
   display: "swap",
 });
 
