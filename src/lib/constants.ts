@@ -190,6 +190,30 @@ export const FORMULE_COMPLETE = {
 /* Clients                                                             */
 /* ------------------------------------------------------------------ */
 
+/* Chiffres du portefeuille, releves le 14/08/2026 dans le gestionnaire
+   de fiches Google (business.google.com/locations) : 15 fiches gerees,
+   dont celle de Siboard, donc 14 etablissements clients.
+   NE PAS inventer ces nombres : ils se recomptent dans le gestionnaire. */
+export const PORTEFEUILLE = {
+  etablissements: 14,
+  secteurs: 9,
+  territoires: 5,
+  territoiresDetail: "Guadeloupe, Martinique, Guyane, \u00cele-de-France, Sarthe",
+  anciennete: "5 ans",
+} as const;
+
+export const SECTEURS_ACCOMPAGNES = [
+  "Sant\u00e9 et bien-\u00eatre",
+  "Formation",
+  "Assurance et courtage",
+  "Ressources humaines",
+  "Informatique",
+  "B\u00e2timent",
+  "Artisanat",
+  "Restauration",
+  "Commerce et mode",
+] as const;
+
 export type Client = {
   slug: string;
   name: string;
