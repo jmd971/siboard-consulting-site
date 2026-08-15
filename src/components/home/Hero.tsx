@@ -47,7 +47,7 @@ function MotTournant({ reduced }: { reduced: boolean }) {
     return () => clearInterval(id);
   }, [reduced]);
 
-  if (reduced) return <span className="text-primary">{MOTS[0]}</span>;
+  if (reduced) return <span className="text-accent-strong">{MOTS[0]}</span>;
 
   return (
     <span className="relative inline-block overflow-hidden align-bottom" style={{ minWidth: "14ch" }}>
@@ -58,7 +58,7 @@ function MotTournant({ reduced }: { reduced: boolean }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -18 }}
           transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-block text-primary"
+          className="inline-block text-accent-strong"
         >
           {MOTS[i]}
         </motion.span>
