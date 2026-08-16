@@ -41,6 +41,17 @@ const ANCIENNES_URLS: Array<[string, string]> = [
   ["/courtiers", "/realisations"],
   ["/experts-comptables", "/realisations"],
 
+  // Deuxieme vague, relevee dans Ahrefs le 16/08/2026. Toutes ces URLs
+  // ont un UR de 0 : aucun lien serieux ne pointe dessus, la redirection
+  // est de l'hygiene et pas de la recuperation de jus.
+  ["/offres", "/solutions"],
+  ["/modules", "/solutions"],
+  ["/scope-sla", "/solutions"],
+  ["/artisans", "/realisations"],
+  ["/coachs", "/realisations"],
+  ["/ile-de-france", "/realisations"],
+  ["/merci", "/"],
+
   // Vestiges GoHighLevel : la page link-in-bio a pu servir de lien de
   // bio sur les reseaux, elle merite une redirection et pas un 404.
   ["/link-in-bio-1090-4084", "/"],
@@ -66,6 +77,11 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         has: [{ type: "host" as const, value: "siboard-consulting.fr" }],
         destination: "https://www.siboard-consulting.fr/:path*",
+        permanent: true,
+      },
+      {
+        source: "/secteurs/:slug*",
+        destination: "/realisations",
         permanent: true,
       },
       ...ANCIENNES_URLS.map(([source, destination]) => ({
