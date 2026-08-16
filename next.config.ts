@@ -45,7 +45,6 @@ const ANCIENNES_URLS: Array<[string, string]> = [
   ["/guadeloupe", "/"],
   ["/ressources", "/"],
   ["/search", "/"],
-  ["/blog", "/"],
   ["/faq", "/mission-90j"],
 
   // Routes de la version precedente, jusque-la en 307 temporaire
