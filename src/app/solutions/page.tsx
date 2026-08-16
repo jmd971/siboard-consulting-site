@@ -13,9 +13,9 @@ import {
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Solutions — le Socle Siboard et les cinq systèmes | Siboard Consulting",
+  title: "Le Socle et les cinq systèmes",
   description:
-    "Une fondation commune, cinq systèmes prescrits après diagnostic : L’Accueil, Le Bureau, Le Fil, Le Retour, Le Point. Prix affichés. Guadeloupe et Île-de-France.",
+    "Une fondation commune et cinq systèmes prescrits après diagnostic : L’Accueil, Le Bureau, Le Fil, Le Retour, Le Point. Prix affichés.",
   alternates: { canonical: "/solutions" },
   openGraph: {
     title: "Solutions — le Socle Siboard et les cinq systèmes",

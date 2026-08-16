@@ -10,6 +10,7 @@ export type Section = { titre: string; paragraphes: string[]; liste?: string[] }
 export type Article = {
   slug: string;
   titre: string;
+  titreSeo: string;
   chapo: string;
   description: string;
   date: string;
@@ -23,11 +24,13 @@ export type Article = {
 export const ARTICLES: Article[] = [
   {
     slug: "formation-ia-intra-entreprise",
+    titreSeo:
+      "Formation IA intra-entreprise : le guide",
     titre: "Formation IA intra-entreprise : ce qu’il faut savoir avant de la commander",
     chapo:
       "Une journée en intra ne vaut pas mieux qu’un stage en inter par principe. Elle vaut mieux quand elle part de vos dossiers. Voici comment le vérifier avant de signer.",
     description:
-      "Intra ou inter, nombre de participants, ce qu’une journée peut réellement produire, et les six questions à poser à un formateur avant de commander une formation IA pour vos équipes.",
+      "Intra ou inter, combien de participants, ce qu’une journée produit vraiment, et les six questions à poser avant de commander.",
     date: "2026-08-16",
     dateLisible: "16 août 2026",
     lecture: "7 min",
@@ -98,11 +101,13 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "vos-equipes-nutilisent-pas-lia",
+    titreSeo:
+      "Pourquoi vos équipes n’utilisent pas l’IA",
     titre: "Vos équipes n’utilisent pas l’IA. Voici les quatre vraies raisons.",
     chapo:
       "Ce n’est presque jamais un problème de génération ni de compétence. C’est un problème de permission, de règle et de temps alloué.",
     description:
-      "Pourquoi vos salariés n’utilisent pas l’intelligence artificielle alors qu’elle est disponible : les quatre blocages réels observés en entreprise, et ce qui les débloque.",
+      "Les quatre blocages réels observés en entreprise : par où commencer, oser se tromper, la règle sur les données, le temps alloué.",
     date: "2026-08-16",
     dateLisible: "16 août 2026",
     lecture: "6 min",
@@ -165,11 +170,13 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "quelles-taches-lia-peut-reprendre",
+    titreSeo:
+      "Quelles tâches l’IA peut vraiment reprendre",
     titre: "Quelles tâches de votre entreprise l’IA peut réellement reprendre",
     chapo:
       "Une méthode simple pour trier, en une demi-journée, ce qui est automatisable tout de suite, ce qui l’est plus tard, et ce qui ne le sera jamais.",
     description:
-      "La méthode de cartographie des tâches automatisables en entreprise : les trois critères de tri, des exemples par métier, et ce qui ne doit jamais être confié à une machine.",
+      "Les trois critères de tri, ce qui est automatisable tout de suite, ce qui l’est plus tard, et ce qui ne doit jamais partir.",
     date: "2026-08-16",
     dateLisible: "16 août 2026",
     lecture: "8 min",

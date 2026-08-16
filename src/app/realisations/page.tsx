@@ -6,9 +6,9 @@ import { CLIENTS, PORTEFEUILLE, SECTEURS_ACCOMPAGNES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Réalisations — Clients Siboard Consulting Guadeloupe et IDF",
+  title: "Réalisations, Guadeloupe et Île-de-France",
   description:
-    "Les projets réalisés par Siboard : création de site, référencement local, automatisation et logiciel métier pour des entreprises en Guadeloupe, aux Antilles-Guyane et en Île-de-France.",
+    "Les projets réalisés par Siboard en Guadeloupe, aux Antilles-Guyane et en Île-de-France : site, référencement local, automatisation.",
   alternates: { canonical: "/realisations" },
   openGraph: {
     title: "Réalisations — Clients Siboard Consulting Guadeloupe et IDF",

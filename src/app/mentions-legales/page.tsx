@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Mentions légales — Siboard Consulting",
+  title: "Mentions légales",
   description: "Mentions légales de Siboard Consulting : éditeur, hébergeur, propriété intellectuelle et responsabilité.",
   alternates: { canonical: "/mentions-legales" },
   robots: { index: false, follow: false },

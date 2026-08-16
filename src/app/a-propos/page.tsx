@@ -9,9 +9,9 @@ import { CTA_PRIMARY, PORTEFEUILLE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "À propos — Jean-Marc Dolmare, Siboard Consulting Guadeloupe",
+  title: "Jean-Marc Dolmare, fondateur",
   description:
-    "Ingénieur réseaux et télécommunications, 25 ans de digitalisation et de pilotage de systèmes d'information. Fondateur de Siboard Consulting, entre la Guadeloupe et l'Île-de-France.",
+    "Jean-Marc Dolmare, ingénieur réseaux et télécommunications, 25 ans de digitalisation et de pilotage de systèmes d’information.",
   alternates: { canonical: "/a-propos" },
   openGraph: {
     title: "À propos — Jean-Marc Dolmare, Siboard Consulting",

@@ -20,7 +20,7 @@ export async function generateMetadata({
   const a = ARTICLE_PAR_SLUG[slug];
   if (!a) return {};
   return {
-    title: `${a.titre} | Siboard Consulting`,
+    title: a.titreSeo,
     description: a.description,
     alternates: { canonical: `/blog/${a.slug}` },
     openGraph: {

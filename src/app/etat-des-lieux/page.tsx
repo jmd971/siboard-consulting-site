@@ -8,9 +8,9 @@ import { ETAT_DES_LIEUX } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "L’État des lieux — diagnostic de process pour TPE et PME | Siboard",
+  title: "L’État des lieux, diagnostic de process",
   description:
-    "Nous suivons le parcours réel de votre activité et nous chiffrons ce que vous perdez, en euros et en heures, à partir de vos données. Livrable écrit, remis en main propre.",
+    "Nous suivons le parcours réel de votre activité et chiffrons ce que vous perdez, en euros et en heures, à partir de vos données.",
   alternates: { canonical: "/etat-des-lieux" },
   openGraph: {
     title: "L’État des lieux — diagnostic de process | Siboard Consulting",

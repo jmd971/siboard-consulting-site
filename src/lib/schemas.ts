@@ -1,6 +1,42 @@
 // src/lib/schemas.ts
 // Schemas JSON-LD globaux — à importer dans app/layout.tsx
 
+/* LocalBusiness en plus d'Organization : c'est ce schema-la que Google
+   croise avec la fiche Google Business Profile pour le referencement
+   local. Adresse et zone desservie doivent rester identiques a la fiche. */
+export const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://www.siboard-consulting.fr/#localbusiness",
+  name: "Siboard Consulting",
+  url: "https://www.siboard-consulting.fr",
+  email: "contact@siboard-consulting.fr",
+  image: "https://www.siboard-consulting.fr/opengraph-image.png",
+  priceRange: "€€",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "73 rue Vatable",
+    addressLocality: "Pointe-à-Pitre",
+    postalCode: "97110",
+    addressRegion: "Guadeloupe",
+    addressCountry: "FR",
+  },
+  geo: { "@type": "GeoCoordinates", latitude: 16.237964, longitude: -61.5315605 },
+  areaServed: [
+    { "@type": "AdministrativeArea", name: "Guadeloupe" },
+    { "@type": "AdministrativeArea", name: "Martinique" },
+    { "@type": "AdministrativeArea", name: "Guyane" },
+    { "@type": "AdministrativeArea", name: "Île-de-France" },
+  ],
+  knowsAbout: [
+    "diagnostic de process",
+    "automatisation d'entreprise",
+    "formation à l'intelligence artificielle",
+    "référencement local",
+    "logiciel métier sur mesure",
+  ],
+} as const;
+
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",

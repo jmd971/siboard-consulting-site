@@ -4,7 +4,7 @@ import { Archivo, Geist_Mono, Literata } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { SITE } from "@/lib/constants";
-import { organizationSchema } from "@/lib/schemas";
+import { localBusinessSchema, organizationSchema } from "@/lib/schemas";
 
 import "./globals.css";
 
@@ -34,11 +34,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Siboard Consulting — Diagnostic de process et systèmes pour TPE/PME Guadeloupe et IDF",
-    template: `%s · ${SITE.name}`,
+    default: "Diagnostic de process pour TPE et PME · Siboard Consulting",
+    template: `%s · Siboard`,
   },
   description:
-    "On analyse comment votre entreprise travaille vraiment, on chiffre ce que vous perdez, puis on construit les systèmes qui le corrigent : automatisation, agents IA, logiciel métier sur mesure. Guadeloupe, Antilles-Guyane et Île-de-France.",
+    "On analyse comment votre entreprise travaille, on chiffre ce que vous perdez, puis on construit les systèmes qui le corrigent. Guadeloupe et Île-de-France.",
   keywords: [
     "automatisation",
     "diagnostic de process",
@@ -95,7 +95,9 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([organizationSchema, localBusinessSchema]),
+          }}
         />
         <a
           href="#main-content"

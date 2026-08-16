@@ -54,11 +54,21 @@ const ANCIENNES_URLS: Array<[string, string]> = [
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return ANCIENNES_URLS.map(([source, destination]) => ({
+    return [
+      /* L'apex et le www repondaient tous deux 200 : duplication sur la
+         page la plus importante du site. */
+      {
+        source: "/:path*",
+        has: [{ type: "host" as const, value: "siboard-consulting.fr" }],
+        destination: "https://www.siboard-consulting.fr/:path*",
+        permanent: true,
+      },
+      ...ANCIENNES_URLS.map(([source, destination]) => ({
       source,
       destination,
       permanent: true,
-    }));
+    })),
+    ];
   },
 };
 
