@@ -41,6 +41,11 @@ const ANCIENNES_URLS: Array<[string, string]> = [
   ["/courtiers", "/realisations"],
   ["/experts-comptables", "/realisations"],
 
+  // Vestiges GoHighLevel : la page link-in-bio a pu servir de lien de
+  // bio sur les reseaux, elle merite une redirection et pas un 404.
+  ["/link-in-bio-1090-4084", "/"],
+  ["/demo", "/solutions"],
+
   // Divers
   ["/guadeloupe", "/"],
   ["/ressources", "/"],
