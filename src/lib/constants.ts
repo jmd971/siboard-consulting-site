@@ -16,6 +16,7 @@ export const NAV_LINKS = [
   { href: "/formation-ia", label: "Formation IA" },
   { href: "/ventures", label: "Nos plateformes" },
   { href: "/realisations", label: "Réalisations" },
+  { href: "/blog", label: "Le carnet" },
   { href: "/a-propos", label: "À propos" },
 ] as const;
 
