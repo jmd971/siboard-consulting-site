@@ -10,7 +10,7 @@ import { CTA_PRIMARY, MISSION_90J_DELIVERABLES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Mission Croissance 90J — 10 RDV B2B garantis — Siboard",
+  title: "Mission Croissance 90J, 10 RDV garantis",
   description:
     "Mission commerciale done for you : LinkedIn, prospection, page web, tableau de bord. 10 rendez-vous qualifiés en 90 jours ou prolongation gratuite.",
   alternates: { canonical: "/mission-90j" },

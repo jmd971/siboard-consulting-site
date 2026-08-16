@@ -6,9 +6,9 @@ import { CTABanner } from "@/components/shared/CTABanner";
 import { ARTICLES } from "@/lib/articles";
 
 export const metadata: Metadata = {
-  title: "Le carnet — formation IA et automatisation en entreprise | Siboard",
+  title: "Le carnet, notes de terrain",
   description:
-    "Ce qu’on apprend en installant des systèmes chez des TPE et des PME : formation IA en intra, adoption par les équipes, tri des tâches automatisables.",
+    "Notes de terrain sur la formation IA en entreprise, l’adoption par les équipes et le tri des tâches automatisables.",
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "Le carnet — Siboard Consulting",

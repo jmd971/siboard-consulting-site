@@ -8,9 +8,9 @@ import { FORMATION_IA } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Formation IA pour vos équipes — une journée en Guadeloupe | Siboard",
+  title: "Formation IA en entreprise, Guadeloupe",
   description:
-    "L’intelligence artificielle au quotidien pour vos salariés : une journée en présentiel, 8 participants maximum, dans vos locaux en Guadeloupe. Cas d’usage réels et cartographie de vos tâches automatisables.",
+    "Une journée d’intelligence artificielle pour vos équipes, en présentiel dans vos locaux en Guadeloupe. Huit participants maximum, tous services.",
   alternates: { canonical: "/formation-ia" },
   openGraph: {
     title: "Formation IA pour vos équipes — une journée en Guadeloupe",

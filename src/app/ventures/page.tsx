@@ -18,9 +18,9 @@ const SYSTEME_ANCRES: Record<string, string> = {
 };
 
 export const metadata: Metadata = {
-  title: "Nos plateformes — les logiciels que Siboard édite | Siboard Consulting",
+  title: "Nos plateformes métier",
   description:
-    "AdamBoards, TransmiExpert, SecureXia : trois logiciels métier construits et édités par Siboard avec un expert de chaque secteur. La preuve que nous ne faisons pas qu’installer des outils.",
+    "AdamBoards, TransmiExpert, SecureXia : trois logiciels métier que Siboard construit et édite avec un expert de chaque secteur.",
   alternates: { canonical: "/ventures" },
   openGraph: {
     title: "Nos plateformes — les logiciels que Siboard édite",

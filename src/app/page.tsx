@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
+
 import { PORTEFEUILLE } from "@/lib/constants";
+
+/* L'accueil n'avait aucune canonical, alors que l'apex et le www
+   servaient tous deux la page. */
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 import { DeuxOffres } from "@/components/home/DeuxOffres";
 import { Ecosysteme } from "@/components/home/Ecosysteme";
 import { Hero } from "@/components/home/Hero";

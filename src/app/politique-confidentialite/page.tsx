@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Politique de confidentialité — Siboard Consulting",
+  title: "Politique de confidentialité",
   description: "Politique de confidentialité de Siboard Consulting : données collectées, finalités, droits des personnes et durées de conservation.",
   alternates: { canonical: "/politique-confidentialite" },
   robots: { index: false, follow: false },
