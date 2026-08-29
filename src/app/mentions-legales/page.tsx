@@ -58,6 +58,17 @@ export default function MentionsLegalesPage() {
                 </dd>
               </div>
               <div className="flex flex-col sm:flex-row sm:gap-4">
+                <dt className="w-40 shrink-0 text-muted-foreground">Téléphone</dt>
+                <dd>
+                  <a
+                    href="tel:+33756971329"
+                    className="text-primary hover:underline"
+                  >
+                    07 56 97 13 29
+                  </a>
+                </dd>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:gap-4">
                 <dt className="w-40 shrink-0 text-muted-foreground">Directeur de publication</dt>
                 <dd>Jean-Marc Dolmare</dd>
               </div>
