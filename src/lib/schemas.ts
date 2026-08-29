@@ -11,6 +11,7 @@ export const localBusinessSchema = {
   name: "Siboard Consulting",
   url: "https://www.siboard-consulting.fr",
   email: "contact@siboard-consulting.fr",
+  telephone: "+33756971329",
   image: "https://www.siboard-consulting.fr/opengraph-image.png",
   priceRange: "€€",
   address: {
@@ -55,6 +56,7 @@ export const organizationSchema = {
   contactPoint: {
     "@type": "ContactPoint",
     email: "contact@siboard-consulting.fr",
+    telephone: "+33756971329",
     contactType: "customer service",
     availableLanguage: "French",
   },
