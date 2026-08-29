@@ -90,7 +90,7 @@ const PARTENAIRES = [
   {
     name: "Cador Consulting",
     domain: "cador-gp.com",
-    href: "https://cador-gp.com",
+    href: "https://www.cador-gp.com",
     description:
       "Conseil en gestion et stratégie pour dirigeants de TPE et PME. Réseau de prescription en Guadeloupe.",
   },
