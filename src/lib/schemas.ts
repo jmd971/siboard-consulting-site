@@ -43,7 +43,7 @@ export const organizationSchema = {
   "@type": "Organization",
   name: "Siboard Consulting",
   url: "https://www.siboard-consulting.fr",
-  logo: "https://www.siboard-consulting.fr/logo.svg",
+  logo: "https://www.siboard-consulting.fr/logos/siboard-logo-dark.svg",
   foundingDate: "2020",
   founder: {
     "@type": "Person",
@@ -78,15 +78,23 @@ export const organizationSchema = {
     "https://www.linkedin.com/company/siboard-consulting",
   ],
   description:
-    "Siboard Consulting accompagne les TPE/PME en Guadeloupe et Île-de-France : audit digital, automatisation sur mesure, agents IA et missions de croissance commerciale B2B.",
+    "Siboard Consulting analyse comment une entreprise travaille réellement, chiffre ce qu'elle perd, puis construit les systèmes qui le corrigent. Diagnostic de process, systèmes d'accueil et de traitement documentaire, logiciel métier sur mesure et formation à l'intelligence artificielle, pour les TPE, PME et collectivités de Guadeloupe et d'Île-de-France.",
+  /* L'ordre compte : le diagnostic vient en tete parce que c'est le
+     produit d'entree et la valeur ajoutee revendiquee. « Audit digital »
+     a ete retire, cette offre n'existe plus. Les outils restent en fin
+     de liste : knowsAbout est une declaration de competences, pas un
+     titre ni une accroche, la regle 3 ne s'y applique donc pas. */
   knowsAbout: [
-    "Automatisation digitale",
-    "Agents IA conversationnels",
+    "Diagnostic de process",
+    "Chiffrage des pertes d'exploitation",
+    "Automatisation des process metier",
+    "Logiciel metier sur mesure",
+    "Formation a l'intelligence artificielle en entreprise",
+    "Agents conversationnels et vocaux",
+    "Croissance commerciale B2B",
     "GoHighLevel",
     "Voiceflow",
     "Make.com",
-    "Croissance commerciale B2B",
-    "Audit digital",
   ],
 };
 
