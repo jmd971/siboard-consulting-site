@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 import { SiboardLogo } from "@/components/ui/logo";
 import { Separator } from "@/components/ui/separator";
@@ -37,6 +37,13 @@ export function Footer() {
               >
                 <Mail className="h-4 w-4 text-primary" />
                 {SITE.email}
+              </a>
+              <a
+                href={`tel:${SITE.phone}`}
+                className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+              >
+                <Phone className="h-4 w-4 text-primary" />
+                {SITE.phoneDisplay}
               </a>
               <p className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
