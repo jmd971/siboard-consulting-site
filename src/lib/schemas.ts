@@ -43,7 +43,11 @@ export const organizationSchema = {
   "@type": "Organization",
   name: "Siboard Consulting",
   url: "https://www.siboard-consulting.fr",
-  logo: "https://www.siboard-consulting.fr/logos/siboard-logo-dark.svg",
+  /* siboard-logo-light : arc, disque et texte tous en #19120E, donc
+     lisible sur le fond blanc que Google utilise pour afficher un logo.
+     Ne pas remettre siboard-logo-dark : son texte est en #F9F6F2 et
+     disparait sur fond clair. */
+  logo: "https://www.siboard-consulting.fr/logos/siboard-logo-light.svg",
   foundingDate: "2020",
   founder: {
     "@type": "Person",
