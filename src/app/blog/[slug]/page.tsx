@@ -148,6 +148,21 @@ export default async function ArticlePage({
           </dl>
         </section>
 
+        {a.lienSuite ? (
+          <section className="mt-12 max-w-2xl border-t border-rule pt-8">
+            <p className="prose-report text-pretty text-foreground/90">
+              {a.lienSuite.phrase}{" "}
+              <Link
+                href={a.lienSuite.href}
+                className="font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-accent-strong"
+              >
+                {a.lienSuite.libelle}
+              </Link>
+              .
+            </p>
+          </section>
+        ) : null}
+
         <section className="mt-14 border-t border-rule pt-8">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
             À lire ensuite
