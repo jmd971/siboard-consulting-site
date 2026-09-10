@@ -19,6 +19,9 @@ export type Article = {
   reponseDirecte: string;
   sections: Section[];
   faq: { q: string; r: string }[];
+  /* Lien contextuel vers une page de l'offre. Ancre differente d'un article a
+     l'autre : c'est ce qui distingue un maillage utile d'un bandeau repete. */
+  lienSuite?: { href: string; libelle: string; phrase: string };
 };
 
 export const ARTICLES: Article[] = [
@@ -98,6 +101,12 @@ export const ARTICLES: Article[] = [
         r: "Sur les tâches d’écriture, dès la semaine suivante si les participants ont travaillé sur leurs propres documents pendant la journée. Sur tout ce qui demande une automatisation, il ne se passera rien sans un chantier séparé.",
       },
     ],
+    lienSuite: {
+      href: "/formation-ia",
+      libelle: "la journée telle que nous la menons",
+      phrase:
+        "Ce que nous venons de décrire, nous le pratiquons chez nos clients, huit participants au maximum et vos vrais dossiers l’après-midi. Voici",
+    },
   },
   {
     slug: "vos-equipes-nutilisent-pas-lia",
@@ -167,6 +176,12 @@ export const ARTICLES: Article[] = [
         r: "Regardez une tâche précise trente jours après, pas la satisfaction générale. Si le compte rendu du lundi prend vingt minutes au lieu d’une heure, ça a marché. Si personne ne peut nommer de tâche changée, ça n’a pas marché.",
       },
     ],
+    lienSuite: {
+      href: "/formation-ia",
+      libelle: "une journée qui traite les quatre blocages",
+      phrase:
+        "Ces quatre blocages ne se lèvent pas par une note de service. Ils se lèvent dans une salle, avec les personnes concernées. C’est le programme d’",
+    },
   },
   {
     slug: "quelles-taches-lia-peut-reprendre",
@@ -255,6 +270,12 @@ export const ARTICLES: Article[] = [
         r: "Une demi-journée avec les équipes concernées pour la liste et le classement. Le chiffrage en euros demande ensuite un accès à vos chiffres réels, ce qui relève d’un diagnostic à part entière.",
       },
     ],
+    lienSuite: {
+      href: "/etat-des-lieux",
+      libelle: "L’État des lieux",
+      phrase:
+        "La liste chiffrée en heures est un bon début. La relier à des euros et désigner ce qu’il faut réparer en premier demande un cran de plus, c’est le travail de",
+    },
   },
   {
     slug: "formation-ia-chef-entreprise",
@@ -337,6 +358,12 @@ export const ARTICLES: Article[] = [
         r: "La taille compte moins que la répétition. Une structure de quatre personnes qui produit les mêmes documents toutes les semaines a plus à gagner qu’une entreprise de cinquante personnes dont chaque dossier est différent. Le bon indicateur n’est pas l’effectif, c’est le nombre de tâches qui reviennent à l’identique.",
       },
     ],
+    lienSuite: {
+      href: "/etat-des-lieux",
+      libelle: "le diagnostic de process",
+      phrase:
+        "Si la liste de vos tâches répétitives vous intéresse mais que vous voulez le chiffre en euros et l’ordre de traitement, c’est",
+    },
   },
 ];
 

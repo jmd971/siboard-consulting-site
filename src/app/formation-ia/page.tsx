@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 import { CTABanner } from "@/components/shared/CTABanner";
 import { buttonVariants } from "@/components/ui/button";
+import { ARTICLES } from "@/lib/articles";
 import { FORMATION_IA } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -30,6 +31,7 @@ export default function FormationPage() {
       <Acquis />
       <Proposition />
       <Suite />
+      <Lectures />
       <CTABanner
         eyebrow="Formation IA"
         title="On cale une date et on prépare la journée avec vos équipes."
@@ -265,6 +267,44 @@ function Suite() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Lectures() {
+  return (
+    <section className="container-page py-14 sm:py-16">
+      <div className="grid gap-x-14 gap-y-8 md:grid-cols-12">
+        <div className="md:col-span-5">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
+            Avant de commander
+          </p>
+          <h2 className="mt-4 text-balance text-3xl font-extrabold tracking-tight sm:text-4xl">
+            Ce que nous avons écrit sur le sujet.
+          </h2>
+          <p className="prose-report mt-4 text-pretty text-muted-foreground">
+            Quatre notes de terrain, écrites à partir de ce que nous voyons en entreprise. Elles
+            répondent aux questions que les dirigeants posent avant de signer.
+          </p>
+        </div>
+        <div className="md:col-span-7">
+          <ol>
+            {ARTICLES.map((a) => (
+              <li key={a.slug} className="border-t border-rule py-4 last:border-b">
+                <Link
+                  href={`/blog/${a.slug}`}
+                  className="group flex min-h-11 items-baseline justify-between gap-6 underline-offset-4"
+                >
+                  <span className="text-pretty text-lg font-semibold leading-snug text-foreground transition-colors group-hover:text-accent-strong group-hover:underline">
+                    {a.titre}
+                  </span>
+                  <ArrowRight className="h-4 w-4 shrink-0 self-center text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
