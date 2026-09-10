@@ -256,6 +256,88 @@ export const ARTICLES: Article[] = [
       },
     ],
   },
+  {
+    slug: "formation-ia-chef-entreprise",
+    titreSeo: "Formation IA pour un chef d’entreprise",
+    titre: "Faut-il vous former à l’IA avant vos équipes ?",
+    chapo:
+      "Un dirigeant qui envoie ses salariés en formation sans y aller lui-même obtient une journée agréable et rien au trimestre suivant. Ce qui manque n’est pas la compétence, c’est l’arbitrage.",
+    description:
+      "Ce qu’un dirigeant doit savoir, les décisions que personne ne peut prendre à sa place, et pourquoi une formation sans arbitrage ne laisse aucune trace.",
+    date: "2026-09-10",
+    dateLisible: "10 septembre 2026",
+    lecture: "6 min",
+    reponseDirecte:
+      "Un chef d’entreprise n’a pas besoin de savoir se servir des outils mieux que ses équipes. Il a besoin de savoir ce que cette technologie change dans son activité, ce qu’il autorise, et ce qu’il fait du temps qu’elle libère. Ces trois questions ne se délèguent pas. C’est pour cela qu’une formation qui ne touche que les salariés produit de l’enthousiasme et pas de changement.",
+    sections: [
+      {
+        titre: "Le dirigeant ne cherche pas la même chose que ses salariés",
+        paragraphes: [
+          "Un salarié qui découvre ces outils cherche un usage. Il veut savoir comment rédiger son compte rendu plus vite, comment répondre à une demande de tarif sans repartir de zéro.",
+          "Un dirigeant, lui, cherche une décision. Est-ce que j’investis, sur quel périmètre, avec quel risque, et comment je saurai que ça a servi. Ce sont deux besoins différents, et une journée qui traite le premier ne répond jamais au second.",
+          "C’est ce décalage qui explique la plupart des projets qui s’arrêtent. L’entreprise a formé des gens très contents, mais personne n’a tranché ce qui était autorisé ni ce qu’on faisait des heures récupérées.",
+        ],
+      },
+      {
+        titre: "Les décisions que personne ne prendra à votre place",
+        paragraphes: [
+          "Elles sont peu nombreuses et elles remontent toutes au même bureau.",
+        ],
+        liste: [
+          "Ce qui a le droit de sortir de l’entreprise. Vos devis, vos fichiers clients, vos contrats, vos données de santé s’il y en a. Sans règle écrite, chacun décide seul.",
+          "Qui s’en sert et sur quelles tâches. Ouvrir à tout le monde sans dire pour quoi faire revient à n’ouvrir à personne.",
+          "Ce que devient le temps gagné. Traiter plus de dossiers, rappeler les clients dormants, ou arrêter de travailler le samedi. Sans cette phrase, les heures se dissolvent dans le quotidien.",
+          "Qui tranche en cas de doute. Une réponse fausse recopiée dans un courrier client, ça arrive. La question est de savoir qui la rattrape.",
+        ],
+      },
+      {
+        titre: "Ce que vous devez savoir faire vous-même",
+        paragraphes: [
+          "Beaucoup moins que ce que l’on vous vend. Vous n’avez pas besoin d’écrire des demandes parfaites, ni de connaître les différences entre les outils du marché. Ces compétences se délèguent et vieillissent vite.",
+          "Deux choses ne se délèguent pas. Repérer une réponse fausse, d’abord, parce que ces outils se trompent avec aplomb et que le coût d’une erreur non vue est pour vous. Estimer ensuite si une tâche mérite d’être traitée : est-ce qu’elle revient souvent, est-ce qu’elle passe par de l’écrit, est-ce qu’une erreur se rattrape.",
+          "Une demi-journée suffit à acquérir ces deux réflexes. Elle vous évite surtout d’acheter une démonstration impressionnante qui ne tient pas sur vos dossiers.",
+        ],
+      },
+      {
+        titre: "Le scénario qui échoue, tel qu’on le voit",
+        paragraphes: [
+          "Une entreprise forme quinze personnes sur une journée. L’ambiance est bonne, l’évaluation excellente. Le dirigeant passe dire bonjour le matin et repart en rendez-vous.",
+          "Trois semaines plus tard, deux salariés s’en servent, les autres ont repris leurs habitudes. Personne n’a écrit ce qui était autorisé, donc les prudents s’abstiennent et les autres y mettent n’importe quoi. Aucune tâche n’a été désignée, donc chacun expérimente dans son coin quand il a cinq minutes, c’est-à-dire jamais.",
+          "Le dirigeant en conclut que ça ne marche pas dans son métier. Ce n’est pas le métier qui est en cause, c’est qu’il manquait une décision à la fin de la journée.",
+        ],
+      },
+      {
+        titre: "Attendre coûte quelque chose",
+        paragraphes: [
+          "Beaucoup de dirigeants préfèrent laisser passer, en se disant qu’ils verront plus tard. C’est un calcul incomplet, parce que pendant ce temps vos salariés utilisent déjà ces outils.",
+          "La question n’est pas de savoir s’ils le font, mais avec quoi dedans. Vos tarifs, vos contrats, les coordonnées de vos clients. Sans règle, l’entreprise prend le risque sans avoir choisi de le prendre.",
+          "Écrire la règle ne coûte rien et se fait en une heure. C’est souvent la première chose à faire, avant même de parler d’usages.",
+        ],
+      },
+      {
+        titre: "Par quoi commencer si vous n’avez rien fait",
+        paragraphes: [
+          "Réunissez les personnes qui produisent vraiment, celles qui rédigent, saisissent et relancent. Demandez à chacune la liste des tâches qu’elle refait à l’identique chaque semaine, sans filtrer.",
+          "Chiffrez ces tâches en heures sur un mois. Vous obtenez un document qui vous sert même si vous décidez ensuite de ne rien automatiser : il vous dit où votre entreprise perd du temps.",
+          "Ensuite seulement vient la question de la formation, et elle devient simple à poser. Vous savez quelles tâches vous voulez voir changées, donc vous savez sur quels documents la journée doit travailler.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Dois-je assister à la journée avec mes équipes ?",
+        r: "À l’ouverture et à la restitution au minimum. L’ouverture parce que votre présence dit que le sujet est autorisé, la restitution parce que c’est là que se prennent les décisions qui feront que quelque chose reste. Rester toute la journée n’est pas nécessaire et intimide parfois les participants.",
+      },
+      {
+        q: "Une formation suffit-elle à automatiser mes process ?",
+        r: "Non, et confondre les deux fait perdre du temps. Une formation apprend à des personnes à mieux travailler. Une automatisation est un système qui tourne sans personne. Cela se construit, cela se maintient, et cela relève d’un chantier séparé.",
+      },
+      {
+        q: "Mon entreprise est-elle trop petite pour que ça vaille le coup ?",
+        r: "La taille compte moins que la répétition. Une structure de quatre personnes qui produit les mêmes documents toutes les semaines a plus à gagner qu’une entreprise de cinquante personnes dont chaque dossier est différent. Le bon indicateur n’est pas l’effectif, c’est le nombre de tâches qui reviennent à l’identique.",
+      },
+    ],
+  },
 ];
 
 export const ARTICLE_PAR_SLUG = Object.fromEntries(ARTICLES.map((a) => [a.slug, a]));
