@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { CLIENTS } from "@/lib/constants";
+import { EnTete, Monte } from "@/components/home/Mouvement";
 import { cn } from "@/lib/utils";
 
 export function RealisationsApercu() {
@@ -9,7 +10,7 @@ export function RealisationsApercu() {
 
   return (
     <section className="container-page py-16 sm:py-20">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-rule pb-3">
+      <EnTete>
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
           04 — Réalisations
         </p>
@@ -20,23 +21,28 @@ export function RealisationsApercu() {
           Toutes les réalisations
           <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
         </Link>
-      </div>
+      </EnTete>
 
-      <h2 className="mt-12 max-w-2xl text-balance text-3xl font-extrabold tracking-tight sm:text-4xl">
-        Des secteurs différents, un même fil rouge.
-      </h2>
+      <Monte className="mt-12 max-w-2xl">
+        <h2 className="text-balance text-3xl font-extrabold tracking-tight sm:text-4xl">
+          Des secteurs différents, un même fil rouge.
+        </h2>
+      </Monte>
 
       <ol className="mt-12">
         {featured.map((client, i) => (
           <li key={client.slug} className="border-t border-rule">
-            <article className="grid gap-x-10 gap-y-4 py-8 md:grid-cols-12">
+            <Monte>
+            <article className="group/ligne grid gap-x-10 gap-y-4 py-8 md:grid-cols-12">
               <header className="md:col-span-4">
                 <div className="flex items-baseline gap-4">
                   <span className="figure text-sm text-muted-foreground">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="text-xl font-bold tracking-tight">{client.name}</h3>
+                    <h3 className="text-xl font-bold tracking-tight transition-transform duration-300 group-hover/ligne:translate-x-1.5">
+                      {client.name}
+                    </h3>
                     <p className="mt-1 text-sm text-muted-foreground">{client.location}</p>
                   </div>
                 </div>
@@ -66,6 +72,7 @@ export function RealisationsApercu() {
                 ) : null}
               </div>
             </article>
+            </Monte>
           </li>
         ))}
       </ol>

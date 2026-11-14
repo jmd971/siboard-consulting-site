@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 import { DeuxOffres } from "@/components/home/DeuxOffres";
 import { Ecosysteme } from "@/components/home/Ecosysteme";
 import { Hero } from "@/components/home/Hero";
-import { Compteur } from "@/components/home/Mouvement";
+import { Compteur, Deplie } from "@/components/home/Mouvement";
 import { Parcours } from "@/components/home/Parcours";
 import { RealisationsApercu } from "@/components/home/RealisationsApercu";
 import { CTABanner } from "@/components/shared/CTABanner";
@@ -27,7 +27,7 @@ function ProofBand() {
   ];
 
   return (
-    <div className="bg-foreground text-background">
+    <Deplie className="bg-foreground text-background">
       <div className="container-page">
         <dl className="grid sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
@@ -52,7 +52,7 @@ function ProofBand() {
           ))}
         </dl>
       </div>
-    </div>
+    </Deplie>
   );
 }
 

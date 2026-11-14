@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { EnTete, Monte } from "@/components/home/Mouvement";
 import { cn } from "@/lib/utils";
 
 const OFFRES = [
@@ -66,14 +67,14 @@ function Calendrier() {
 export function DeuxOffres() {
   return (
     <section className="container-page py-16 sm:py-20">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-rule pb-3">
+      <EnTete>
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
           02 — Deux chemins
         </p>
         <p className="text-[11px] text-muted-foreground">Un seul objectif</p>
-      </div>
+      </EnTete>
 
-      <div className="mt-12 max-w-2xl">
+      <Monte className="mt-12 max-w-2xl">
         <h2 className="text-balance text-3xl font-extrabold tracking-tight sm:text-4xl">
           Faire entrer plus de clients, sans dépendre de la chance.
         </h2>
@@ -82,7 +83,7 @@ export function DeuxOffres() {
           Nous faisons les deux gestes, et c&apos;est la même personne qui signe le constat et qui
           construit la réponse.
         </p>
-      </div>
+      </Monte>
 
       <div className="mt-14 grid gap-x-12 gap-y-14 md:grid-cols-2">
         {OFFRES.map((offre, i) => (
@@ -93,6 +94,7 @@ export function DeuxOffres() {
               i > 0 && "md:border-l md:border-l-rule md:pl-12",
             )}
           >
+            <Monte delai={i * 0.15}>
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
               {offre.badge}
             </p>
@@ -122,9 +124,10 @@ export function DeuxOffres() {
                 className="group inline-flex min-h-11 items-center gap-1.5 text-base font-semibold text-foreground underline-offset-4 transition-colors hover:text-accent-strong hover:underline"
               >
                 {offre.cta.label}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
+            </Monte>
           </article>
         ))}
       </div>

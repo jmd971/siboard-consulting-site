@@ -3,21 +3,21 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { ECOSYSTEME } from "@/lib/constants";
-import { Monte } from "@/components/home/Mouvement";
+import { EnTete, Monte, Profondeur } from "@/components/home/Mouvement";
 import { cn } from "@/lib/utils";
 
 export function Ecosysteme() {
   return (
     <section className="border-y border-rule bg-surface">
       <div className="container-page py-16 sm:py-20">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-rule pb-3">
+        <EnTete>
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
             03 — Nos plateformes
           </p>
           <p className="text-[11px] text-muted-foreground">Trois produits en production</p>
-        </div>
+        </EnTete>
 
-        <div className="mt-12 max-w-2xl">
+        <Monte className="mt-12 max-w-2xl">
           <h2 className="text-balance text-3xl font-extrabold tracking-tight sm:text-4xl">
             Nous n&apos;installons pas seulement des outils. Nous en éditons.
           </h2>
@@ -25,7 +25,7 @@ export function Ecosysteme() {
             Trois logiciels métier, chacun co-édité avec un professionnel de son secteur. C&apos;est
             ce qui nous permet de construire le vôtre quand aucun outil du marché ne convient.
           </p>
-        </div>
+        </Monte>
 
         <ol className="mt-12 grid md:grid-cols-3">
           {ECOSYSTEME.map((v, i) => (
@@ -37,12 +37,13 @@ export function Ecosysteme() {
               )}
             >
               <Monte delai={i * 0.12}>
+              <Profondeur amplitude={[14, 34, 24][i % 3]}>
               <a
                 href={v.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Ouvrir ${v.domain}`}
-                className="mb-6 block overflow-hidden rounded-lg border border-rule bg-surface-elevated shadow-[0_22px_44px_-30px_rgba(25,18,14,0.55)] transition-shadow hover:shadow-[0_22px_44px_-24px_rgba(25,18,14,0.6)]"
+                className="mb-6 block overflow-hidden rounded-lg border border-rule bg-surface-elevated shadow-[0_22px_44px_-30px_rgba(25,18,14,0.55)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1.5 hover:shadow-[0_30px_50px_-26px_rgba(25,18,14,0.6)]"
               >
                 <span className="flex items-center gap-1.5 border-b border-rule bg-background px-3 py-2">
                   <span aria-hidden className="h-2 w-2 rounded-full bg-rule" />
@@ -62,6 +63,7 @@ export function Ecosysteme() {
                   className="block h-auto w-full"
                 />
               </a>
+              </Profondeur>
               </Monte>
               <span className="font-mono text-xs text-muted-foreground">
                 {String(i + 1).padStart(2, "0")}

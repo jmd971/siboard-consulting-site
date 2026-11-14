@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { CTA_PRIMARY } from "@/lib/constants";
+import { Avance } from "@/components/home/Mouvement";
 import { cn } from "@/lib/utils";
 
 type CTABannerProps = {
@@ -26,7 +27,7 @@ export function CTABanner({
 }: CTABannerProps) {
   return (
     <section className={cn("container-page py-12 sm:py-16", className)}>
-      <div className="relative overflow-hidden rounded-sm bg-foreground p-8 text-background sm:p-12">
+      <Avance className="relative overflow-hidden rounded-sm bg-foreground p-8 text-background sm:p-12">
         <div
           aria-hidden
           className="pointer-events-none absolute -right-16 -top-28 h-72 w-72 rounded-full border border-background/10"
@@ -50,16 +51,16 @@ export function CTABanner({
               href={ctaHref}
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "h-12 w-full rounded-sm bg-background px-6 text-base font-semibold text-foreground hover:bg-background/90 md:w-auto",
+                "group h-12 w-full rounded-sm bg-background px-6 text-base font-semibold text-foreground hover:bg-background/90 md:w-auto",
               )}
             >
               {ctaLabel}
-              <ArrowRight className="ml-1 h-4 w-4" />
+              <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <p className="text-xs text-background/70 md:text-right">{note}</p>
           </div>
         </div>
-      </div>
+      </Avance>
     </section>
   );
 }

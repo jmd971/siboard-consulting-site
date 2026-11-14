@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
-import { Cerne } from "@/components/home/Mouvement";
+import { Cerne, EnTete, Fil, Installe, Monte } from "@/components/home/Mouvement";
 import { cn } from "@/lib/utils";
 
 /* Le parcours d'une demande client, avant et après. Exemple illustratif,
@@ -39,31 +39,39 @@ const PENCHES = ["-rotate-[0.8deg]", "rotate-[0.6deg]", "-rotate-[0.5deg]"];
 
 function Ligne({ etapes }: { etapes: Etape[] }) {
   let fuites = 0;
+  let systemes = 0;
   return (
     <ol className="grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-5 lg:grid-cols-6">
       {etapes.map((e, i) => {
         const rang = e.fuite ? fuites++ : 0;
         return (
           <li key={e.titre} className="relative">
-            <div
-              className={cn(
-                "flex min-h-[5.25rem] flex-col gap-1.5 p-3.5",
-                e.fuite && cn("relative border-[2.5px] border-transparent", PENCHES[rang % PENCHES.length]),
-                e.systeme && "rounded-sm border border-foreground bg-foreground text-background",
-                !e.fuite && !e.systeme && "rounded-sm border border-rule-strong",
-              )}
-            >
-              {e.fuite ? <Cerne forme="cadre" delai={rang * 0.35} /> : null}
-              <span
+            {e.systeme ? (
+              <Installe
+                delai={systemes++ * 0.3}
+                className="flex min-h-[5.25rem] flex-col gap-1.5 p-3.5"
+              >
+                <span className="font-mono text-[11px] opacity-70">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-[15px] font-semibold leading-tight">{e.titre}</span>
+              </Installe>
+            ) : (
+              <div
                 className={cn(
-                  "font-mono text-[11px]",
-                  e.systeme ? "text-background/70" : "text-muted-foreground",
+                  "flex min-h-[5.25rem] flex-col gap-1.5 p-3.5",
+                  e.fuite
+                    ? cn("relative border-[2.5px] border-transparent", PENCHES[rang % PENCHES.length])
+                    : "rounded-sm border border-rule-strong",
                 )}
               >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="text-[15px] font-semibold leading-tight">{e.titre}</span>
-            </div>
+                {e.fuite ? <Cerne forme="cadre" delai={rang * 0.35} /> : null}
+                <span className="font-mono text-[11px] text-muted-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-[15px] font-semibold leading-tight">{e.titre}</span>
+              </div>
+            )}
             {e.note ? (
               <p
                 className={cn(
@@ -95,14 +103,14 @@ export function Parcours() {
   return (
     <section className="border-b border-rule bg-surface">
       <div className="container-page py-16 sm:py-20">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-rule pb-3">
+        <EnTete>
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
             01 — Ce qu’on regarde
           </p>
           <p className="text-[11px] text-muted-foreground">Exemple illustratif</p>
-        </div>
+        </EnTete>
 
-        <div className="mt-12 max-w-2xl">
+        <Monte className="mt-12 max-w-2xl">
           <h2 className="text-balance text-3xl font-extrabold tracking-tight sm:text-4xl">
             Le parcours d’une demande, tel qu’il se passe vraiment.
           </h2>
@@ -110,7 +118,7 @@ export function Parcours() {
             On suit une demande client de bout en bout, de la première prise de contact jusqu’à
             la facture encaissée. Chaque fuite est repérée, puis chiffrée.
           </p>
-        </div>
+        </Monte>
 
         <div className="mt-12">
           <div className="mb-5 flex flex-wrap items-baseline gap-x-4 gap-y-1">
@@ -119,6 +127,7 @@ export function Parcours() {
             </p>
             <p className="stylo -rotate-[1.5deg] text-2xl">3 fuites sur 6 étapes</p>
           </div>
+          <Fil className="mb-5 hidden lg:block" />
           <Ligne etapes={AVANT} />
         </div>
 
