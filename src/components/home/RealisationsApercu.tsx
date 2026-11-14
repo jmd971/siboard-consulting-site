@@ -15,7 +15,7 @@ export function RealisationsApercu() {
         </p>
         <Link
           href="/realisations"
-          className="group inline-flex items-center gap-1.5 text-[11px] text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+          className="group -my-3.5 inline-flex min-h-11 items-center gap-1.5 text-[11px] text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
           Toutes les réalisations
           <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />

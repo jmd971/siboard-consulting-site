@@ -45,7 +45,7 @@ export function Navbar() {
       <div className="container-page flex h-16 items-center justify-between gap-4">
         <Link
           href="/"
-          className="group flex items-center"
+          className="group flex min-h-11 items-center"
           aria-label={`${SITE.name} — Accueil`}
         >
           <SiboardLogo className="text-foreground transition-opacity group-hover:opacity-80" />
