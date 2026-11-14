@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 import { DeuxOffres } from "@/components/home/DeuxOffres";
 import { Ecosysteme } from "@/components/home/Ecosysteme";
 import { Hero } from "@/components/home/Hero";
-import { CommentCaMarche } from "@/components/home/CommentCaMarche";
+import { Parcours } from "@/components/home/Parcours";
 import { RealisationsApercu } from "@/components/home/RealisationsApercu";
 import { CTABanner } from "@/components/shared/CTABanner";
 
@@ -26,14 +26,14 @@ function ProofBand() {
   ];
 
   return (
-    <div className="border-y border-rule bg-surface">
+    <div className="bg-foreground text-background">
       <div className="container-page">
         <dl className="grid sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
             <div
               key={s.value}
               className={
-                "border-rule py-7 sm:py-8 " +
+                "border-background/15 py-7 sm:py-8 " +
                 (i > 0 ? "border-t sm:border-t-0 lg:border-l " : "") +
                 (i === 2 ? "sm:border-t " : "") +
                 (i === 3 ? "sm:border-t sm:border-l lg:border-t-0 " : "") +
@@ -41,10 +41,10 @@ function ProofBand() {
                 "sm:px-7 lg:px-8 first:lg:pl-0"
               }
             >
-              <dt className="figure text-3xl font-semibold leading-none text-accent-strong sm:text-4xl">
+              <dt className="figure text-3xl font-semibold leading-none text-background sm:text-4xl">
                 {s.value}
               </dt>
-              <dd className="mt-3 max-w-[22ch] text-pretty text-sm leading-snug text-muted-foreground">
+              <dd className="mt-3 max-w-[22ch] text-pretty text-sm leading-snug text-background/70">
                 {s.label}
               </dd>
             </div>
@@ -68,17 +68,17 @@ export default function HomePage() {
     <>
       <Hero />
       <ProofBand />
-      <div id="section-offres" data-section="01">
+      <div id="section-parcours" data-section="01">
+        <Parcours />
+      </div>
+      <div id="section-offres" data-section="02">
         <DeuxOffres />
       </div>
-      <div id="section-methode" data-section="02">
-        <CommentCaMarche />
-      </div>
-      <div id="section-realisations" data-section="03">
-        <RealisationsApercu />
-      </div>
-      <div id="section-ecosysteme" data-section="04">
+      <div id="section-ecosysteme" data-section="03">
         <Ecosysteme />
+      </div>
+      <div id="section-realisations" data-section="04">
+        <RealisationsApercu />
       </div>
       <CTABanner />
     </>

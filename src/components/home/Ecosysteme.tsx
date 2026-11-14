@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
@@ -6,11 +7,11 @@ import { cn } from "@/lib/utils";
 
 export function Ecosysteme() {
   return (
-    <section className="border-t border-rule bg-surface">
+    <section className="border-y border-rule bg-surface">
       <div className="container-page py-16 sm:py-20">
         <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-rule pb-3">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
-            05 — Nos plateformes
+            03 — Nos plateformes
           </p>
           <p className="text-[11px] text-muted-foreground">Trois produits en production</p>
         </div>
@@ -30,11 +31,36 @@ export function Ecosysteme() {
             <li
               key={v.name}
               className={cn(
-                "border-t border-rule py-7 md:pr-8",
-                i > 0 && "md:border-l md:border-l-rule md:pl-8",
+                "border-t border-rule py-7 md:pr-7",
+                i > 0 && "md:border-l md:border-l-rule md:pl-7",
               )}
             >
-              <span className="figure text-sm text-muted-foreground">
+              <a
+                href={v.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Ouvrir ${v.domain}`}
+                className="mb-6 block overflow-hidden rounded-lg border border-rule bg-surface-elevated shadow-[0_22px_44px_-30px_rgba(25,18,14,0.55)] transition-shadow hover:shadow-[0_22px_44px_-24px_rgba(25,18,14,0.6)]"
+              >
+                <span className="flex items-center gap-1.5 border-b border-rule bg-background px-3 py-2">
+                  <span aria-hidden className="h-2 w-2 rounded-full bg-rule" />
+                  <span aria-hidden className="h-2 w-2 rounded-full bg-rule" />
+                  <span aria-hidden className="h-2 w-2 rounded-full bg-rule" />
+                  <span className="ml-2 truncate font-mono text-[11px] text-muted-foreground">
+                    {v.domain}
+                  </span>
+                </span>
+                <Image
+                  src={v.image}
+                  alt={v.imageAlt}
+                  width={1047}
+                  height={609}
+                  loading="lazy"
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="block h-auto w-full"
+                />
+              </a>
+              <span className="font-mono text-xs text-muted-foreground">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="mt-3 text-xl font-bold tracking-tight">{v.name}</h3>
@@ -54,6 +80,10 @@ export function Ecosysteme() {
             </li>
           ))}
         </ol>
+
+        <p className="pb-6 text-xs text-muted-foreground">
+          Écrans de démonstration, sans données de clients.
+        </p>
 
         <div className="border-t-2 border-rule-strong pt-8">
           <Link

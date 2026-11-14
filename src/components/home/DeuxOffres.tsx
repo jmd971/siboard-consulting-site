@@ -68,7 +68,7 @@ export function DeuxOffres() {
     <section className="container-page py-16 sm:py-20">
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-rule pb-3">
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
-          01 — Deux chemins
+          02 — Deux chemins
         </p>
         <p className="text-[11px] text-muted-foreground">Un seul objectif</p>
       </div>

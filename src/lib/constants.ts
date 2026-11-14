@@ -426,6 +426,9 @@ export const ECOSYSTEME = [
       "Le pilotage d’une TPE de bout en bout : les chiffres, l’analyse des ventes, les actions à mener, et les campagnes qui les exécutent.",
     note: "Plateforme et application construites par Siboard.",
     domain: "adamboards.fr",
+    image: "/images/plateformes/adamboards.webp",
+    imageAlt:
+      "Tableau de bord AdamBoards : chiffre d’affaires, marge brute, résultat et alertes du mois",
     href: "https://adamboards.fr",
     partenaire: "Co-édité avec un consultant en pilotage d’entreprise",
     role:
@@ -440,6 +443,9 @@ export const ECOSYSTEME = [
       "Un livret patrimonial numérique pour les familles, et une application d’accompagnement à l’expertise immobilière.",
     note: "Site web, livret et application construits par Siboard.",
     domain: "transmiexpert.fr",
+    image: "/images/plateformes/transmiexpert.webp",
+    imageAlt:
+      "Livret Pack Sérénité de TransmiExpert : index documentaire, packs PDF et sécurité des données",
     href: "https://www.transmiexpert.fr",
     partenaire: "Co-édité avec un expert évaluateur immobilier",
     role:
@@ -454,6 +460,9 @@ export const ECOSYSTEME = [
       "Service managé de mise en conformité incendie pour les ERP en Guadeloupe — visite terrain + plateforme de suivi.",
     note: "Plateforme client et système de documentation construits par Siboard.",
     domain: "securexia.fr",
+    image: "/images/plateformes/securexia.webp",
+    imageAlt:
+      "Tableau de bord SecureXia : établissements suivis, score du parc et prescriptions urgentes",
     href: "https://securexia.fr",
     partenaire: "Co-édité avec un consultant en conformité ERP",
     role:

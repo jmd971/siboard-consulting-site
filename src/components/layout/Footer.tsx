@@ -33,14 +33,14 @@ export function Footer() {
             <div className="mt-6 space-y-2 text-sm text-muted-foreground">
               <a
                 href={`mailto:${SITE.email}`}
-                className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                className="flex w-fit items-center gap-2 transition-colors hover:text-foreground"
               >
                 <Mail className="h-4 w-4 text-primary" />
                 {SITE.email}
               </a>
               <a
                 href={`tel:${SITE.phone}`}
-                className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                className="flex w-fit items-center gap-2 transition-colors hover:text-foreground"
               >
                 <Phone className="h-4 w-4 text-primary" />
                 {SITE.phoneDisplay}

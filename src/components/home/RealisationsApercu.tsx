@@ -11,7 +11,7 @@ export function RealisationsApercu() {
     <section className="container-page py-16 sm:py-20">
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-rule pb-3">
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
-          03 — Réalisations
+          04 — Réalisations
         </p>
         <Link
           href="/realisations"
@@ -43,7 +43,7 @@ export function RealisationsApercu() {
               </header>
 
               <div className="md:col-span-8 md:pl-0">
-                <p className="text-pretty text-lg font-semibold leading-snug text-accent-strong">
+                <p className="text-pretty text-lg font-semibold leading-snug text-foreground">
                   {client.result}
                 </p>
                 <p className="mt-1 text-sm text-muted-foreground">{client.sector}</p>

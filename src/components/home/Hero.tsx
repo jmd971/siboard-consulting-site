@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion, type Variants } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { buttonVariants } from "@/components/ui/button";
@@ -31,13 +31,16 @@ const CLIENTS = [
   "Fast Computer Company",
 ];
 
-/* Extrait du livrable réel. Données d'exemple, signalées comme telles :
-   le site vend un document, il doit montrer ce document. */
-const CONSTATS = [
-  { n: "01", titre: "Demandes restées sans réponse au-delà de 48 h", mesure: "17 par mois", cout: "14 200" },
-  { n: "02", titre: "Devis envoyés puis jamais relancés", mesure: "1 sur 3", cout: "9 600" },
-  { n: "03", titre: "Ressaisie manuelle des dossiers clients", mesure: "6 h par semaine", cout: "11 400" },
-];
+/* Le livrable rendu manipulable. Le visiteur saisit ses propres volumes ;
+   les hypothèses de conversion sont affichées sous la carte, et le vrai
+   diagnostic repart toujours des données du client. */
+const HYPOTHESES = { demandeAboutie: 0.1, devisSigne: 0.15, coutHoraire: 40, semaines: 47 };
+
+function euros(n: number) {
+  return Math.round(n)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0");
+}
 
 function MotTournant({ reduced }: { reduced: boolean }) {
   const [i, setI] = useState(0);
@@ -67,55 +70,147 @@ function MotTournant({ reduced }: { reduced: boolean }) {
   );
 }
 
-function Livrable() {
+function Curseur({
+  id,
+  n,
+  label,
+  mesure,
+  value,
+  min,
+  max,
+  step,
+  onChange,
+  cout,
+}: {
+  id: string;
+  n?: string;
+  label: string;
+  mesure: string;
+  value: number;
+  min: number;
+  max: number;
+  step: number;
+  onChange: (v: number) => void;
+  cout?: number;
+}) {
+  return (
+    <div className="border-t border-rule px-5 py-4 sm:px-6">
+      <div className="flex items-baseline justify-between gap-3">
+        <label htmlFor={id} className="flex min-w-0 gap-3 text-[13px] leading-snug text-foreground">
+          {n ? <span className="font-mono text-xs text-muted-foreground">{n}</span> : null}
+          <span className="text-pretty">{label}</span>
+        </label>
+        <span className="shrink-0 whitespace-nowrap font-mono text-xs text-muted-foreground">
+          {mesure}
+        </span>
+      </div>
+      <input
+        id={id}
+        type="range"
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+        className="mt-1 h-11 w-full cursor-pointer accent-foreground"
+      />
+      {cout !== undefined ? (
+        <p className="figure text-right text-lg font-semibold text-accent-strong">
+          {euros(cout)} <span className="text-sm font-normal">€ / an</span>
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+function Calculateur() {
+  const [demandes, setDemandes] = useState(17);
+  const [devis, setDevis] = useState(8);
+  const [heures, setHeures] = useState(6);
+  const [vente, setVente] = useState(700);
+
+  const coutDemandes = demandes * 12 * HYPOTHESES.demandeAboutie * vente;
+  const coutDevis = devis * 12 * HYPOTHESES.devisSigne * vente;
+  const coutHeures = heures * HYPOTHESES.semaines * HYPOTHESES.coutHoraire;
+  const total = coutDemandes + coutDevis + coutHeures;
+
   return (
     <figure className="w-full max-w-md">
       <div className="border border-rule bg-surface shadow-[0_1px_0_var(--rule),0_18px_40px_-32px_rgba(25,18,14,0.5)]">
-        {/* En-tête du document */}
-        <div className="flex items-baseline justify-between gap-4 border-b border-rule px-6 py-4">
+        <div className="flex items-baseline justify-between gap-4 px-5 py-4 sm:px-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
-            État des lieux
+            Votre état des lieux express
           </p>
-          <p className="text-[11px] text-muted-foreground">Extrait</p>
+          <p className="shrink-0 whitespace-nowrap text-[11px] text-muted-foreground">30 secondes</p>
         </div>
 
-        <div className="flex items-baseline justify-between gap-4 px-6 pb-4 pt-4">
-          <p className="text-sm text-muted-foreground">Entreprise de services, 8 personnes</p>
-          <p className="text-sm text-muted-foreground">Août 2026</p>
+        <Curseur
+          id="calc-demandes"
+          n="01"
+          label="Demandes restées sans réponse"
+          mesure={`${demandes} par mois`}
+          value={demandes}
+          min={0}
+          max={60}
+          step={1}
+          onChange={setDemandes}
+          cout={coutDemandes}
+        />
+        <Curseur
+          id="calc-devis"
+          n="02"
+          label="Devis envoyés puis jamais relancés"
+          mesure={`${devis} par mois`}
+          value={devis}
+          min={0}
+          max={40}
+          step={1}
+          onChange={setDevis}
+          cout={coutDevis}
+        />
+        <Curseur
+          id="calc-heures"
+          n="03"
+          label="Ressaisie manuelle des dossiers"
+          mesure={`${heures} h par semaine`}
+          value={heures}
+          min={0}
+          max={30}
+          step={1}
+          onChange={setHeures}
+          cout={coutHeures}
+        />
+        <div className="bg-background/60">
+          <Curseur
+            id="calc-vente"
+            label="Valeur moyenne d’une vente"
+            mesure={`${euros(vente)} €`}
+            value={vente}
+            min={100}
+            max={5000}
+            step={50}
+            onChange={setVente}
+          />
         </div>
 
-        {/* Constats chiffrés */}
-        <ol>
-          {CONSTATS.map((c) => (
-            <li key={c.n} className="border-t border-rule px-6 py-4">
-              <div className="flex gap-4">
-                <span className="figure pt-0.5 text-xs text-muted-foreground">{c.n}</span>
-                <div className="min-w-0 flex-1">
-                  <p className="text-pretty text-[13px] leading-snug text-foreground">{c.titre}</p>
-                  <div className="mt-2 flex items-baseline justify-between gap-3">
-                    <span className="text-xs text-muted-foreground">{c.mesure}</span>
-                    <span className="figure whitespace-nowrap text-lg font-semibold text-accent-strong">
-                      {c.cout} <span className="text-sm font-normal">€ / an</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ol>
-
-        {/* Total */}
-        <div className="flex items-baseline justify-between gap-4 border-t-2 border-rule-strong px-6 py-5">
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 border-t-2 border-rule-strong px-5 py-5 sm:px-6">
           <p className="text-sm font-medium text-foreground">Ce que cela vous coûte</p>
-          <p className="figure whitespace-nowrap text-2xl font-semibold text-accent-strong">
-            35 200 <span className="text-base font-normal">€ / an</span>
+          <p
+            aria-live="polite"
+            className="figure -rotate-[1.5deg] whitespace-nowrap border-[2.5px] border-accent-strong px-4 pb-1 pt-1.5 text-2xl font-semibold text-accent-strong [border-radius:48%_52%_46%_54%/58%_44%_56%_42%]"
+          >
+            {euros(total)} <span className="text-base font-normal">€ / an</span>
           </p>
         </div>
       </div>
 
-      <figcaption className="mt-3 text-xs text-muted-foreground">
-        Données d&apos;exemple. Le vôtre est calculé à partir de vos chiffres.
+      <figcaption className="mt-3 text-pretty text-xs leading-relaxed text-muted-foreground">
+        Estimation indicative à partir de vos réponses. Hypothèses : une demande perdue sur dix
+        aurait abouti, 15 % des devis relancés sont signés, 40 € de l’heure, 47 semaines par an.
       </figcaption>
+      <p className="stylo mt-3 -rotate-1 text-right text-[1.375rem]">
+        Votre chiffre. Le vrai diagnostic part de vos données.
+      </p>
     </figure>
   );
 }
@@ -196,15 +291,22 @@ export function Hero() {
               </Link>
             </motion.div>
 
-            <motion.p
+            <motion.ul
               custom={4}
               variants={variants}
               initial="hidden"
               animate="visible"
-              className="mt-5 text-sm text-muted-foreground"
+              className="mt-6 flex flex-col gap-x-6 gap-y-2 text-sm text-muted-foreground sm:flex-row sm:flex-wrap"
             >
-              Premier échange gratuit. Réponse sous 24 h. Le diagnostic vous appartient.
-            </motion.p>
+              {["Premier échange gratuit", "Réponse sous 24 h", "Le diagnostic vous appartient"].map(
+                (t) => (
+                  <li key={t} className="flex items-center gap-2">
+                    <Check aria-hidden className="h-4 w-4 shrink-0 text-foreground" />
+                    {t}
+                  </li>
+                ),
+              )}
+            </motion.ul>
           </div>
 
           <motion.div
@@ -214,7 +316,7 @@ export function Hero() {
             animate="visible"
             className="flex justify-start lg:col-span-5 lg:justify-end"
           >
-            <Livrable />
+            <Calculateur />
           </motion.div>
         </div>
 

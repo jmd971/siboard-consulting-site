@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Geist_Mono, Literata } from "next/font/google";
+import { Archivo, Caveat, Geist_Mono, Literata } from "next/font/google";
 
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
@@ -27,6 +27,14 @@ const literata = Literata({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+// Ecriture manuscrite du « stylo rouge » : annotations du constat,
+// jamais du texte courant. Variable elle aussi, donc sans `weight`.
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin"],
   display: "swap",
 });
@@ -90,7 +98,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${archivo.variable} ${literata.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${archivo.variable} ${literata.variable} ${geistMono.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <script
