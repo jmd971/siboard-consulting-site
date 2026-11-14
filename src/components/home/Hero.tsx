@@ -31,10 +31,19 @@ const CLIENTS = [
   "Fast Computer Company",
 ];
 
-/* Le livrable rendu manipulable. Le visiteur saisit ses propres volumes ;
-   les hypothèses de conversion sont affichées sous la carte, et le vrai
-   diagnostic repart toujours des données du client. */
-const HYPOTHESES = { demandeAboutie: 0.1, devisSigne: 0.15, coutHoraire: 40, semaines: 47 };
+/* Le livrable rendu manipulable. Tout ce qui dépend de l'entreprise est
+   saisi par le visiteur, taux de transformation compris : le diagnostic
+   ne travaille jamais sur des moyennes de marché, le calculateur non plus.
+   Seules deux constantes sont fixes, et elles sont sourcées sous la carte :
+   le coût horaire (Insee, services marchands, 2025 : 44,2 €) et les
+   47 semaines travaillées (52 moins les 5 semaines de congés payés). */
+const REPERES = { coutHoraire: 44, semaines: 47 };
+
+const SOURCES = {
+  insee: "https://www.insee.fr/fr/statistiques/2381340",
+  banqueDeFrance:
+    "https://www.banque-france.fr/fr/publications-et-statistiques/publications/rapport-de-lobservatoire-des-delais-de-paiement-2025",
+};
 
 function euros(n: number) {
   return Math.round(n)
@@ -81,6 +90,7 @@ function Curseur({
   step,
   onChange,
   cout,
+  unite = "€ / an",
 }: {
   id: string;
   n?: string;
@@ -92,6 +102,7 @@ function Curseur({
   step: number;
   onChange: (v: number) => void;
   cout?: number;
+  unite?: string;
 }) {
   return (
     <div className="border-t border-rule px-5 py-4 sm:px-6">
@@ -116,7 +127,7 @@ function Curseur({
       />
       {cout !== undefined ? (
         <p className="figure text-right text-lg font-semibold text-accent-strong">
-          {euros(cout)} <span className="text-sm font-normal">€ / an</span>
+          {euros(cout)} <span className="text-sm font-normal">{unite}</span>
         </p>
       ) : null}
     </div>
@@ -127,12 +138,18 @@ function Calculateur() {
   const [demandes, setDemandes] = useState(17);
   const [devis, setDevis] = useState(8);
   const [heures, setHeures] = useState(6);
+  const [retards, setRetards] = useState(5);
   const [vente, setVente] = useState(700);
+  const [tauxDemandes, setTauxDemandes] = useState(10);
+  const [tauxDevis, setTauxDevis] = useState(15);
+  const [joursRetard, setJoursRetard] = useState(15);
 
-  const coutDemandes = demandes * 12 * HYPOTHESES.demandeAboutie * vente;
-  const coutDevis = devis * 12 * HYPOTHESES.devisSigne * vente;
-  const coutHeures = heures * HYPOTHESES.semaines * HYPOTHESES.coutHoraire;
+  const coutDemandes = demandes * 12 * (tauxDemandes / 100) * vente;
+  const coutDevis = devis * 12 * (tauxDevis / 100) * vente;
+  const coutHeures = heures * REPERES.semaines * REPERES.coutHoraire;
   const total = coutDemandes + coutDevis + coutHeures;
+  /* De la trésorerie qui dort, pas une perte : elle ne s'additionne pas. */
+  const immobilise = (retards * vente * joursRetard) / 30;
 
   return (
     <figure className="w-full max-w-md">
@@ -180,6 +197,20 @@ function Calculateur() {
           onChange={setHeures}
           cout={coutHeures}
         />
+        <Curseur
+          id="calc-retards"
+          n="04"
+          label="Factures payées en retard"
+          mesure={`${retards} par mois`}
+          value={retards}
+          min={0}
+          max={40}
+          step={1}
+          onChange={setRetards}
+          cout={immobilise}
+          unite="€ immobilisés"
+        />
+
         <div className="bg-background/60">
           <Curseur
             id="calc-vente"
@@ -191,22 +222,81 @@ function Calculateur() {
             step={50}
             onChange={setVente}
           />
+          <details className="border-t border-rule">
+            <summary className="flex min-h-11 cursor-pointer items-center px-5 text-[13px] font-medium text-foreground underline-offset-4 hover:underline sm:px-6">
+              Régler vos taux et votre retard moyen
+            </summary>
+            <Curseur
+              id="calc-taux-demandes"
+              label="Demandes perdues qui auraient abouti"
+              mesure={`${tauxDemandes} %`}
+              value={tauxDemandes}
+              min={0}
+              max={50}
+              step={1}
+              onChange={setTauxDemandes}
+            />
+            <Curseur
+              id="calc-taux-devis"
+              label="Devis relancés qui finissent signés"
+              mesure={`${tauxDevis} %`}
+              value={tauxDevis}
+              min={0}
+              max={60}
+              step={1}
+              onChange={setTauxDevis}
+            />
+            <Curseur
+              id="calc-jours-retard"
+              label="Retard moyen de paiement"
+              mesure={`${joursRetard} jours`}
+              value={joursRetard}
+              min={0}
+              max={90}
+              step={5}
+              onChange={setJoursRetard}
+            />
+          </details>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 border-t-2 border-rule-strong px-5 py-5 sm:px-6">
-          <p className="text-sm font-medium text-foreground">Ce que cela vous coûte</p>
-          <p
-            aria-live="polite"
-            className="figure -rotate-[1.5deg] whitespace-nowrap border-[2.5px] border-accent-strong px-4 pb-1 pt-1.5 text-2xl font-semibold text-accent-strong [border-radius:48%_52%_46%_54%/58%_44%_56%_42%]"
-          >
-            {euros(total)} <span className="text-base font-normal">€ / an</span>
+        <div className="border-t-2 border-rule-strong px-5 py-5 sm:px-6">
+          <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+            <p className="text-sm font-medium text-foreground">Ce que cela vous coûte</p>
+            <p
+              aria-live="polite"
+              className="figure -rotate-[1.5deg] whitespace-nowrap border-[2.5px] border-accent-strong px-4 pb-1 pt-1.5 text-2xl font-semibold text-accent-strong [border-radius:48%_52%_46%_54%/58%_44%_56%_42%]"
+            >
+              {euros(total)} <span className="text-base font-normal">€ / an</span>
+            </p>
+          </div>
+          <p className="mt-3 text-pretty text-xs leading-relaxed text-muted-foreground">
+            Et {euros(immobilise)} € de trésorerie immobilisée en permanence par les retards de
+            paiement. Elle ne s’ajoute pas au total.
           </p>
         </div>
       </div>
 
       <figcaption className="mt-3 text-pretty text-xs leading-relaxed text-muted-foreground">
-        Estimation indicative à partir de vos réponses. Hypothèses : une demande perdue sur dix
-        aurait abouti, 15 % des devis relancés sont signés, 40 € de l’heure, 47 semaines par an.
+        Estimation indicative, calculée sur vos réponses. Deux repères sont fixes : 44 € de
+        l’heure, d’après{" "}
+        <a
+          href={SOURCES.insee}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 hover:text-foreground"
+        >
+          l’Insee
+        </a>{" "}
+        (services marchands, 2025), et 47 semaines travaillées par an. Selon{" "}
+        <a
+          href={SOURCES.banqueDeFrance}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 hover:text-foreground"
+        >
+          la Banque de France
+        </a>
+        , les retards de paiement privent les PME de 13 milliards d’euros de trésorerie.
       </figcaption>
       <p className="stylo mt-3 -rotate-1 text-right text-[1.375rem]">
         Votre chiffre. Le vrai diagnostic part de vos données.
