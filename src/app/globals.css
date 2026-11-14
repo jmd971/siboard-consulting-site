@@ -155,3 +155,9 @@
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+
+/* Indice de défilement du hero : un trait qui descend dans sa glissière. */
+@keyframes indice {
+  0% { transform: translateY(-110%); }
+  60%, 100% { transform: translateY(240%); }
+}
