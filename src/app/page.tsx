@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 import { DeuxOffres } from "@/components/home/DeuxOffres";
 import { Ecosysteme } from "@/components/home/Ecosysteme";
 import { Hero } from "@/components/home/Hero";
+import { Compteur } from "@/components/home/Mouvement";
 import { Parcours } from "@/components/home/Parcours";
 import { RealisationsApercu } from "@/components/home/RealisationsApercu";
 import { CTABanner } from "@/components/shared/CTABanner";
@@ -42,7 +43,7 @@ function ProofBand() {
               }
             >
               <dt className="figure text-3xl font-semibold leading-none text-background sm:text-4xl">
-                {s.value}
+                <Compteur valeur={s.value} />
               </dt>
               <dd className="mt-3 max-w-[22ch] text-pretty text-sm leading-snug text-background/70">
                 {s.label}

@@ -6,6 +6,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { buttonVariants } from "@/components/ui/button";
+import { Cerne } from "@/components/home/Mouvement";
 import { cn } from "@/lib/utils";
 
 const fadeUp: Variants = {
@@ -264,8 +265,9 @@ function Calculateur() {
             <p className="text-sm font-medium text-foreground">Ce que cela vous coûte</p>
             <p
               aria-live="polite"
-              className="figure -rotate-[1.5deg] whitespace-nowrap border-[2.5px] border-accent-strong px-4 pb-1 pt-1.5 text-2xl font-semibold text-accent-strong [border-radius:48%_52%_46%_54%/58%_44%_56%_42%]"
+              className="figure relative -rotate-[1.5deg] whitespace-nowrap px-5 pb-1.5 pt-2 text-2xl font-semibold text-accent-strong"
             >
+              <Cerne forme="ovale" delai={0.5} />
               {euros(total)} <span className="text-base font-normal">€ / an</span>
             </p>
           </div>

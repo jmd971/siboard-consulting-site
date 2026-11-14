@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { ECOSYSTEME } from "@/lib/constants";
+import { Monte } from "@/components/home/Mouvement";
 import { cn } from "@/lib/utils";
 
 export function Ecosysteme() {
@@ -35,6 +36,7 @@ export function Ecosysteme() {
                 i > 0 && "md:border-l md:border-l-rule md:pl-7",
               )}
             >
+              <Monte delai={i * 0.12}>
               <a
                 href={v.href}
                 target="_blank"
@@ -60,6 +62,7 @@ export function Ecosysteme() {
                   className="block h-auto w-full"
                 />
               </a>
+              </Monte>
               <span className="font-mono text-xs text-muted-foreground">
                 {String(i + 1).padStart(2, "0")}
               </span>

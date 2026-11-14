@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
+import { Cerne } from "@/components/home/Mouvement";
 import { cn } from "@/lib/utils";
 
 /* Le parcours d'une demande client, avant et après. Exemple illustratif,
@@ -32,29 +33,27 @@ const APRES: Etape[] = [
   { titre: "Facture encaissée" },
 ];
 
-/* Tracés volontairement irréguliers : c'est le stylo rouge du constat. */
-const CERNES = [
-  "[border-radius:46%_54%_50%_50%/14%_12%_16%_10%] -rotate-[0.8deg]",
-  "[border-radius:52%_48%_46%_54%/12%_16%_10%_14%] rotate-[0.6deg]",
-  "[border-radius:50%_50%_54%_46%/16%_10%_14%_12%] -rotate-[0.5deg]",
-];
+/* Les fuites sont cernées au stylo rouge, l'une après l'autre, et chaque
+   case penche un peu différemment. */
+const PENCHES = ["-rotate-[0.8deg]", "rotate-[0.6deg]", "-rotate-[0.5deg]"];
 
 function Ligne({ etapes }: { etapes: Etape[] }) {
-  let cerne = 0;
+  let fuites = 0;
   return (
     <ol className="grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-5 lg:grid-cols-6">
       {etapes.map((e, i) => {
-        const forme = e.fuite ? CERNES[cerne++ % CERNES.length] : "";
+        const rang = e.fuite ? fuites++ : 0;
         return (
           <li key={e.titre} className="relative">
             <div
               className={cn(
                 "flex min-h-[5.25rem] flex-col gap-1.5 p-3.5",
-                e.fuite && cn("border-[2.5px] border-accent-strong", forme),
+                e.fuite && cn("relative border-[2.5px] border-transparent", PENCHES[rang % PENCHES.length]),
                 e.systeme && "rounded-sm border border-foreground bg-foreground text-background",
                 !e.fuite && !e.systeme && "rounded-sm border border-rule-strong",
               )}
             >
+              {e.fuite ? <Cerne forme="cadre" delai={rang * 0.35} /> : null}
               <span
                 className={cn(
                   "font-mono text-[11px]",
