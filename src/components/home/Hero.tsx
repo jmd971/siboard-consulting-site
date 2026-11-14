@@ -453,7 +453,7 @@ export function Hero() {
     const el = feuille.current;
     if (!el) return;
     const mesurer = () => {
-      const dispo = window.innerHeight - 64 - 96;
+      const dispo = window.innerHeight - 64 - 136;
       ajust.set(Math.min(1, dispo / el.offsetHeight));
     };
     mesurer();
