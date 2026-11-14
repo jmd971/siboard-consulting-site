@@ -16,7 +16,7 @@ export function Footer() {
       <div className="container-page py-14">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
-            <Link href="/" aria-label="Siboard Consulting — Accueil">
+            <Link href="/" aria-label="Siboard Consulting — Accueil" className="inline-flex min-h-11 items-center">
               <SiboardLogo className="text-foreground transition-opacity hover:opacity-80" />
             </Link>
             <p className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground/55">
@@ -54,12 +54,12 @@ export function Footer() {
 
           <div className="md:col-span-3">
             <h3 className="text-sm font-semibold text-foreground">Naviguer</h3>
-            <ul className="mt-4 space-y-2.5 text-sm">
+            <ul className="mt-2 text-sm">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground transition-colors hover:text-foreground"
+                    className="inline-flex min-h-11 items-center text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {link.label}
                   </Link>
@@ -68,7 +68,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/mission-90j"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  className="inline-flex min-h-11 items-center text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Mission 90J
                 </Link>
@@ -83,12 +83,12 @@ export function Footer() {
               <li>Île-de-France</li>
             </ul>
             <h3 className="mt-6 text-sm font-semibold text-foreground">Légal</h3>
-            <ul className="mt-4 space-y-2.5 text-sm">
+            <ul className="mt-2 text-sm">
               {LEGAL_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground transition-colors hover:text-foreground"
+                    className="inline-flex min-h-11 items-center text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {link.label}
                   </Link>
