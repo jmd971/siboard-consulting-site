@@ -238,8 +238,8 @@ function Calculateur() {
   useEffect(() => {
     if (!vu || reduit) return;
     const controle = animate(0, 1, {
-      duration: 1.8,
-      delay: 0.9,
+      duration: 1.4,
+      delay: 0.45,
       ease: [0.22, 1, 0.36, 1],
       onUpdate: setRempli,
     });
@@ -377,7 +377,7 @@ function Calculateur() {
               aria-live="polite"
               className="figure relative -rotate-[1.5deg] whitespace-nowrap px-5 pb-1.5 pt-2 text-2xl font-semibold text-accent-strong"
             >
-              <Cerne forme="ovale" delai={rempli >= 1 || touche ? 0.2 : 2.7} />
+              <Cerne forme="ovale" delai={rempli >= 1 || touche ? 0.2 : 1.9} />
               {euros(total)} <span className="text-base font-normal">€ / an</span>
             </p>
           </div>
@@ -603,7 +603,7 @@ export function Hero() {
               </div>
 
               <motion.div
-                custom={8}
+                custom={2}
                 variants={variants}
                 initial="hidden"
                 animate="visible"
