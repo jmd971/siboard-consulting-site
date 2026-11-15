@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import { AuditForm } from "@/app/audit-gratuit/audit-form";
+import { GhlForm } from "@/components/shared/GhlForm";
 import { buttonVariants } from "@/components/ui/button";
 import { ETAT_DES_LIEUX } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -258,7 +258,17 @@ function Formulaire() {
           </aside>
 
           <div className="md:col-span-7">
-            <AuditForm />
+            <GhlForm />
+            <p className="mt-4 text-sm text-muted-foreground">
+              {"Le formulaire ne s’affiche pas ? Écrivez-nous à "}
+              <a
+                href="mailto:contact@siboard-consulting.fr"
+                className="inline-flex min-h-11 items-center font-semibold text-accent-strong underline underline-offset-4"
+              >
+                {"contact@siboard-consulting.fr"}
+              </a>
+              {"."}
+            </p>
           </div>
         </div>
       </div>
