@@ -13,7 +13,7 @@ import {
   useTransform,
   type Variants,
 } from "framer-motion";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowDown, ArrowRight, Check } from "lucide-react";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import { buttonVariants } from "@/components/ui/button";
@@ -50,6 +50,25 @@ const CLIENTS = [
    le coût horaire (Insee, services marchands, 2025 : 44,2 €) et les
    47 semaines travaillées (52 moins les 5 semaines de congés payés). */
 const REPERES = { coutHoraire: 44, semaines: 47 };
+
+/* L'exemple affiché à l'arrivée. Il sert aussi au rappel chiffré du premier
+   écran sur téléphone : une seule source, pour que les deux montants ne
+   divergent jamais. */
+const EXEMPLE = {
+  demandes: 17,
+  devis: 8,
+  heures: 6,
+  retards: 5,
+  vente: 700,
+  tauxDemandes: 10,
+  tauxDevis: 15,
+  joursRetard: 15,
+};
+const TOTAL_EXEMPLE =
+  EXEMPLE.demandes * 12 * (EXEMPLE.tauxDemandes / 100) * EXEMPLE.vente +
+  EXEMPLE.devis * 12 * (EXEMPLE.tauxDevis / 100) * EXEMPLE.vente +
+  EXEMPLE.heures * REPERES.semaines * REPERES.coutHoraire;
+const ANCRE_CALCUL = "etat-des-lieux-express";
 
 const SOURCES = {
   insee: "https://www.insee.fr/fr/statistiques/2381340",
@@ -218,14 +237,14 @@ function Sources({ className }: { className?: string }) {
 }
 
 function Calculateur() {
-  const [demandes, setDemandes] = useState(17);
-  const [devis, setDevis] = useState(8);
-  const [heures, setHeures] = useState(6);
-  const [retards, setRetards] = useState(5);
-  const [vente, setVente] = useState(700);
-  const [tauxDemandes, setTauxDemandes] = useState(10);
-  const [tauxDevis, setTauxDevis] = useState(15);
-  const [joursRetard, setJoursRetard] = useState(15);
+  const [demandes, setDemandes] = useState(EXEMPLE.demandes);
+  const [devis, setDevis] = useState(EXEMPLE.devis);
+  const [heures, setHeures] = useState(EXEMPLE.heures);
+  const [retards, setRetards] = useState(EXEMPLE.retards);
+  const [vente, setVente] = useState(EXEMPLE.vente);
+  const [tauxDemandes, setTauxDemandes] = useState(EXEMPLE.tauxDemandes);
+  const [tauxDevis, setTauxDevis] = useState(EXEMPLE.tauxDevis);
+  const [joursRetard, setJoursRetard] = useState(EXEMPLE.joursRetard);
 
   /* La feuille se remplit toute seule à l'arrivée : les volumes montent de
      zéro jusqu'à l'exemple, puis le total est cerné. Dès que le visiteur
@@ -264,7 +283,7 @@ function Calculateur() {
   const immobilise = (r * vente * joursRetard) / 30;
 
   return (
-    <figure ref={ref} className="w-full max-w-md">
+    <figure ref={ref} id={ANCRE_CALCUL} className="w-full max-w-md scroll-mt-20">
       <div className="border border-rule bg-surface shadow-[0_1px_0_var(--rule),0_30px_60px_-34px_rgba(25,18,14,0.55)]">
         <div className="flex items-baseline justify-between gap-4 px-5 py-3.5 sm:px-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
@@ -399,6 +418,46 @@ function Calculateur() {
   );
 }
 
+/* Téléphone et tablette : la feuille est un écran plus bas, et rien ne
+   l'annonçait. Ce rappel met le total cerné dans le premier écran et y mène. */
+function RappelChiffre({ reduced }: { reduced: boolean }) {
+  /* Rendu serveur au montant final : sans script, le chiffre reste lisible.
+     Le décompte démarre au montage, pendant que le bloc est encore en fondu. */
+  const [v, setV] = useState(1);
+  useEffect(() => {
+    if (reduced) return;
+    const controle = animate(0, 1, { duration: 2.2, ease: "easeInOut", onUpdate: setV });
+    return () => controle.stop();
+  }, [reduced]);
+
+  return (
+    <a
+      href={`#${ANCRE_CALCUL}`}
+      onClick={(e) => {
+        const cible = document.getElementById(ANCRE_CALCUL);
+        if (!cible) return;
+        e.preventDefault();
+        cible.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+      }}
+      className="group flex min-h-11 items-center justify-between gap-4 border-y border-rule py-3.5"
+    >
+      <span className="min-w-0">
+        <span className="block text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">
+          Un exemple chiffré
+        </span>
+        <span className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground underline-offset-4 group-hover:text-foreground group-hover:underline">
+          Calculez le vôtre
+          <ArrowDown aria-hidden className="h-4 w-4 shrink-0" />
+        </span>
+      </span>
+      <span className="figure relative shrink-0 -rotate-[1.5deg] whitespace-nowrap px-4 pb-1 pt-1.5 text-xl font-semibold text-accent-strong">
+        <Cerne forme="ovale" delai={reduced ? 0 : 2.3} />
+        {euros(TOTAL_EXEMPLE * v)} <span className="text-sm font-normal">€ / an</span>
+      </span>
+    </a>
+  );
+}
+
 /* Grand écran : la scène ne s'anime au défilement qu'à partir de 1024 px. */
 const GRAND = "(min-width: 1024px)";
 function abonner(rappel: () => void) {
@@ -513,7 +572,7 @@ export function Hero() {
                   style={scene ? { opacity: titreOpacity, y: titreY, pointerEvents: titrePE } : undefined}
                   className="flex min-h-[calc(100svh-13rem)] flex-col justify-center lg:min-h-0"
                 >
-                  <h1 className="text-[2.25rem] font-extrabold leading-[1.05] tracking-[-0.035em] text-foreground sm:text-5xl lg:text-[4.25rem]">
+                  <h1 className="text-[2.25rem] font-extrabold leading-[1.05] tracking-[-0.035em] text-foreground sm:text-5xl lg:whitespace-nowrap lg:text-[clamp(2.75rem,4.9vw,4.25rem)]">
                     <Ligne rang={0} anime={!reduced}>
                       Chaque semaine,
                     </Ligne>
@@ -562,8 +621,18 @@ export function Hero() {
                     </Link>
                   </motion.div>
 
-                  <motion.ul
+                  <motion.div
                     custom={7}
+                    variants={variants}
+                    initial="hidden"
+                    animate="visible"
+                    className="mt-8 lg:hidden"
+                  >
+                    <RappelChiffre reduced={reduced} />
+                  </motion.div>
+
+                  <motion.ul
+                    custom={8}
                     variants={variants}
                     initial="hidden"
                     animate="visible"
@@ -631,7 +700,7 @@ export function Hero() {
           <motion.div
             aria-hidden
             style={scene ? { opacity: indiceOpacity } : undefined}
-            className="pointer-events-none absolute inset-x-0 bottom-4 z-10 hidden flex-col items-center gap-2 motion-safe:lg:flex"
+            className="pointer-events-none absolute inset-x-0 bottom-4 z-10 hidden flex-col items-center gap-2 motion-safe:lg:flex [@media(max-height:819px)]:hidden!"
           >
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
               Faites défiler
