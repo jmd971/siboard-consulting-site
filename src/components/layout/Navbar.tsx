@@ -51,7 +51,7 @@ export function Navbar() {
           <SiboardLogo className="text-foreground transition-opacity group-hover:opacity-80" />
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Navigation principale">
+        <nav className="hidden items-center gap-1 xl:flex" aria-label="Navigation principale">
           {NAV_LINKS.map((link) => {
             const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
@@ -77,7 +77,7 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2 xl:flex">
           <Link
             href={CTA_PRIMARY.href}
             className={cn(
@@ -95,14 +95,14 @@ export function Navbar() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-12 w-12 cursor-pointer items-center justify-center rounded-md text-foreground hover:bg-secondary md:hidden"
+          className="inline-flex h-12 w-12 cursor-pointer items-center justify-center rounded-md text-foreground hover:bg-secondary xl:hidden"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {open && (
-        <div id="mobile-menu" className="md:hidden">
+        <div id="mobile-menu" className="xl:hidden">
           <div className="container-page flex flex-col gap-1 border-t border-border/60 py-4">
             {NAV_LINKS.map((link) => {
               const active = pathname === link.href;
